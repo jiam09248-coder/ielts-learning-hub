@@ -5,7 +5,7 @@ export const mockVideoContent: VideoContent = {
     id: 'pilot-001',
     title: 'IELTS Speaking: Describing Your Hometown',
     duration: 180,
-    videoUrl: '/videos/video.mp4',
+    videoUrl: import.meta.env.VITE_VIDEO_URL || '/videos/video.mp4',
     dataUrl: '',
     tags: { difficulty: 'medium', speed: 'normal', durationTag: 'short' },
   },
