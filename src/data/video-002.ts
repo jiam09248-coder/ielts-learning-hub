@@ -1,0 +1,1761 @@
+import type { VideoContent } from '../types/video';
+
+export const videoData: VideoContent = {
+  meta: {
+    id: 'video-002',
+    title: 'YouTube｜A 450-Square-Foot LA Studio’s Vibe Is “Main Character of a Rom-com’s Apartment” | Apartment Therapy',
+    duration: 1009,
+    videoUrl: '/videos/video-002.mp4',
+    dataUrl: '',
+    tags: {
+      difficulty: 'hard',
+      speed: 'fast',
+      durationTag: 'long',
+    },
+  },
+  summary: `Writer, comedian, and interior decorator Christina tours her 450-square-foot East Hollywood studio apartment, sharing her uncompromising feminine vintage-artistic style, budget-friendly and DIY decor (largely secondhand finds), functional space zoning, space-saving tips, and how Indian cultural elements and personal mementos shape her soothing, authentic home that reflects her true self.
+
+作家、喜剧演员兼室内设计师克里斯蒂娜带领大家参观她位于东好莱坞的450平方英尺工作室公寓，分享她毫不妥协的女性化复古艺术风格、经济实惠的DIY装饰（大多为二手物品）、实用的空间分区、节省空间的技巧，以及印度文化元素和个人纪念品如何塑造出这个能反映她真实自我的舒适、真实的家。`,
+  paragraphs: [
+  {
+    "id": 1,
+    "startTime": 1.76,
+    "endTime": 3.9199998,
+    "english": "Hi, Apartment Therapy. I'm Christina.",
+    "chinese": "嗨，公寓疗法的朋友们，我是克里斯蒂娜。"
+  },
+  {
+    "id": 2,
+    "startTime": 3.9199998,
+    "endTime": 8.48,
+    "english": "Welcome to my four fifty square foot studio in East Hollywood. Come on in.",
+    "chinese": "欢迎来到我在东好莱坞的这间450平方英尺的单身公寓，快进来吧。"
+  },
+  {
+    "id": 3,
+    "startTime": 8.639999,
+    "endTime": 14.525,
+    "english": "Oh, this is Asian household. Shoes off, please. Thank you.",
+    "chinese": "哦对了，我们家是亚裔家庭，麻烦脱鞋哦，谢谢。"
+  },
+  {
+    "id": 4,
+    "startTime": 18.765,
+    "endTime": 21.965,
+    "english": "I'm a writer, comedian, and interior decorator.",
+    "chinese": "我是作家、喜剧演员兼室内设计师。"
+  },
+  {
+    "id": 5,
+    "startTime": 22.045,
+    "endTime": 25.244999,
+    "english": "I've lived in this apartment for three and a half years.",
+    "chinese": "我在这间公寓已经住了三年半啦。"
+  },
+  {
+    "id": 6,
+    "startTime": 25.564999,
+    "endTime": 28,
+    "english": "I originally thought I'm just gonna live here a year.",
+    "chinese": "我一开始只打算在这儿住一年的。"
+  },
+  {
+    "id": 7,
+    "startTime": 28,
+    "endTime": 29.519999,
+    "english": "I'm not gonna buy an AC.",
+    "chinese": "我不打算买空调。"
+  },
+  {
+    "id": 8,
+    "startTime": 29.519999,
+    "endTime": 32.8,
+    "english": "And then LA rent has kept me here for a lot longer.",
+    "chinese": "结果洛杉矶的房租太贵，我就一直住到现在了。"
+  },
+  {
+    "id": 9,
+    "startTime": 32.8,
+    "endTime": 34.879997,
+    "english": "And the AC is still not here.",
+    "chinese": "所以空调至今都没买。"
+  },
+  {
+    "id": 10,
+    "startTime": 34.879997,
+    "endTime": 38.399998,
+    "english": "I decided instead to invest in a skincare fridge.",
+    "chinese": "反而我决定入手了一个护肤品小冰箱。"
+  },
+  {
+    "id": 11,
+    "startTime": 38.745,
+    "endTime": 46.425,
+    "english": "I would describe my apartment as cozy, colorful, vintage, artistic, and dreamy.",
+    "chinese": "我觉得我的公寓温馨、多彩、复古又有艺术感，还带点梦幻氛围。"
+  },
+  {
+    "id": 12,
+    "startTime": 47.065,
+    "endTime": 54.024998,
+    "english": "There are very few things that I'm really good at but I think when I approach decor I kind of see it like the matrix.",
+    "chinese": "我真正擅长的事情没几件，但说到布置房间，我感觉自己像能看透一切似的。",
+      "parse": {
+      "grammar": "but 连接两个分句。前句 There be 句型 + that 引导定语从句修饰 things；后句主干 I think (引导宾语从句)，从句内含 when 引导的时间状语从句 when I approach decor，主句 I see it like the matrix。整体由'我擅长的事不多'转折到'但装饰是我的强项'，引出她对家居设计的自信。",
+      "collocations": [{"phrase": "good at", "meaning": "擅长于，后接名词或动名词，此处用 that 从句前置宾语 things"}, {"phrase": "approach decor", "meaning": "着手/对待装饰，approach 作动词表'处理、对待（某任务）'，比 do 更地道"}, {"phrase": "see it like the matrix", "meaning": "像（电影）黑客帝国那样看待它，比喻能瞬间看透事物底层规律"}],
+      "contextAnalysis": "kind of 为口语缓和语，弱化绝对化表达；like the matrix 是文化梗（指电影《黑客帝国》中看穿代码的能力），生动表达她对装饰的直觉天赋。"
+}
+    
+    
+
+  },
+  {
+    "id": 13,
+    "startTime": 54.024998,
+    "endTime": 56.4,
+    "english": "It's just like I know exactly what I want.",
+    "chinese": "就好像我完全清楚自己想要什么。"
+  },
+  {
+    "id": 14,
+    "startTime": 56.4,
+    "endTime": 65.76,
+    "english": "I walked in and I immediately knew that the bones were really good and that it had character and that I could do something with this space.",
+    "chinese": "我一走进来就立刻意识到，这房子底子很好，有特色，我能把这个空间改造得很棒。",
+      "parse": {
+      "grammar": "主干 I knew + 三个并列 that 宾语从句（that the bones were good / that it had character / that I could do something），用 and 连接，层层递进。前面 I walked in 为时间背景。三个从句共同说明她初看房屋即认定其潜力，呼应前句'看透本质'的自信。",
+      "collocations": [{"phrase": "the bones were really good", "meaning": "bones 指房屋的基础结构/骨架，'底子好'，是欧美家居装修常用地道说法"}, {"phrase": "had character", "meaning": "有特色/有韵味，character 指空间独特的个性气质"}, {"phrase": "do something with this space", "meaning": "把这个空间利用/改造好，do something with sth. 表'对…有所作为'"}],
+      "contextAnalysis": "三个 that 从句完整保留（而非省略），增强排比与笃定语气；bones 与 character 均为家居语境中的隐喻表达，雅思口语中可借用以提升地道度。"
+}
+    
+    
+
+  },
+  {
+    "id": 15,
+    "startTime": 66,
+    "endTime": 73.255,
+    "english": "I approached the style with the idea of what does my style look if I'm not compromising at all?",
+    "chinese": "我在设计风格的时候就在想，如果完全不妥协，我的风格会是什么样的？",
+      "parse": {
+      "grammar": "主干 I approached the style，介词短语 with the idea of... 作方式状语；of 后接一个嵌入的问句结构 what does my style look (口语中略去 like)，再带 if 引导的条件状语从句 if I'm not compromising at all。说明她以'毫不妥协'为前提去确立风格。",
+      "collocations": [{"phrase": "with the idea of", "meaning": "带着…的想法/理念去做某事，引出做事的出发点"}, {"phrase": "compromising at all", "meaning": "compromise 妥协、将就；not...at all 完全不，强调毫不让步"}],
+      "contextAnalysis": "句中 what does my style look 为口语化破格表达，规范书面应为 what my style would look like；雅思写作需还原为正确语序。整句传达她追求纯粹自我表达的态度。"
+}
+    
+    
+
+  },
+  {
+    "id": 16,
+    "startTime": 73.255,
+    "endTime": 79.015,
+    "english": "And it was really fascinating to me that it was supremely feminine.",
+    "chinese": "结果我发现它极具女性气质，这让我觉得特别有意思。"
+  },
+  {
+    "id": 17,
+    "startTime": 79.015,
+    "endTime": 87.840004,
+    "english": "If this is my dying testament to what my style is like, if it's just me, I think it's very accurate.",
+    "chinese": "如果这是我对自己风格的最终诠释，完全只代表我自己的话，我觉得这很准确。",
+      "parse": {
+      "grammar": "句首两个 if 条件状语从句并置（If this is my dying testament... / if it's just me），主句为 I think (it's very accurate)。第一个 if 内含 to what my style is like 作 testament 的定语。整体以假设口吻强调该公寓最能代表真实的她。",
+      "collocations": [{"phrase": "dying testament", "meaning": "临终遗言/最终见证，testament 指郑重的证明或宣言，dying 夸张强调'盖棺定论'式的代表性"}, {"phrase": "what my style is like", "meaning": "我的风格是什么样，what...be like 询问/描述特征的固定结构"}],
+      "contextAnalysis": "dying 为夸张修辞，并非真指死亡，体现口语幽默与笃定；两个 if 叠加强化假设语气，最终落到 accurate（准确反映自我）。"
+}
+    
+    
+
+  },
+  {
+    "id": 18,
+    "startTime": 90.4,
+    "endTime": 92.240005,
+    "english": "So this is my entryway.",
+    "chinese": "那这就是我家的玄关啦。"
+  },
+  {
+    "id": 19,
+    "startTime": 92.240005,
+    "endTime": 96.335,
+    "english": "It's very narrow, but I wanted it to pop immediately.",
+    "chinese": "它特别窄，但我想让它一进门就抓人眼球。"
+  },
+  {
+    "id": 20,
+    "startTime": 96.655,
+    "endTime": 99.775,
+    "english": "I've got some hooks for my bags, my hats.",
+    "chinese": "我装了几个挂钩，用来挂包包和帽子。"
+  },
+  {
+    "id": 21,
+    "startTime": 99.855,
+    "endTime": 103.535,
+    "english": "This is a brand that I love, San Francisco Bay Area.",
+    "chinese": "这是我超爱的一个品牌，来自旧金山湾区。"
+  },
+  {
+    "id": 22,
+    "startTime": 103.615,
+    "endTime": 109.49,
+    "english": "I put some art up here, some of my favorite books, and then I have a drop zone for my keys and wallet,",
+    "chinese": "我在这儿挂了些艺术品，摆了几本我最爱的书，还有个专门放钥匙和钱包的区域。"
+  },
+  {
+    "id": 23,
+    "startTime": 109.49,
+    "endTime": 112.93,
+    "english": "sunglasses, and then I'm ready to enter my place.",
+    "chinese": "还有太阳镜，这样我就可以进门啦。"
+  },
+  {
+    "id": 24,
+    "startTime": 113.65,
+    "endTime": 117.81,
+    "english": "You turn around the corner and you enter my main living space.",
+    "chinese": "转过这个拐角，就到我的主生活区了。"
+  },
+  {
+    "id": 25,
+    "startTime": 118.29,
+    "endTime": 123.805,
+    "english": "This is my first time living in a studio, so I wanted to make sure that I divided it into zones.",
+    "chinese": "这是我第一次住单身公寓，所以我特意把空间划分成了不同区域。",
+      "parse": {
+      "grammar": "so 连接因果两分句。前句主干 This is my first time + 动名词 living in a studio（first time doing 结构）；后句 I wanted to make sure + that 宾语从句 I divided it into zones。说明因首次住开间，故刻意将空间分区。",
+      "collocations": [{"phrase": "first time living in a studio", "meaning": "first time (doing) sth. 第一次做某事，living 用动名词；studio 指开间公寓（一室无隔断）"}, {"phrase": "make sure that", "meaning": "确保…，后接从句，表刻意保证某事发生"}, {"phrase": "divided it into zones", "meaning": "divide sth. into zones 把…划分成功能区域，家居布局常用表达"}],
+      "contextAnalysis": "studio 在房产语境特指'开间/单间公寓'，非'工作室'，是易错点；divide into zones 体现小空间设计的核心理念，全文反复出现。"
+}
+    
+    
+
+  },
+  {
+    "id": 26,
+    "startTime": 124.045006,
+    "endTime": 128.925,
+    "english": "I've got the bedroom area, the work area, and the living room area.",
+    "chinese": "有卧室区、工作区，还有客厅区。"
+  },
+  {
+    "id": 27,
+    "startTime": 129.245,
+    "endTime": 134.205,
+    "english": "I think the most surprising thing about my space is how I was able to divide it.",
+    "chinese": "我觉得我的房子最让人惊讶的地方，就是我居然能把它划分得这么清楚。"
+  },
+  {
+    "id": 28,
+    "startTime": 134.205,
+    "endTime": 140.26,
+    "english": "A lot of people will come in here and they're like, woah, I never thought you could design a studio in this layout.",
+    "chinese": "好多人进来之后都会说，哇，我从来没想过单身公寓能这么设计布局。"
+  },
+  {
+    "id": 29,
+    "startTime": 140.26,
+    "endTime": 143.3,
+    "english": "And so I think I was very intentional with that.",
+    "chinese": "所以我当初做布局的时候是很用心的。"
+  },
+  {
+    "id": 30,
+    "startTime": 143.62,
+    "endTime": 145.94,
+    "english": "This is my bedroom area.",
+    "chinese": "这就是我的卧室区。"
+  },
+  {
+    "id": 31,
+    "startTime": 146.1,
+    "endTime": 152.63501,
+    "english": "I have a lot of stuff in my apartment, cute grandma tchotchke stuff.",
+    "chinese": "我公寓里有好多东西，都是那种奶奶辈的可爱小摆件。"
+  },
+  {
+    "id": 32,
+    "startTime": 152.795,
+    "endTime": 156.315,
+    "english": "So I wanted to make the bedroom area really minimal.",
+    "chinese": "所以我想把卧室这块弄得特别简约。"
+  },
+  {
+    "id": 33,
+    "startTime": 157.19499,
+    "endTime": 164.77,
+    "english": "And so the big statement pieces are really this Indian quilt that I was gifted, which I love.",
+    "chinese": "所以卧室里的点睛大件就是这条别人送我的印度被子，我超喜欢它。",
+      "parse": {
+      "grammar": "主系表结构 the big statement pieces are this Indian quilt；表语后接 that 引导的限制性定语从句 that I was gifted（被动，'被赠予'），再接 which 引导非限制性定语从句 which I love 补充情感。承接上句'卧室极简'，点出其中的核心亮点单品。",
+      "collocations": [{"phrase": "statement pieces", "meaning": "亮点单品/主打陈设，指最能彰显个性、引人注目的家具或装饰"}, {"phrase": "I was gifted", "meaning": "gift 作动词的被动用法，'被赠予'，比 was given 更时尚口语化"}],
+      "contextAnalysis": "which I love 为补充性插入，体现个人情感色彩；statement piece(s) 是家居与时尚领域高频词，指代'压轴/标志性物件'。"
+}
+    
+    
+
+  },
+  {
+    "id": 34,
+    "startTime": 164.85,
+    "endTime": 171.17001,
+    "english": "These two lamps, which are gorgeous that I got from Facebook Marketplace.",
+    "chinese": "还有这两盏灯，超好看的，是我在脸书市集上淘的。"
+  },
+  {
+    "id": 35,
+    "startTime": 171.97,
+    "endTime": 174.13,
+    "english": "Old ladies have the good stuff.",
+    "chinese": "老太太们手里真有好东西。"
+  },
+  {
+    "id": 36,
+    "startTime": 174.21,
+    "endTime": 177.17,
+    "english": "These I found in Philly in a thrift store.",
+    "chinese": "这俩是我在费城一家二手店淘到的。"
+  },
+  {
+    "id": 37,
+    "startTime": 177.17,
+    "endTime": 183.78502,
+    "english": "I don't know what they were intended for but I just immediately thought some kind of headboard situation.",
+    "chinese": "我不知道它们本来是干啥用的，但我一眼就觉得可以拿来当床头板之类的。"
+  },
+  {
+    "id": 38,
+    "startTime": 183.865,
+    "endTime": 188.34502,
+    "english": "These came in my car and it was very hard to pack but that's how much I love them.",
+    "chinese": "我把它们塞车里带过来的，打包超费劲，但这也说明我有多爱它们。"
+  },
+  {
+    "id": 39,
+    "startTime": 188.66501,
+    "endTime": 192.425,
+    "english": "And then the curtains I actually made myself.",
+    "chinese": "还有这些窗帘，其实是我自己做的。"
+  },
+  {
+    "id": 40,
+    "startTime": 192.425,
+    "endTime": 199.00002,
+    "english": "Curtains are very expensive but you can just buy fabric and then just stitch a loop and it's perfect.",
+    "chinese": "窗帘太贵了，但你可以直接买布料，缝个挂环就行，效果特别好。"
+  },
+  {
+    "id": 41,
+    "startTime": 199.40001,
+    "endTime": 206.28,
+    "english": "I chose to make the curtain area a little wider than the window just to give the illusion that it's a bigger space.",
+    "chinese": "我特意把窗帘装得比窗户宽一点，这样能显得空间更大些。"
+
+  },
+  {
+    "id": 42,
+    "startTime": 206.965,
+    "endTime": 212.24501,
+    "english": "And I love just the ruffles because I feel and the white because I feel like it's very soothing.",
+    "chinese": "而且我特别喜欢这种荷叶边，还有白色，因为感觉特别让人放松。"
+  },
+  {
+    "id": 43,
+    "startTime": 212.565,
+    "endTime": 217.845,
+    "english": "I've got this full length mirror that a lady in Silver Lake sold to me. I love it.",
+    "chinese": "我有一面全身镜，是银湖那边一位女士卖给我的，我超喜欢。"
+  },
+  {
+    "id": 44,
+    "startTime": 217.845,
+    "endTime": 224.47,
+    "english": "It's I feel like really classy, a big step up my IKEA floor length mirrors.",
+    "chinese": "我觉得它特别有格调，比我之前宜家买的全身镜档次高多了。"
+  },
+  {
+    "id": 45,
+    "startTime": 224.63,
+    "endTime": 227.67,
+    "english": "This is my work zone.",
+    "chinese": "这是我的工作区。"
+  },
+  {
+    "id": 46,
+    "startTime": 228.31,
+    "endTime": 230.55,
+    "english": "It's pretty simple as well.",
+    "chinese": "这里布置得也挺简单的。"
+  },
+  {
+    "id": 47,
+    "startTime": 231.11,
+    "endTime": 234.39,
+    "english": "In my definition, some might say organized clutter.",
+    "chinese": "在我看来，有些人可能会说这是‘有序的杂乱’。"
+  },
+  {
+    "id": 48,
+    "startTime": 235.325,
+    "endTime": 240.045,
+    "english": "My biggest splurge was my desk.",
+    "chinese": "我花钱最多的就是这张书桌了。"
+  },
+  {
+    "id": 49,
+    "startTime": 240.045,
+    "endTime": 241.805,
+    "english": "It's a West Elm desk.",
+    "chinese": "这是West Elm品牌的书桌。"
+  },
+  {
+    "id": 50,
+    "startTime": 241.805,
+    "endTime": 244.28499,
+    "english": "I'm going to be writing magic here.",
+    "chinese": "我要在这儿创作出充满魔力的作品啦。"
+  },
+  {
+    "id": 51,
+    "startTime": 244.28499,
+    "endTime": 249.79,
+    "english": "I might as well get a really fancy, sturdy, oak wood desk.",
+    "chinese": "那我不如买一张特别精致又结实的橡木书桌。"
+  },
+  {
+    "id": 52,
+    "startTime": 249.79,
+    "endTime": 255.07,
+    "english": "I sometimes feel like I should write in my bed, but I just feel more in the zone here.",
+    "chinese": "有时候我觉得应该在床上写，但在这儿我更能进入状态。",
+      "parse": {
+      "grammar": "but 连接转折两分句。前句 I feel like + 宾语从句 I should write in my bed；后句 I feel more in the zone here。对比'应该在床上写'与'在此处更专注'，说明她偏爱书桌区工作。",
+      "collocations": [{"phrase": "feel like", "meaning": "觉得（好像），后接从句表主观感受，口语高频"}, {"phrase": "in the zone", "meaning": "进入状态/全神贯注的最佳状态，地道习语"}],
+      "contextAnalysis": "in the zone 源自运动心理学，指高度专注的'心流'状态，雅思口语中表达'状态绝佳'非常加分。"
+}
+    
+    
+
+  },
+  {
+    "id": 53,
+    "startTime": 255.31,
+    "endTime": 258.91,
+    "english": "I'm a comedian, so I perform and produce a ton of shows.",
+    "chinese": "我是个喜剧演员，所以我既要表演还要制作超多节目。"
+  },
+  {
+    "id": 54,
+    "startTime": 258.91,
+    "endTime": 263.095,
+    "english": "So these are the shows, my favorite shows that I've produced or been a part of.",
+    "chinese": "这些就是我参与制作或者出演过的、我最爱的节目。"
+  },
+  {
+    "id": 55,
+    "startTime": 263.095,
+    "endTime": 269.01498,
+    "english": "And then these little bulletin boards I thought were a good way to just like put more color into the space.",
+    "chinese": "还有这些小公告板，我觉得它们能给这个空间添点色彩，挺不错的。"
+  },
+  {
+    "id": 56,
+    "startTime": 269.01498,
+    "endTime": 272.375,
+    "english": "The bulletin boards and the calendar are all from Target.",
+    "chinese": "这些公告板和日历都是从塔吉特买的。"
+  },
+  {
+    "id": 57,
+    "startTime": 272.34,
+    "endTime": 279.13998,
+    "english": "They've So got the same gold trim, and I found this little tissue box.",
+    "chinese": "它们都有同款金边，然后我还发现了这个小纸巾盒。"
+  },
+  {
+    "id": 58,
+    "startTime": 279.13998,
+    "endTime": 281.22,
+    "english": "I held it in the store for a while.",
+    "chinese": "我在店里拿着它纠结了好一会儿。"
+  },
+  {
+    "id": 59,
+    "startTime": 281.22,
+    "endTime": 282.74,
+    "english": "I was like, do I get this?",
+    "chinese": "我心里琢磨，我要不要买这个啊？"
+  },
+  {
+    "id": 60,
+    "startTime": 282.74,
+    "endTime": 286.18,
+    "english": "Am I that old where I get a cover for my tissue box?",
+    "chinese": "我是不是已经老到要给纸巾盒买套子的地步了？"
+  },
+  {
+    "id": 61,
+    "startTime": 286.875,
+    "endTime": 288.795,
+    "english": "I held it for a long time. I said, yeah.",
+    "chinese": "我拿着它看了好久，然后说，嗯，就它了。"
+  },
+  {
+    "id": 62,
+    "startTime": 288.795,
+    "endTime": 289.755,
+    "english": "It's coming home with me.",
+    "chinese": "它要跟我回家啦。"
+  },
+  {
+    "id": 63,
+    "startTime": 289.755,
+    "endTime": 290.475,
+    "english": "So I bought it.",
+    "chinese": "所以我就买下来了。"
+  },
+  {
+    "id": 64,
+    "startTime": 290.475,
+    "endTime": 292.315,
+    "english": "I think it's gorgeous.",
+    "chinese": "我觉得它超好看的。"
+  },
+  {
+    "id": 65,
+    "startTime": 292.395,
+    "endTime": 294.235,
+    "english": "Has kind of like a Indian pattern.",
+    "chinese": "上面有那种类似印度风格的花纹。"
+  },
+  {
+    "id": 66,
+    "startTime": 294.235,
+    "endTime": 295.755,
+    "english": "I'm not sure if it's Indian.",
+    "chinese": "不过我不确定是不是真的印度风格的。"
+  },
+  {
+    "id": 67,
+    "startTime": 296.315,
+    "endTime": 306.46997,
+    "english": "Someone gifted me this Kobe frame, which, Kobe is my biggest inspiration of my life.",
+    "chinese": "有人送了我这个科比相框，科比可是我这辈子最崇拜的偶像。",
+      "parse": {
+      "grammar": "主干 Someone gifted me this Kobe frame（gift sb. sth. 双宾结构）；which 引导非限制性定语从句，但口语中说话者中断并改以 Kobe is my biggest inspiration 另起，属典型口语停顿/重启。整体引出科比对她的精神意义。",
+      "collocations": [{"phrase": "gifted me this Kobe frame", "meaning": "gift sb. sth. 赠予某人某物，双宾语用法"}, {"phrase": "biggest inspiration of my life", "meaning": "我人生最大的激励/灵感来源，inspiration 此处指精神榜样"}],
+      "contextAnalysis": "which 后语流被打断、句子结构不完整，是口语自然现象；书面化时应改为完整从句。Kobe 指篮球巨星科比，反映其南加州成长背景与文化认同。"
+}
+    
+    
+
+  },
+  {
+    "id": 68,
+    "startTime": 306.46997,
+    "endTime": 310.22998,
+    "english": "I grew up in South South Southern California.",
+    "chinese": "我从小在南加州最南边长大。"
+  },
+  {
+    "id": 69,
+    "startTime": 310.31,
+    "endTime": 318.165,
+    "english": "This is my living room area, And then this is probably one of the big focal points of my apartment.",
+    "chinese": "这儿是我的客厅区域，这个大概是我公寓里最吸睛的亮点之一。"
+  },
+  {
+    "id": 70,
+    "startTime": 318.485,
+    "endTime": 324.725,
+    "english": "It's this secondhand, gorgeous bookshelf that fit perfectly on this wall.",
+    "chinese": "这是个二手的超好看书架，刚好完美贴合这面墙。"
+  },
+  {
+    "id": 71,
+    "startTime": 324.725,
+    "endTime": 332.86002,
+    "english": "Whenever I buy furniture, I think about wanting it to feel like the furniture was made for that wall.",
+    "chinese": "我每次买家具，都希望它看起来就像是专门为那面墙打造的。",
+      "parse": {"grammar": "主句 I think about wanting...，前置 Whenever 引导时间状语从句表'每当'。主句中 think about 后接动名词 wanting，wanting 又带复合宾语 it to feel like + 从句 the furniture was made for that wall。表达她选家具的一贯标准。", "collocations": [{"phrase": "think about wanting it to feel like", "meaning": "think about doing 考虑做某事；want sth. to feel like 希望某物给人…的感觉"}, {"phrase": "made for that wall", "meaning": "be made for 为…量身打造/天生适合，此处指家具仿佛专为那面墙而生"}], "contextAnalysis": "Whenever 强调'每一次都如此'的习惯性原则；made for 隐含'命中注定般契合'的语气，体现她对空间整体感的执念。"}
+    
+
+  },
+  {
+    "id": 72,
+    "startTime": 332.86002,
+    "endTime": 335.5,
+    "english": "I've got some art that I really love.",
+    "chinese": "我有几件特别喜欢的艺术品。"
+  },
+  {
+    "id": 73,
+    "startTime": 335.74,
+    "endTime": 338.38,
+    "english": "This was gifted to me by one of my students.",
+    "chinese": "这是我的一个学生送我的。"
+  },
+  {
+    "id": 74,
+    "startTime": 338.38,
+    "endTime": 342.14,
+    "english": "She remembered I love elephants, and it made me wanna cry.",
+    "chinese": "她居然记得我喜欢大象，当时我都快哭了。"
+  },
+  {
+    "id": 75,
+    "startTime": 342.485,
+    "endTime": 345.125,
+    "english": "These are wooden elephants from India.",
+    "chinese": "这些是印度来的木雕大象。"
+  },
+  {
+    "id": 76,
+    "startTime": 345.125,
+    "endTime": 349.285,
+    "english": "I've traveled there every four years with my family, and when I was a kid,",
+    "chinese": "我每隔四年都会和家人去那儿旅行，小时候，"
+  },
+  {
+    "id": 77,
+    "startTime": 349.285,
+    "endTime": 353.925,
+    "english": "my mom always said that I could pick out one, so this is the collection of that.",
+    "chinese": "我妈总说我可以挑一件，这些就是这么攒下来的藏品。"
+  },
+  {
+    "id": 78,
+    "startTime": 354.72,
+    "endTime": 356.88,
+    "english": "These are also photos of my mom and dad.",
+    "chinese": "这些也是我爸妈的照片。"
+  },
+  {
+    "id": 79,
+    "startTime": 356.88,
+    "endTime": 365.44,
+    "english": "I think it's funny that they both have the same expression, and they're just hands crossed, no smile, classic Indian pose.",
+    "chinese": "有意思的是他俩表情一模一样，都双手交叉着，没笑，标准的印度姿势。"
+  },
+  {
+    "id": 80,
+    "startTime": 366.08002,
+    "endTime": 369.2,
+    "english": "I think there's only one way to organize books, and that's by color.",
+    "chinese": "我觉得整理书只有一种正确方式，就是按颜色分类。"
+  },
+  {
+    "id": 81,
+    "startTime": 369.895,
+    "endTime": 372.615,
+    "english": "I think this demonstrates that I'm correct.",
+    "chinese": "这就说明我是对的嘛。"
+  },
+  {
+    "id": 82,
+    "startTime": 373.095,
+    "endTime": 377.895,
+    "english": "I got this statement rug from Anthropologie, one of my favorite stores.",
+    "chinese": "这块特色地毯是我从Anthropologie买的，那是我超爱的店之一。"
+  },
+  {
+    "id": 83,
+    "startTime": 377.895,
+    "endTime": 381.735,
+    "english": "I got it on their floor sale, or I would never have been able to afford it.",
+    "chinese": "我是趁他们清仓特卖的时候买的，不然根本买不起。",
+      "parse": {"grammar": "两分句以 or 连接，构成隐含的虚拟语气逻辑。前句陈述事实 I got it on their floor sale；or 后为虚拟条件结果句 I would never have been able to afford it（'否则就买不起'）。说明她得以购入这块地毯全靠样品特卖。", "collocations": [{"phrase": "on their floor sale", "meaning": "floor sale 指卖场样品/陈列品清仓特卖，价格更低"}, {"phrase": "be able to afford it", "meaning": "afford 负担得起（费用），常与 be able to / can 连用"}], "contextAnalysis": "or 在此等于'否则'（otherwise），后接 would never have done 的虚拟语气表达对过去的反事实假设，是雅思写作高分句式，需注意时态对应。"}
+    
+
+  },
+  {
+    "id": 84,
+    "startTime": 381.735,
+    "endTime": 389.02,
+    "english": "I got these cats at a garage sale at different times and I thought they were the same artist because they look very similar. They're not.",
+    "chinese": "这两个猫形摆件是我在不同时候的车库甩卖上淘的，本来以为是同一个艺术家的作品，因为它们长得太像了。结果不是。"
+  },
+  {
+    "id": 85,
+    "startTime": 389.02,
+    "endTime": 390.86,
+    "english": "They're just both fabulous.",
+    "chinese": "不过它们俩都超赞的。"
+  },
+  {
+    "id": 86,
+    "startTime": 391.02,
+    "endTime": 396.92502,
+    "english": "I am gonna come out to YouTube as a humongous Swifty.",
+    "chinese": "我要在YouTube上公开，我是个超级泰勒粉。"
+  },
+  {
+    "id": 87,
+    "startTime": 397.325,
+    "endTime": 399.08502,
+    "english": "I love Taylor Swift.",
+    "chinese": "我爱泰勒·斯威夫特。"
+  },
+  {
+    "id": 88,
+    "startTime": 399.08502,
+    "endTime": 404.36502,
+    "english": "So these are some of my favorite lyrics from Taylor Swift songs. Go, Taylor.",
+    "chinese": "这些是我最喜欢的几句泰勒·斯威夫特的歌词。冲啊，泰勒！"
+  },
+  {
+    "id": 89,
+    "startTime": 404.36502,
+    "endTime": 407.96503,
+    "english": "I turn on this star nightlight at nighttime.",
+    "chinese": "我晚上会开这个星星小夜灯。"
+  },
+  {
+    "id": 90,
+    "startTime": 407.96503,
+    "endTime": 415.13,
+    "english": "It's actually from India, and it's a tradition in my part of India, Kerala, to have a Christmas star.",
+    "chinese": "它其实是印度来的，在我老家印度喀拉拉邦，挂圣诞星是一种传统。"
+  },
+  {
+    "id": 91,
+    "startTime": 415.21,
+    "endTime": 421.61,
+    "english": "So during Christmas time, every single house has a star hanging, like, in their porch, but I just have it year round.",
+    "chinese": "圣诞节的时候，家家户户都会在门廊挂这种星星，但我是一整年都挂着的。"
+  },
+  {
+    "id": 92,
+    "startTime": 421.77,
+    "endTime": 428.175,
+    "english": "And then the focal point of my entire apartment is this sofa.",
+    "chinese": "我整个公寓的视觉中心就是这张沙发。"
+  },
+  {
+    "id": 93,
+    "startTime": 428.175,
+    "endTime": 431.375,
+    "english": "My best budget find is definitely the sofa.",
+    "chinese": "我最划算的淘货绝对是这张沙发。"
+  },
+  {
+    "id": 94,
+    "startTime": 431.375,
+    "endTime": 434.73502,
+    "english": "I mean, said it was custom made, which I could not believe her.",
+    "chinese": "我是说，她居然说这是定制款，我当时完全不敢相信。"
+  },
+  {
+    "id": 95,
+    "startTime": 434.895,
+    "endTime": 441.71002,
+    "english": "When she said that, I got it for $350 and it's hopefully gonna stay with me till I die.",
+    "chinese": "她这么说的时候，我花350美元买下了它，真希望它能陪我一辈子。"
+  },
+  {
+    "id": 96,
+    "startTime": 441.79,
+    "endTime": 450.51,
+    "english": "And this was one of the first pieces that I got for my apartment and then it just set the tone for the whole design because it's such a bold pink color.",
+    "chinese": "这是我给公寓置办的第一批家具之一，它这种大胆的粉色一下子奠定了整个公寓的装修基调。",
+      "parse": {"grammar": "并列两分句。前句主干 this was one of the first pieces + that 定语从句 that I got for my apartment；后句 it set the tone for the whole design + because 原因状语从句。说明这张粉色沙发最早入手并奠定全屋基调。", "collocations": [{"phrase": "set the tone for", "meaning": "为…定下基调/奠定整体风格，固定搭配，引申用法极地道"}, {"phrase": "such a bold pink color", "meaning": "such a + 形容词 + 名词 表强调；bold 指（色彩）大胆鲜明"}], "contextAnalysis": "set the tone 原指'定调子'，引申为'确立整体方向'，写作口语皆高频；such...that 隐含因果，强化粉色的视觉主导作用。"}
+    
+
+  },
+  {
+    "id": 97,
+    "startTime": 450.59,
+    "endTime": 454.715,
+    "english": "And I've never owned really anything pink before moving into this apartment.",
+    "chinese": "而且在搬进这套公寓之前，我从来没拥有过任何粉色的东西。"
+  },
+  {
+    "id": 98,
+    "startTime": 454.715,
+    "endTime": 458.955,
+    "english": "And then it was just pink, pink, pink, pink everywhere, and I don't mind it.",
+    "chinese": "结果现在家里到处都是粉色，粉粉粉的，但我完全不介意。"
+  },
+  {
+    "id": 99,
+    "startTime": 461.115,
+    "endTime": 463.835,
+    "english": "So my closet is super functional.",
+    "chinese": "我的衣柜实用性超强。"
+  },
+  {
+    "id": 100,
+    "startTime": 463.835,
+    "endTime": 472.26,
+    "english": "I it's the main storage area in my apartment, and I divided it by fancy clothing on one side,",
+    "chinese": "它是我公寓里主要的储物区，我把它分了区，一边放精致的衣服，"
+  },
+  {
+    "id": 101,
+    "startTime": 472.26,
+    "endTime": 479.305,
+    "english": "like just blouses, all blouses, tops, and then I have my dresser beneath it.",
+    "chinese": "这边放的全是衬衫，各种衬衫、上衣，下面还有我的抽屉柜。"
+  },
+  {
+    "id": 102,
+    "startTime": 479.305,
+    "endTime": 484.665,
+    "english": "The middle I put just workout gear and then the bottom is pajamas.",
+    "chinese": "中间层放运动装备，最底层是睡衣。"
+  },
+  {
+    "id": 103,
+    "startTime": 484.665,
+    "endTime": 487.385,
+    "english": "And then I have two buckets for socks.",
+    "chinese": "还有两个专门装袜子的桶。"
+  },
+  {
+    "id": 104,
+    "startTime": 487.785,
+    "endTime": 491.305,
+    "english": "One is workout socks and one is non workout socks.",
+    "chinese": "一个装运动袜，另一个装日常穿的袜子。"
+  },
+  {
+    "id": 105,
+    "startTime": 491.52,
+    "endTime": 496.72,
+    "english": "I have a hanging storage area for all my t shirts.",
+    "chinese": "我还有个悬挂区专门放所有的T恤。"
+  },
+  {
+    "id": 106,
+    "startTime": 496.88,
+    "endTime": 503.84,
+    "english": "A couple of really great tips for space saving in your closet are space saving hangers and s hooks for your jeans.",
+    "chinese": "给大家分享几个超好用的衣柜省空间小技巧：用省空间衣架，还有用S钩挂牛仔裤。",
+      "parse": {"grammar": "主系表结构。主语 A couple of really great tips（带介词短语 for space saving in your closet 修饰），系动词 are，表语为并列名词 space saving hangers and s hooks（后接 for your jeans）。引出衣橱省空间的两个实用技巧。", "collocations": [{"phrase": "tips for space saving", "meaning": "省空间的窍门，tips for (doing) sth. 关于…的建议/技巧"}, {"phrase": "space saving hangers", "meaning": "省空间衣架，space-saving 作复合形容词修饰 hangers"}, {"phrase": "s hooks", "meaning": "S 形挂钩，用于悬挂牛仔裤等"}], "contextAnalysis": "space saving 既可作动名词短语也可作复合形容词，注意一词两用；本句为典型'给建议'句式，雅思口语 Part 1/2 描述收纳时可借用。"}
+    
+
+  },
+  {
+    "id": 107,
+    "startTime": 504.185,
+    "endTime": 511.545,
+    "english": "If you don't know what space saving hangers are, they're just hangers that are very, very skinny and save space.",
+    "chinese": "要是你不知道什么是省空间衣架，其实就是那种特别细的衣架，能省不少空间。"
+  },
+  {
+    "id": 108,
+    "startTime": 511.785,
+    "endTime": 521.15,
+    "english": "And I hang my jeans on s hooks which I think is a big game changer cause you don't really wanna like fold your jeans and they're also annoying on a hanger.",
+    "chinese": "我用S钩挂牛仔裤，这方法真的太赞了！因为牛仔裤叠起来麻烦，挂普通衣架上也别扭。",
+      "parse": {"grammar": "主干 I hang my jeans on s hooks；which 引导非限制性定语从句，内嵌 I think 作插入，谓语 is a big game changer；再接 cause（=because）原因从句，含并列两点：折牛仔裤麻烦、挂衣架不便。", "collocations": [{"phrase": "hang my jeans on s hooks", "meaning": "hang sth. on 把…挂在…上，搭配 s hooks"}, {"phrase": "a big game changer", "meaning": "重大改变局面的东西/颠覆性妙招，习语，表'极大改善'"}], "contextAnalysis": "cause 为 because 的口语缩略，wanna/like 为口语填充，书面需还原；game changer 是高分地道表达，指'带来质变的关键'。"}
+    
+
+  },
+  {
+    "id": 109,
+    "startTime": 521.15,
+    "endTime": 524.99,
+    "english": "The weirdest thing that I store in my closet is my typewriter.",
+    "chinese": "我衣柜里放的最奇怪的东西就是我的打字机。",
+      "parse": {"grammar": "主系表结构。主语 The weirdest thing + that 引导定语从句 that I store in my closet 修饰主语，系动词 is，表语 my typewriter。以最高级引出衣橱里最奇特的收纳物，制造话题趣味。", "collocations": [{"phrase": "store in my closet", "meaning": "store sth. in 把…存放在…，store 作动词表'储藏'"}], "contextAnalysis": "The weirdest thing that... is... 是描述类话题的好用框架（最…的东西是…），雅思口语 Part 2 描述物品时可套用。"}
+    
+
+  },
+  {
+    "id": 110,
+    "startTime": 524.99,
+    "endTime": 527.71,
+    "english": "I bought a typewriter from an antique store.",
+    "chinese": "我从一家古董店买的这个打字机。"
+  },
+  {
+    "id": 111,
+    "startTime": 527.71,
+    "endTime": 529.95,
+    "english": "I had been looking for one for a really long time.",
+    "chinese": "我找这种打字机找了好久好久了。"
+  },
+  {
+    "id": 112,
+    "startTime": 530.19,
+    "endTime": 533.655,
+    "english": "I thought I'm going to really be Jane Austen.",
+    "chinese": "我当时还想着自己能变成简·奥斯汀呢。"
+  },
+  {
+    "id": 113,
+    "startTime": 533.655,
+    "endTime": 536.375,
+    "english": "Oh no, she didn't even use a typewriter, goodness.",
+    "chinese": "哦不对，天呐，她根本就不用打字机啊。"
+  },
+  {
+    "id": 114,
+    "startTime": 536.375,
+    "endTime": 542.29504,
+    "english": "One day when I have more space and I don't have to drag it out of my closet, I will use it.",
+    "chinese": "等哪天我有更大空间，不用再把它从衣柜里拖出来的时候，我就会用它了。"
+  },
+  {
+    "id": 115,
+    "startTime": 542.61505,
+    "endTime": 546.85,
+    "english": "The biggest challenge in this particular apartment is the French windows.",
+    "chinese": "这套公寓最大的难题就是那扇落地窗。"
+  },
+  {
+    "id": 116,
+    "startTime": 546.85,
+    "endTime": 554.93,
+    "english": "They're very long and they open out and so you can't have anything placed in front of it or it would just hit it.",
+    "chinese": "它特别长，而且是向外开的，所以前面不能放任何东西，不然会被撞到。",
+      "parse": {"grammar": "多分句串联。前两句并列描述法式窗特征（very long / open out）；so 引出结果句 you can't have anything placed in front of it（have sth. done 使役结构）；末尾 or 接虚拟结果 it would just hit it。说明窗外开导致窗前不能放物。", "collocations": [{"phrase": "open out", "meaning": "向外打开，描述门窗开启方向的固定短语"}, {"phrase": "have anything placed in front of it", "meaning": "have sth. placed/done 让某物被放置（使役被动结构）"}], "contextAnalysis": "or 再次表'否则'，引出 would hit it 的虚拟后果；have sth. done 在此为'让某物处于被…的状态'，是雅思写作描述客观限制的实用结构。"}
+    
+
+  },
+  {
+    "id": 117,
+    "startTime": 554.93,
+    "endTime": 564.855,
+    "english": "And it wasn't too challenging but originally I probably would have wanted to have my bed against the window but because it opens out I put it in a different direction.",
+    "chinese": "其实也没那么麻烦啦，本来我可能想把床靠窗边放，但因为它是向外开的，我就换了个方向摆。",
+      "parse": {"grammar": "多重转折句。先 it wasn't too challenging；but 后接虚拟语气 I would have wanted to have my bed against the window（对过去的设想）；再 but + because 原因从句 because it opens out，主句 I put it in a different direction。说明因窗外开而被迫改变床位。", "collocations": [{"phrase": "would have wanted to", "meaning": "本来会想要…（对过去的虚拟设想），would have done 结构"}, {"phrase": "have my bed against the window", "meaning": "against the window 紧贴/靠着窗户摆放，against 表'紧靠'"}], "contextAnalysis": "句中两个 but 叠加 + would have done 虚拟，体现口语中思路的反复修正；originally 意为'原本/起初'，常与虚拟语气搭配表'本打算却没做'。"}
+    
+
+  },
+  {
+    "id": 118,
+    "startTime": 564.855,
+    "endTime": 568.21497,
+    "english": "Now you can follow me into my kitchen area.",
+    "chinese": "现在跟我去厨房看看吧。"
+  },
+  {
+    "id": 119,
+    "startTime": 571.735,
+    "endTime": 575.42,
+    "english": "My favorite thing about the apartment is the two arch ways.",
+    "chinese": "我最喜欢这套公寓的地方就是那两个拱门。"
+  },
+  {
+    "id": 120,
+    "startTime": 575.42,
+    "endTime": 578.94,
+    "english": "So when I first saw these, I just knew this was the place.",
+    "chinese": "所以我第一次看到它们的时候，就知道这就是我要找的房子。"
+  },
+  {
+    "id": 121,
+    "startTime": 578.94,
+    "endTime": 587.33997,
+    "english": "And when I moved in, I just wanted you to come into the arch and just have a snapshot of the most gorgeous imagery.",
+    "chinese": "我搬进来的时候，就希望你走进这个拱门，一眼就能看到这些超美的画面。"
+  },
+  {
+    "id": 122,
+    "startTime": 587.42,
+    "endTime": 596.52496,
+    "english": "And I think when you're designing a place, you always should think about levels, not just decorating with your eye level, but kind of using the whole space.",
+    "chinese": "我觉得布置房间的时候，得考虑不同高度的布局，不能只盯着视线范围内的地方，要把整个空间都利用起来。",
+      "parse": {"grammar": "主干 I think + 宾语从句。从句内含 when 时间状语从句 when you're designing a place，主句 you should think about levels；后接 not just...but... 并列结构（not just decorating with your eye level / but using the whole space）补充说明何为'层次'。", "collocations": [{"phrase": "think about levels", "meaning": "考虑（陈设的）层次/高低，levels 指立体空间的多层次布置"}, {"phrase": "not just...but...", "meaning": "不仅…而且…，并列对比结构，强调后者"}, {"phrase": "using the whole space", "meaning": "利用整个空间，对应'不只在视平线装饰'"}], "contextAnalysis": "eye level（视平线）vs the whole space 的对比是设计专业表达；not just...but... 为高分递进结构，提升口语逻辑感。"}
+    
+
+  },
+  {
+    "id": 123,
+    "startTime": 596.52496,
+    "endTime": 602.925,
+    "english": "I bought a power drill, and it's just changed my life because I'm piercing holes all over the place now.",
+    "chinese": "我买了个电钻，简直改变了我的生活，现在我到处打孔。",
+      "parse": {"grammar": "并列句。前句 I bought a power drill；and 后 it's just changed my life（现在完成时强调影响），because 引导原因从句 I'm piercing holes all over the place now。夸张表达电钻带来的便利。", "collocations": [{"phrase": "changed my life", "meaning": "改变了我的生活，夸张表达某物带来巨大便利或影响"}, {"phrase": "all over the place", "meaning": "到处、满处都是，地道习语"}], "contextAnalysis": "changed my life 为口语夸张修辞，并非字面意义，表'极大改善体验'；all over the place 生动表现她随处钻孔挂物的兴奋感。"}
+    
+
+  },
+  {
+    "id": 124,
+    "startTime": 603.725,
+    "endTime": 607.05005,
+    "english": "I love fridge decor magnets.",
+    "chinese": "我超爱冰箱装饰贴。"
+  },
+  {
+    "id": 125,
+    "startTime": 607.13,
+    "endTime": 609.69,
+    "english": "When I travel, I just get a magnet.",
+    "chinese": "我旅行的时候，就会买个冰箱贴。"
+  },
+  {
+    "id": 126,
+    "startTime": 609.69,
+    "endTime": 613.37,
+    "english": "Sometimes I don't go shopping a ton, I just bring home a magnet.",
+    "chinese": "有时候我不会买太多东西，只会带个冰箱贴回家。"
+  },
+  {
+    "id": 127,
+    "startTime": 613.37,
+    "endTime": 615.13,
+    "english": "So a lot of them are for my travels.",
+    "chinese": "所以这些冰箱贴大多是我旅行时买的。"
+  },
+  {
+    "id": 128,
+    "startTime": 615.69,
+    "endTime": 624.18506,
+    "english": "I'm very old school so I've got a radio, an iPad and people still write me handwritten letters and cards which I love.",
+    "chinese": "我是个守旧派，家里有收音机、iPad，还有人给我写手写的信和卡片，我超喜欢这个。",
+      "parse": {"grammar": "so 连接因果。前句 I'm very old school（主系表）；后句 I've got a radio, an iPad and (people still write me...) 为并列宾语/分句，末尾 which 引导非限制性定语从句 which I love 修饰前面整件事。说明她念旧的生活方式。", "collocations": [{"phrase": "old school", "meaning": "守旧的/老派的，习语形容人偏好传统方式"}, {"phrase": "handwritten letters and cards", "meaning": "手写的信件和卡片，handwritten 复合形容词强调'手写'"}], "contextAnalysis": "old school 为高频习语，含褒义的'怀旧、讲究传统'之意；which 指代前面整件事而非单一名词，是非限制性从句的灵活用法。"}
+    
+
+  },
+  {
+    "id": 129,
+    "startTime": 624.18506,
+    "endTime": 626.98505,
+    "english": "I just love a DIY card, keep it going.",
+    "chinese": "我就是喜欢手工贺卡，这种传统可不能丢。"
+  },
+  {
+    "id": 130,
+    "startTime": 626.98505,
+    "endTime": 631.625,
+    "english": "I also love this newspaper clipping that I found when I was visiting India.",
+    "chinese": "我还很喜欢这张我去印度旅行时找到的报纸剪报。"
+  },
+  {
+    "id": 131,
+    "startTime": 631.625,
+    "endTime": 638.89,
+    "english": "My uncle was India and it's just a photo of a bunch of Indian kids running away from a stampede of elephants.",
+    "chinese": "我叔叔当时在印度，这就是一张一群印度小孩从狂奔的大象群里跑开的照片。"
+  },
+  {
+    "id": 132,
+    "startTime": 638.97,
+    "endTime": 641.13,
+    "english": "That's their front page news.",
+    "chinese": "这可是他们头版的新闻呢。"
+  },
+  {
+    "id": 133,
+    "startTime": 641.29,
+    "endTime": 644.33,
+    "english": "And their faces are having a great time.",
+    "chinese": "而且他们脸上都一副玩得超嗨的样子。"
+  },
+  {
+    "id": 134,
+    "startTime": 644.41,
+    "endTime": 645.29,
+    "english": "So I love that.",
+    "chinese": "所以我可喜欢这个了。"
+  },
+  {
+    "id": 135,
+    "startTime": 645.60504,
+    "endTime": 647.84503,
+    "english": "And this is the main part of my kitchen.",
+    "chinese": "这就是我厨房的主要区域啦。"
+  },
+  {
+    "id": 136,
+    "startTime": 647.84503,
+    "endTime": 652.80505,
+    "english": "One of the must haves for my studio was I needed the kitchen to be separate.",
+    "chinese": "我这套单身公寓的必备条件之一，就是厨房得是独立的。",
+      "parse": {"grammar": "主系表结构但口语化。主语 One of the must haves（for my studio 修饰），系动词 was，表语本应为名词却用了完整句 I needed the kitchen to be separate（need sth. to be 复合宾语）。强调厨房独立是她的必备需求。", "collocations": [{"phrase": "must haves", "meaning": "必备之物/刚需，must-have 名词化用法，指非有不可的东西"}, {"phrase": "needed the kitchen to be separate", "meaning": "need sth. to be... 需要某物处于…状态；separate 此处指厨房独立分隔"}], "contextAnalysis": "was 后直接跟句子（而非名词表语）是口语松散结构，书面应改为 was that I needed...；must-have 是描述需求时的高分名词。"}
+    
+
+  },
+  {
+    "id": 137,
+    "startTime": 653.445,
+    "endTime": 655.84503,
+    "english": "It's pretty narrow but I've made it work.",
+    "chinese": "它虽然挺窄的，但我用得特别顺手。"
+  },
+  {
+    "id": 138,
+    "startTime": 656.085,
+    "endTime": 658.80505,
+    "english": "This is my tea and smoothie station.",
+    "chinese": "这是我的茶饮和思慕雪制作小站。"
+  },
+  {
+    "id": 139,
+    "startTime": 658.885,
+    "endTime": 664.15,
+    "english": "Every morning I make either or, and then disco ball obligatory.",
+    "chinese": "我每天早上要么泡茶要么做思慕雪，还有这个迪斯科球是必不可少的。"
+  },
+  {
+    "id": 140,
+    "startTime": 664.31,
+    "endTime": 667.51,
+    "english": "This is my Berkey water filter. It's amazing.",
+    "chinese": "这是我的伯克滤水器，超好用的。"
+  },
+  {
+    "id": 141,
+    "startTime": 667.91003,
+    "endTime": 674.135,
+    "english": "My proudest DIY project is definitely my dried flower hanging contraption.",
+    "chinese": "我最得意的DIY作品绝对是那个干花悬挂装置。"
+  },
+  {
+    "id": 142,
+    "startTime": 674.135,
+    "endTime": 680.615,
+    "english": "Anytime I see something that I wanna buy and I feel like it's way overpriced, I'm like, oh, I'm just going to figure this out.",
+    "chinese": "每次看到想买的东西但觉得贵得离谱，我就会想，害，我自己琢磨做一个就行。",
+      "parse": {"grammar": "复合句。Anytime 引导时间状语从句，内含两层：something that I wanna buy（that 定语从句）+ and I feel like it's way overpriced（并列）；主句 I'm like + 直接引语 I'm just going to figure this out。生动再现她遇到贵货时的 DIY 念头。", "collocations": [{"phrase": "way overpriced", "meaning": "价格高得离谱，way 作副词强化程度（=far too），overpriced 定价过高"}, {"phrase": "figure this out", "meaning": "想办法搞定/自己琢磨出来，figure out 弄清楚、解决"}], "contextAnalysis": "I'm like 为口语引述标记，相当于'我就想/我就说'；way 修饰形容词表'远远地、大大地'，口语强化程度的高频用法。"}
+    
+
+  },
+  {
+    "id": 143,
+    "startTime": 680.615,
+    "endTime": 682.775,
+    "english": "It was like $250.",
+    "chinese": "那玩意儿要250美元左右。"
+  },
+  {
+    "id": 144,
+    "startTime": 682.935,
+    "endTime": 683.895,
+    "english": "I'm like, no, no, no.",
+    "chinese": "我就想，不行不行不行。"
+  },
+  {
+    "id": 145,
+    "startTime": 683.895,
+    "endTime": 684.77496,
+    "english": "I'm going to Home Depot.",
+    "chinese": "我去家得宝。"
+  },
+  {
+    "id": 146,
+    "startTime": 684.77496,
+    "endTime": 685.895,
+    "english": "I'm getting two chains.",
+    "chinese": "我买了两条链子。"
+  },
+  {
+    "id": 147,
+    "startTime": 685.895,
+    "endTime": 687.895,
+    "english": "I'm getting a bar and some wire.",
+    "chinese": "我还买了一根金属杆和一些铁丝。"
+  },
+  {
+    "id": 148,
+    "startTime": 688.22003,
+    "endTime": 691.66003,
+    "english": "And it cost me like $40.",
+    "chinese": "总共花了我大概40美元。"
+  },
+  {
+    "id": 149,
+    "startTime": 692.06,
+    "endTime": 697.82,
+    "english": "This art piece is a true testament to how style evolves.",
+    "chinese": "这件艺术品真能说明审美是会变的。",
+      "parse": {"grammar": "主系表结构。主语 This art piece，系动词 is，表语 a true testament，后接介词 to + 宾语从句 how style evolves（how 引导，作 testament 的内容补充）。承上启下，引出这幅画见证了她审美变化的话题。", "collocations": [{"phrase": "a true testament to", "meaning": "…的真实见证/有力证明，testament to sth. 表'对…的印证'，正式且高分"}, {"phrase": "how style evolves", "meaning": "风格如何演变，evolve 演变、逐渐发展，比 change 更具过程感"}], "contextAnalysis": "testament to 是雅思写作论证类高分搭配（如 a testament to her success）；evolve 强调'渐进式演变'，比 change 更地道精准。"}
+    
+
+  },
+  {
+    "id": 150,
+    "startTime": 698.14,
+    "endTime": 707.84503,
+    "english": "It's this kind of Jane Austen Regency era type of situation and this is something that I would have always passed in a store because it's not really my vibe.",
+    "chinese": "这是那种简·奥斯汀摄政时期风格的东西，以前在店里看到我肯定直接跳过，因为完全不是我的菜。",
+      "parse": {"grammar": "并列两分句。前句 It's this kind of...type of situation 为口语化主系表，描述画作的简·奥斯汀摄政时期风格；后句主干 this is something + that 定语从句 that I would have always passed（虚拟语气）+ because 原因从句 it's not really my vibe。说明这原本不是她会买的风格。", "collocations": [{"phrase": "would have always passed", "meaning": "本来总会略过不买（对过去的虚拟），pass 此处指'路过、不选购'"}, {"phrase": "not really my vibe", "meaning": "不太是我的调调/不合我风格，vibe 指气质、调性，口语高频"}], "contextAnalysis": "kind of...type of...叠加为口语松散赘述，书面应精简；my vibe 是描述个人喜好的地道表达，would have passed 的虚拟体现'今昔审美反差'。"}
+    
+
+  },
+  {
+    "id": 151,
+    "startTime": 708.805,
+    "endTime": 716.245,
+    "english": "But I joined a Jane Austen improv team and I started reading Jane Austen and I'm just obsessed.",
+    "chinese": "不过我加入了一个简·奥斯汀主题的即兴表演队，还开始读她的书，现在彻底迷上了。"
+  },
+  {
+    "id": 152,
+    "startTime": 716.86,
+    "endTime": 723.02,
+    "english": "I am really into organizing my pantry area.",
+    "chinese": "我特别喜欢整理我的食品储藏区。"
+  },
+  {
+    "id": 153,
+    "startTime": 723.10004,
+    "endTime": 726.06,
+    "english": "I love bins and canisters to organize.",
+    "chinese": "我超爱用收纳盒和密封罐来整理东西。"
+  },
+  {
+    "id": 154,
+    "startTime": 726.06,
+    "endTime": 728.14,
+    "english": "I get a lot of bins from thrift stores.",
+    "chinese": "我好多收纳盒都是从二手店淘来的。"
+  },
+  {
+    "id": 155,
+    "startTime": 728.14,
+    "endTime": 741.59503,
+    "english": "I put my rice and flour in there and then every Indian chef has their masala dhaba so I've got the holy grail of spices.",
+    "chinese": "我把大米和面粉放在那些盒子里，而且每个印度厨师都有自己的香料柜，我也集齐了最棒的那些香料。"
+  },
+  {
+    "id": 156,
+    "startTime": 742.64996,
+    "endTime": 751.05,
+    "english": "I put in these spite, they're definitely were not spice racks originally but I immediately envisioned them to be.",
+    "chinese": "我把这些香料放进去了，它们本来绝对不是香料架，但我一眼就觉得它们适合当香料架。"
+  },
+  {
+    "id": 157,
+    "startTime": 751.05,
+    "endTime": 753.85,
+    "english": "I found them at a thrift store and put them in the corner.",
+    "chinese": "我在二手店找到的它们，然后放在了角落。"
+  },
+  {
+    "id": 158,
+    "startTime": 754.615,
+    "endTime": 762.135,
+    "english": "I also this is a game changer, a magnetic wooden block for your knives, and that's my kitchen.",
+    "chinese": "还有这个真的是神器——一个木质磁性刀架，这就是我的厨房啦。"
+  },
+  {
+    "id": 159,
+    "startTime": 763.335,
+    "endTime": 769.255,
+    "english": "One of my top favorite things in the apartment are the iridescent purple beads.",
+    "chinese": "我公寓里最爱的东西之一就是那些带彩虹光泽的紫色珠子。"
+  },
+  {
+    "id": 160,
+    "startTime": 769.66,
+    "endTime": 773.10004,
+    "english": "I got them in an antique store in Highland Park.",
+    "chinese": "我是在高地公园的一家古董店买到它们的。"
+  },
+  {
+    "id": 161,
+    "startTime": 773.18,
+    "endTime": 778.14,
+    "english": "I just think it flows so well with the classic Hollywood showgirl vibe.",
+    "chinese": "我觉得它和经典好莱坞歌舞女郎的氛围超搭的。"
+  },
+  {
+    "id": 162,
+    "startTime": 778.3,
+    "endTime": 784.205,
+    "english": "I also wanted it to feel like separate rooms and it is just a hallway,",
+    "chinese": "我本来想让这里感觉像独立的房间，但它其实只是个走廊，"
+  },
+  {
+    "id": 163,
+    "startTime": 784.28503,
+    "endTime": 789.325,
+    "english": "so I put the string curtains as kind of a way to delineate between the two rooms.",
+    "chinese": "所以我挂了线帘，算是用来划分这两个“房间”的办法。",
+      "parse": {"grammar": "so 引导的结果分句。主干 I put the string curtains，介词短语 as kind of a way to delineate between the two rooms 作目的/方式状语（不定式 to delineate 表用途）。承接上文'想让走廊像独立房间'，说明用串珠帘划分空间。", "collocations": [{"phrase": "string curtains", "meaning": "串帘/珠帘，由线串成的装饰性门帘"}, {"phrase": "a way to delineate between", "meaning": "划分…之间界限的方式，delineate 勾勒、界定，较 divide 更书面"}], "contextAnalysis": "kind of a way 中 kind of 为缓和语，弱化绝对；delineate 是高阶动词，表'清晰划界'，比 separate/divide 更显语言功底。"}
+    
+
+  },
+  {
+    "id": 164,
+    "startTime": 789.48505,
+    "endTime": 792.765,
+    "english": "So this is my vanity.",
+    "chinese": "这就是我的化妆台啦。"
+  },
+  {
+    "id": 165,
+    "startTime": 792.92505,
+    "endTime": 801.68,
+    "english": "This is a classic Hollywood apartment, and so it comes with built in drawers and a little vanity table with a mirror.",
+    "chinese": "这是一套经典的好莱坞风格公寓，自带嵌入式抽屉和一张带镜子的小化妆台。"
+  },
+  {
+    "id": 166,
+    "startTime": 801.75995,
+    "endTime": 803.83997,
+    "english": "And I love the built in drawers.",
+    "chinese": "我超爱这些嵌入式抽屉的。"
+  },
+  {
+    "id": 167,
+    "startTime": 803.83997,
+    "endTime": 808.72,
+    "english": "They're a little bit hard to open, but it's just so much storage.",
+    "chinese": "它们开起来有点费劲，但存储空间真的超大。"
+  },
+  {
+    "id": 168,
+    "startTime": 809.055,
+    "endTime": 815.615,
+    "english": "Every morning I will sit down, I've got my affirmations that I say as I put on all my face creams.",
+    "chinese": "每天早上我都会坐下来，涂各种面霜的时候，我会念自己的励志宣言。"
+  },
+  {
+    "id": 169,
+    "startTime": 815.855,
+    "endTime": 820.895,
+    "english": "I put a lot of little mementos in my vanity just to make me feel warm.",
+    "chinese": "我在化妆台里放了好多小纪念品，就是想让自己感觉暖暖的。"
+  },
+  {
+    "id": 170,
+    "startTime": 820.895,
+    "endTime": 824.95,
+    "english": "I've got a chalkboard with photos of all my Ride or Dies.",
+    "chinese": "我有个小黑板，上面贴了我所有死党的照片。"
+  },
+  {
+    "id": 171,
+    "startTime": 824.95,
+    "endTime": 830.87,
+    "english": "I also made a necklace holder out of just a branch and some string.",
+    "chinese": "我还用一根树枝和几根绳子做了个项链架。"
+  },
+  {
+    "id": 172,
+    "startTime": 831.51,
+    "endTime": 838.005,
+    "english": "My best friend lives in Eugene so she taught me how to make it and it's really special to me.",
+    "chinese": "我最好的朋友住在尤金，是她教我做这个的，对我来说意义特别大。"
+  },
+  {
+    "id": 173,
+    "startTime": 838.245,
+    "endTime": 846.005,
+    "english": "One of my favorite things that I own that if my apartment burned down I would grab and run out of here is a framed napkin.",
+    "chinese": "我最宝贝的东西之一，要是我家着火了，我肯定会抓着它跑出去的，是一个装裱起来的餐巾纸。",
+      "parse": {"grammar": "主系表结构但主语极长。主语 One of my favorite things，带双重定语从句：that I own 与 that if my apartment burned down I would grab and run out of here（后者内嵌 if 虚拟条件从句）；系动词 is，表语 a framed napkin。以夸张设想引出她最珍视的物件。", "collocations": [{"phrase": "if my apartment burned down", "meaning": "万一公寓失火烧毁（虚拟条件），burn down 烧毁、烧塌"}, {"phrase": "grab and run out of", "meaning": "一把抓起就冲出，grab and run 抓了就跑，run out of here 跑出去"}], "contextAnalysis": "'失火也要抢出来的东西'是英语中表达'最珍视之物'的经典夸张句式；主语后挂双层定语从句使结构繁复，是典型的口语长难句。"}
+    
+
+  },
+  {
+    "id": 174,
+    "startTime": 846.005,
+    "endTime": 859.04004,
+    "english": "At a comedy show my teammates just started writing on a napkin and it says, you're awesome, which I think is just so all encompassing of like doing comedy.",
+    "chinese": "有次喜剧演出，我的队友们在一张餐巾纸上写了‘你超棒的’，我觉得这句话特别能概括做喜剧的那种感觉。"
+  },
+  {
+    "id": 175,
+    "startTime": 859.12006,
+    "endTime": 860.64,
+    "english": "This is my bathroom.",
+    "chinese": "这是我的浴室。"
+  },
+  {
+    "id": 176,
+    "startTime": 861.2,
+    "endTime": 865.12006,
+    "english": "The statement piece is my shower curtain which I got off of Etsy.",
+    "chinese": "浴室里的亮点单品是我的浴帘，是我在Etsy上买的。"
+  },
+  {
+    "id": 177,
+    "startTime": 866.065,
+    "endTime": 869.10504,
+    "english": "I also put up dried flowers.",
+    "chinese": "我还挂了干花。"
+  },
+  {
+    "id": 178,
+    "startTime": 869.10504,
+    "endTime": 877.98505,
+    "english": "I think the artwork in the bathroom is really soft, and so I wanted to put a soft feminine touch in there.",
+    "chinese": "我觉得浴室里的装饰风格很柔和，所以我想给这里添点柔美女性化的感觉。"
+  },
+  {
+    "id": 179,
+    "startTime": 877.98505,
+    "endTime": 885.44,
+    "english": "My homegirl Anthropologie sells really great rugs, so the bathroom rug is from Anthropologie.",
+    "chinese": "我超爱的Anthropologie卖的地毯特别好，我浴室的这块就是从那儿买的。"
+  },
+  {
+    "id": 180,
+    "startTime": 888.88,
+    "endTime": 893.04,
+    "english": "A happy, healthy home to me is an oasis.",
+    "chinese": "对我来说，一个幸福又舒心的家就是一片绿洲。"
+  },
+  {
+    "id": 181,
+    "startTime": 893.495,
+    "endTime": 898.695,
+    "english": "I really wanna step into my space and just be soothed immediately.",
+    "chinese": "我真的盼着一踏进自己的小天地，就能立刻舒缓下来。"
+  },
+  {
+    "id": 182,
+    "startTime": 898.77496,
+    "endTime": 900.77496,
+    "english": "I don't follow trends at all.",
+    "chinese": "我完全不跟风。"
+  },
+  {
+    "id": 183,
+    "startTime": 900.77496,
+    "endTime": 912.10004,
+    "english": "I think like interior design, sometimes you can just like buy things that are trendy or things that you think make you appear to the world as you wanna be seen, not as you actually are.",
+    "chinese": "就拿室内设计来讲，有时候你可能会买些赶时髦的玩意儿，或者买那些你觉得能让别人看到你想装出来的样子，而不是真实的你的东西。",
+      "parse": {"grammar": "主干 I think + 宾语从句。从句主语 you，谓语 can buy，宾语为并列 things that are trendy 与 things that you think make you appear...；后者含 that 定语从句，内嵌 make you appear to the world + as 方式状语（as you wanna be seen）；结尾 not as you actually are 形成对比。批评'为迎合他人形象而买潮流物'。", "collocations": [{"phrase": "make you appear to the world", "meaning": "让你在世人面前显得…，appear to sb. as 在某人眼中呈现为…"}, {"phrase": "as you wanna be seen, not as you actually are", "meaning": "按你想被看到的样子，而非真实的你；as 引导方式状语作对比"}], "contextAnalysis": "两个 like 为口语填充词，无实义；as you wanna be seen 与 as you actually are 的工整对比是本句精华，传达'真实 vs 表演'的价值取向。"}
+    
+
+  },
+  {
+    "id": 184,
+    "startTime": 912.18005,
+    "endTime": 920.985,
+    "english": "I think something that, like, lets you just sag your shoulders and relax is something that's actually more authentic to who you are.",
+    "chinese": "我觉得那种能让你彻底放松、卸下所有压力的东西，才最贴合你真实的自我。",
+      "parse": {"grammar": "主干 I think + 宾语从句。从句主语 something + that 定语从句 that lets you sag your shoulders and relax（let sb. do 结构）；系动词 is，表语 something + that 定语从句 that's actually more authentic to who you are。与上句对照，主张真正放松的家才贴近真实自我。", "collocations": [{"phrase": "sag your shoulders and relax", "meaning": "卸下双肩、彻底放松，sag one's shoulders 形象表达'松垮下来、卸下紧绷'"}, {"phrase": "authentic to who you are", "meaning": "忠于真实的你/契合本真自我，authentic to 对…真实、契合"}], "contextAnalysis": "sag your shoulders 是生动的身体语言隐喻，表'松弛、安心'；authentic 是雅思写作高分词，本句与上句构成'真实自我 vs 外在表演'的完整论证。"}
+    
+
+  },
+  {
+    "id": 185,
+    "startTime": 921.225,
+    "endTime": 926.02496,
+    "english": "When I think about home, I think about my family and my culture.",
+    "chinese": "每当我想到家，脑海里浮现的就是我的家人和我的文化。"
+  },
+  {
+    "id": 186,
+    "startTime": 926.105,
+    "endTime": 933.51,
+    "english": "You can go into any Indian person's home in India or here, and they're gonna offer you chai and biscuits and some kind of snack.",
+    "chinese": "不管是在印度还是这边，你随便进一个印度人的家，他们都会给你端上印度奶茶、饼干还有些小零食。",
+      "parse": {"grammar": "并列句。前句 You can go into any Indian person's home（in India or here 作地点状语）；and 后 they're gonna offer you chai and biscuits and some kind of snack（offer sb. sth. 双宾结构）。以泛指 you/they 描述印度待客的普遍文化。", "collocations": [{"phrase": "offer you chai and biscuits", "meaning": "给你端上印度奶茶和饼干，offer sb. sth. 主动招待某人某物"}, {"phrase": "some kind of snack", "meaning": "某种点心/零食，some kind of 表'某种（不确定具体的）'"}], "contextAnalysis": "chai 即印度香料奶茶，是文化专有词；本句用一般规律句式（can/be gonna）描述印度普遍的好客传统，引出她对'待客即家文化'的认同。"}
+    
+
+  },
+  {
+    "id": 187,
+    "startTime": 933.59,
+    "endTime": 940.87,
+    "english": "I am so offended when I enter somebody's home and they don't offer me a drink and a snack. Hello.",
+    "chinese": "要是我去别人家，他们不给我拿喝的和吃的，我可太不爽了。搞什么呀。"
+  },
+  {
+    "id": 188,
+    "startTime": 940.95,
+    "endTime": 947.19,
+    "english": "I definitely love welcoming people into my home and showing that same hospitality.",
+    "chinese": "我可喜欢邀请别人来我家了，也会用同样的热情招待他们。"
+  },
+  {
+    "id": 189,
+    "startTime": 947.19,
+    "endTime": 953.285,
+    "english": "And I also show it to myself in the way that I take care of my space and curate it.",
+    "chinese": "而且我也会通过打理、精心布置自己的空间，来好好善待自己。"
+  },
+  {
+    "id": 190,
+    "startTime": 953.365,
+    "endTime": 959.445,
+    "english": "I think, like, Indian vibrancy is so beautiful.",
+    "chinese": "我觉得印度那种鲜活热闹的氛围真的太美了。"
+  },
+  {
+    "id": 191,
+    "startTime": 959.445,
+    "endTime": 963.365,
+    "english": "I think I have, like, moments of that everywhere. Oh my gosh.",
+    "chinese": "我感觉走到哪儿都能碰到那种瞬间。我的天呐。"
+  },
+  {
+    "id": 192,
+    "startTime": 963.5,
+    "endTime": 965.66,
+    "english": "I'm not gonna cry over Indian patterns.",
+    "chinese": "我可不会为印度花纹掉眼泪。"
+  },
+  {
+    "id": 193,
+    "startTime": 965.66,
+    "endTime": 969.1,
+    "english": "I just put India everywhere that I can.",
+    "chinese": "我想尽办法把印度元素布置在各个地方。"
+  },
+  {
+    "id": 194,
+    "startTime": 969.1,
+    "endTime": 975.26,
+    "english": "Definitely the patterns and the quilts and the fabrics, also the elephants.",
+    "chinese": "肯定是那些纹样、被子还有布料，还有大象元素。"
+  },
+  {
+    "id": 195,
+    "startTime": 976.10504,
+    "endTime": 990.025,
+    "english": "I go to India every four years, and it's just this reminder of how much joy people can feel with, not excess in their life.",
+    "chinese": "我每四年去一次印度，每次都让我意识到，人们不需要拥有太多，也能感受到满满的快乐。"
+  },
+  {
+    "id": 196,
+    "startTime": 991.52,
+    "endTime": 999.52,
+    "english": "And I'm really, really proud that this apartment has been decorated with, like, 90% secondhand stuff.",
+    "chinese": "而且我特别特别骄傲，这套公寓里的装饰大概九成都是二手物品。",
+      "parse": {"grammar": "主系表 + that 从句结构。主干 I'm really proud + that 引导原因/内容从句 this apartment has been decorated with 90% secondhand stuff（现在完成时被动）。作为全片收尾的情感升华，点明她对'九成二手装修'的自豪。", "collocations": [{"phrase": "proud that", "meaning": "为…感到自豪，proud 后接 that 从句说明自豪的原因"}, {"phrase": "has been decorated with", "meaning": "被用…装饰，decorate with sth. 的现在完成被动式，强调结果状态"}, {"phrase": "secondhand stuff", "meaning": "二手物品，secondhand 二手的，呼应全文淘货主题"}], "contextAnalysis": "现在完成被动 has been decorated 强调'装修已完成且影响至今'；该句点题，与结尾 You really can do a lot with a little 共同升华'低成本也能造好家'的主旨。"}
+    
+
+  },
+  {
+    "id": 197,
+    "startTime": 1000.96,
+    "endTime": 1003.92,
+    "english": "You really can do a lot with a little.",
+    "chinese": "真的，用有限的东西也能做成很多事。"
+  }
+],
+  expressions: [
+    {
+      pattern: "square foot studio",
+      meaning: "平方英尺的单间公寓",
+      usage: "用于描述房屋户型与面积，studio 指无独立卧室的大开间公寓，是描述住所的常用搭配，本句用来介绍自己公寓的面积和户型。",
+      topic: "Please describe the room you live in.",
+      example: "I live in a 600 square foot studio and I love its open layout. 我住在一间600平方英尺的单间公寓里，我很喜欢它开阔的格局。",
+    },
+    {
+      pattern: "live in sp. for + 时间段",
+      meaning: "在某地居住了多长时间",
+      usage: "现在完成时经典句型，用来陈述居住时长，适配询问居住年限的话题。",
+      topic: "How long have you lived there?",
+      example: "I have lived in this apartment for two years. 我已经在这间公寓住了两年了。",
+    },
+    {
+      pattern: "invest in sth.",
+      meaning: "花钱购置；为……投入资金",
+      usage: "侧重主动花钱购买心仪物品，区别于普通购买，本句指花钱买美妆小冰箱，可用于描述居家添置物品。",
+      topic: "What do you usually do in your apartment?",
+      example: "I choose to invest in some soft cushions to make my room cozier. 我特意买了一些柔软的抱枕，让房间更舒适。",
+    },
+    {
+      pattern: "describe sth. as + 形容词",
+      meaning: "把某物描述成……样子",
+      usage: "固定描述句型，用来评价、形容住所的风格、氛围，雅思口语描述房间高频句式。",
+      topic: "Can you describe the place where you live?",
+      example: "I would describe my bedroom as warm and relaxing. 我觉得我的卧室温馨又让人放松。",
+    },
+    {
+      pattern: "have character",
+      meaning: "独具特色；有韵味",
+      usage: "用来形容建筑、房间、装修风格有独特气质，不千篇一律，多用于评价居住空间。",
+      topic: "What makes you feel pleasant in your home？",
+      example: "This old apartment has character and always makes me feel comfortable. 这间老房子很有韵味，总能让我感到舒心。",
+    },
+    {
+      pattern: "do something with this space",
+      meaning: "改造/利用这个空间",
+      usage: "特指对室内空间进行布置、改造、规划，是居家装修、布局相关常用表达。",
+      topic: "What kind of house or apartment do you want to live in in the future?",
+      example: "The balcony is big enough, so I can do something with this space. 这个阳台空间很大，我可以好好布置一下。",
+    },
+    {
+      pattern: "compromise on sth.",
+      meaning: "在某事上妥协；将就",
+      usage: "指放弃自身喜好做出让步，本句指装修风格绝不将就，可用于谈论居住选择、装修理念。",
+      topic: "Do you plan to live there for a long time?",
+      example: "I won't compromise on the decoration of my future home. 我不会对未来房子的装修将就妥协。",
+    },
+    {
+      pattern: "make sth. pop",
+      meaning: "让某物变得亮眼、引人注目",
+      usage: "口语常用搭配，多用于装修、布置场景，指使空间/装饰视觉效果突出。",
+      topic: "Please describe the room you live in.",
+      example: "I put bright paintings on the wall to make the room pop. 我在墙上挂了色彩鲜艳的画作，让房间变得亮眼。",
+    },
+    {
+      pattern: "drop zone for sth.",
+      meaning: "专门放置某物的区域、收纳区",
+      usage: "居家收纳固定表达，指进门处随手放置钥匙、包包等小物件的区域。",
+      topic: "What do you usually do in your apartment?",
+      example: "I set a small shelf as a drop zone for my keys and earphones. 我放了一个小架子，专门用来放钥匙和耳机。",
+    },
+    {
+      pattern: "divide sth. into zones",
+      meaning: "把某物划分成不同功能区",
+      usage: "描述大开间、公寓布局的核心搭配，指根据用途分割空间。",
+      topic: "Can you describe the place where you live?",
+      example: "I divide my studio into different zones for working and resting. 我把我的单间公寓划分出了工作区和休息区。",
+    },
+    {
+      pattern: "be intentional with sth.",
+      meaning: "用心对待/精心规划某事",
+      usage: "形容做布置、规划等事情时用心设计、有明确想法，用于谈论房屋布局设计。",
+      topic: "What’s the difference between where you are living now and where you have lived in the past?",
+      example: "I was very intentional with the layout of my new apartment. 我精心规划了新公寓的布局。",
+    },
+    {
+      pattern: "statement pieces",
+      meaning: "点睛装饰；特色大件家具/摆件",
+      usage: "家居领域地道搭配，指风格突出、成为视觉焦点的家具或装饰品。",
+      topic: "What's your favorite room in your apartment or house？",
+      example: "That vintage sofa is the main statement piece in my living room. 那张复古沙发是我客厅里的主打特色家具。",
+    },
+    {
+      pattern: "give the illusion that...",
+      meaning: "营造出……的错觉/视觉效果",
+      usage: "装修、空间设计常用句式，指通过布置让空间看起来更大、格局不同。",
+      topic: "What kind of house or apartment do you want to live in in the future?",
+      example: "Light-colored curtains give the illusion that the room is larger. 浅色窗帘会让房间显得更宽敞。",
+    },
+    {
+      pattern: "a big step up from sth.",
+      meaning: "比……好得多；档次远超……",
+      usage: "对比类常用表达，用来形容新家具、新住所等比之前的更好。",
+      topic: "What’s the difference between where you are living now and where you have lived in the past?",
+      example: "My new wardrobe is a big step up from the old one. 我的新衣柜比旧的好用太多了。",
+    },
+    {
+      pattern: "in the zone",
+      meaning: "进入状态；专注投入",
+      usage: "口语高频短语，本句指在工作区能专心工作，可描述在住所内的状态。",
+      topic: "What do you usually do in your apartment?",
+      example: "I always feel in the zone when I study in my study room. 我在书房学习时总能全身心投入。",
+    },
+    {
+      pattern: "biggest splurge",
+      meaning: "花销最大的物品；最舍得花钱的东西",
+      usage: "谈论居家物品消费的地道搭配，指为某件物品花了较多钱。",
+      topic: "What do you usually do in your apartment?",
+      example: "My comfortable bed is my biggest splurge at home. 家里这张舒适的床是我花钱最多的物件。",
+    },
+    {
+      pattern: "focal point",
+      meaning: "视觉焦点；核心亮点",
+      usage: "家居描述常用搭配，指房间里最吸引人的装饰或家具。",
+      topic: "What makes you feel pleasant in your home？",
+      example: "The handmade lamp is the focal point of my bedroom. 这盏手工灯是我卧室的一大亮点。",
+    },
+    {
+      pattern: "secondhand furniture",
+      meaning: "二手家具",
+      usage: "描述家具来源的基础搭配，雅思口语描述住所物品高频词汇。",
+      topic: "Can you describe the place where you live?",
+      example: "Most of my furniture is secondhand but looks really stylish. 我的家具大多是二手的，但款式非常时髦。",
+    },
+    {
+      pattern: "on sale",
+      meaning: "打折出售；特价售卖",
+      usage: "购物常用搭配，本句指趁特价买下家具，可用于谈论购置家居用品。",
+      topic: "What do you usually do in your apartment?",
+      example: "I bought this lovely carpet when it was on sale. 我趁打折买下了这块好看的地毯。",
+    },
+    {
+      pattern: "budget find",
+      meaning: "高性价比好物；淘到的实惠好物",
+      usage: "口语地道表达，指低价买到的优质物品，多用于描述家具、饰品。",
+      topic: "What's your favorite room in your apartment or house？",
+      example: "This wooden table is my best budget find. 这张木桌是我淘到的性价比超高的好物。",
+    },
+    {
+      pattern: "set the tone for sth.",
+      meaning: "为……定下风格/基调",
+      usage: "装修、设计专用搭配，指一件大件家具决定了整个空间的装修风格。",
+      topic: "What kind of house or apartment do you want to live in in the future?",
+      example: "The soft carpet sets the tone for my cozy living room. 这块柔软的地毯奠定了我客厅温馨的风格。",
+    },
+    {
+      pattern: "space saving",
+      meaning: "节省空间的",
+      usage: "形容词短语，专门形容收纳工具、家具等功能，描述小户型居家收纳必备表达。",
+      topic: "Please describe the room you live in.",
+      example: "I use many space saving tools to organize my small apartment. 我用了很多省空间的工具来整理我的小公寓。",
+    },
+    {
+      pattern: "game changer",
+      meaning: "彻底改变局面的事物；实用神器",
+      usage: "口语热门短语，形容某件物品让生活、收纳变得格外方便。",
+      topic: "What makes you feel pleasant in your home？",
+      example: "This storage box is a real game changer for my messy room. 这个收纳盒彻底改善了我房间杂乱的问题。",
+    },
+    {
+      pattern: "DIY project",
+      meaning: "手工自制作品；手作项目",
+      usage: "描述居家手工、自制装饰的常用搭配。",
+      topic: "What do you usually do in your apartment?",
+      example: "Making wall decorations is my favourite DIY project at home. 制作墙面装饰是我在家最喜欢的手工活。",
+    },
+    {
+      pattern: "figure sth. out",
+      meaning: "想出办法；自己动手搞定某事",
+      usage: "口语常用短语，本句指自己研究动手制作饰品，可描述居家动手做事。",
+      topic: "What do you usually do in your apartment?",
+      example: "I can figure out how to make simple decorations by myself. 我能自己琢磨着做出简单的装饰品。",
+    },
+    {
+      pattern: "a testament to sth.",
+      meaning: "体现；印证；见证某物",
+      usage: "书面+口语通用表达，用来表示物品、空间能够体现某种特质、变化。",
+      topic: "What’s the difference between where you are living now and where you have lived in the past?",
+      example: "My room is a testament to my changing tastes in decoration. 我的房间体现了我装修品味的变化。",
+    },
+    {
+      pattern: "delineate between two things",
+      meaning: "区分两者；分隔两个区域",
+      usage: "空间布局专用搭配，指用装饰、隔断划分不同功能区域。",
+      topic: "Can you describe the place where you live?",
+      example: "I use curtains to delineate between the study area and the bedroom. 我用帘子分隔学习区和卧室。",
+    },
+    {
+      pattern: "built in drawers",
+      meaning: "嵌入式抽屉",
+      usage: "描述房屋硬装、配套家具的固定搭配，用于介绍房间设施。",
+      topic: "Please describe the room you live in.",
+      example: "The bedroom has built in drawers which provide plenty of storage space. 这间卧室配有嵌入式抽屉，储物空间很充足。",
+    },
+    {
+      pattern: "mementos",
+      meaning: "纪念品；小留念物件",
+      usage: "名词，多指有纪念意义的小摆件、小物品，描述居家装饰常用词。",
+      topic: "What makes you feel pleasant in your home？",
+      example: "I put some travel mementos on my desk. 我在书桌上摆放了一些旅行纪念品。",
+    },
+    {
+      pattern: "be an oasis",
+      meaning: "是一片港湾/世外桃源",
+      usage: "比喻用法，用来形容家让人放松、远离纷扰，描述居住感受高分表达。",
+      topic: "Do you think it is important to live in a comfortable environment？",
+      example: "For me, my home is a peaceful oasis after work. 对我来说，家是下班后宁静的港湾。",
+    },
+    {
+      pattern: "sag one's shoulders and relax",
+      meaning: "卸下重担、彻底放松",
+      usage: "形象化口语表达，描述回到家身心放松的状态。",
+      topic: "What makes you feel pleasant in your home？",
+      example: "I can sag my shoulders and relax the moment I get home. 一回到家，我就能卸下疲惫彻底放松。",
+    },
+    {
+      pattern: "secondhand stuff",
+      meaning: "二手物品",
+      usage: "口语非正式搭配，泛指各类二手物件，描述家居采购风格。",
+      topic: "What kind of house or apartment do you want to live in in the future?",
+      example: "I like decorating my room with nice secondhand stuff. 我喜欢用好看的二手物件布置房间。",
+    },
+    {
+      pattern: "do a lot with a little",
+      meaning: "巧用有限资源做出好效果；花小钱办大事",
+      usage: "总结居家布置、生活理念的地道句型，适配住所相关观点表达。",
+      topic: "Do you think it is important to live in a comfortable environment？",
+      example: "You can do a lot with a little if you are good at decorating. 擅长布置的话，哪怕物资有限也能打造出很棒的空间。",
+    }
+  ]
+};

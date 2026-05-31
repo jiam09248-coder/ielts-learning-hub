@@ -2,7 +2,7 @@ export const POLLING_INTERVAL = 150; // ms
 
 export const STORAGE_PREFIX = 'ielts_hub_';
 
-export const PLAYBACK_RATES = [0.5, 0.75, 1, 1.25, 1.5];
+export const PLAYBACK_RATES = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 
 export const LEAN_CLOUD_APP_ID = import.meta.env.VITE_LEAN_CLOUD_APP_ID || '';
 export const LEAN_CLOUD_APP_KEY = import.meta.env.VITE_LEAN_CLOUD_APP_KEY || '';

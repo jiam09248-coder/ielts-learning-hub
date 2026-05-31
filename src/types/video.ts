@@ -25,16 +25,16 @@ export interface Paragraph {
 
 export interface ParagraphParse {
   grammar: string;
-  collocations: string[];
+  collocations: { phrase: string; meaning: string }[];
   contextAnalysis: string;
 }
 
 export interface Expression {
-  text: string;
-  meaning: string;
-  usage: string;
-  contextUsage: string;
-  example: string;
+  pattern: string;   // 句型模板：同时也是高亮匹配文本
+  meaning: string;   // 中文意思
+  usage: string;     // 用法说明
+  topic: string;     // 雅思话题
+  example: string;   // 仿写例句
 }
 
 export interface VideoContent {
