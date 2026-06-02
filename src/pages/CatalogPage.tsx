@@ -25,8 +25,8 @@ const CATEGORIES: CategorySection[] = [
     part: 'Part 1',
     name: 'Hometown',
     videos: [
-      { id: 'pilot-001', title: 'A 450-Square-Foot LA Studio Apartment Tour', duration: 1009, progress: 0, thumbnail: '/thumbnails/video-001.jpg' },
-      { id: 'video-003', title: "Go Inside Lydia Millen's Timeless Country Home", duration: 653, progress: 0, thumbnail: '/thumbnails/video-003.jpg' },
+      { id: 'pilot-001', title: 'LA Studio Apartment Tour', duration: 1009, progress: 0, thumbnail: '/thumbnails/video-001.jpg' },
+      { id: 'video-003', title: "Lydia Millen's Timeless Country Home", duration: 653, progress: 0, thumbnail: '/thumbnails/video-003.jpg' },
     ],
   },
   {
