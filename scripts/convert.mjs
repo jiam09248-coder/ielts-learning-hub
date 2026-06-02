@@ -83,14 +83,7 @@ if (typeof src.summary === 'string') {
 }
 
 // --- 地道表达 ---
-const expressions = (src.expressions || []).map((ex) => ({
-  text: ex.text || '',
-  original: ex.original || ex.surface || '',
-  meaning: ex.meaning || '',
-  usage: ex.usage || '',
-  topic: ex.topic || '',
-  example: ex.example || '',
-}));
+const expressions = []; // expressions will be added separately by the user
 
 // --- 生成 TS 文件 ---
 const tsContent = `import type { VideoContent } from '../types/video';

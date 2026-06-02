@@ -1,18 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Sparkles, Lightbulb } from 'lucide-react';
 import { mockVideoContent } from '../data/mockVideo';
-import { videoData as video002 } from '../data/video-002';
+import { videoData as video003 } from '../data/video-003';
 import type { VideoContent } from '../types/video';
-
-const DATA: Record<string, VideoContent> = {
-  'pilot-001': mockVideoContent,
-  'video-002': video002 as unknown as VideoContent,
-};
 
 export default function ExpressionsPage() {
   const { videoId } = useParams();
+  void videoId;
   const navigate = useNavigate();
-  const content: VideoContent = DATA[videoId || 'pilot-001'] || mockVideoContent;
+  const DATA_MAP: Record<string, VideoContent> = { 'pilot-001': mockVideoContent, 'video-003': video003 as unknown as VideoContent };
+  const content: VideoContent = DATA_MAP[videoId || 'pilot-001'] || mockVideoContent;
 
   return (
     <div className="min-h-screen bg-slate-50">

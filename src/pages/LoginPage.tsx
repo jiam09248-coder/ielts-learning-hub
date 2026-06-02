@@ -90,7 +90,7 @@ export default function LoginPage() {
 
           {/* Error Message */}
           {error && (
-            <div className="flex items-center gap-2 text-rose-500 text-xs font-medium bg-rose-50 px-3 py-2 rounded-xl border border-rose-100">
+            <div className="flex items-center gap-2 text-teal-500 text-xs font-medium bg-teal-50 px-3 py-2 rounded-xl border border-teal-100">
               <AlertCircle size={14} />
               {error}
             </div>

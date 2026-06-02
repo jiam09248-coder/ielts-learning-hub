@@ -58,7 +58,7 @@ export default function PlaybackControls({
         <button
           onClick={onToggleLoop}
           className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-xs font-medium transition-all ${
-            isLooping ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:bg-slate-100'
+            isLooping ? 'bg-teal-500 text-white' : 'text-slate-500 hover:bg-slate-100'
           }`}
           title="单句循环"
         >

@@ -130,8 +130,8 @@ export default function ParserPanel({ selectedParagraph, expressions }: ParserPa
                       {expr.usage}
                     </p>
                     {expr.topic && (
-                      <p className="text-indigo-700 bg-indigo-50 p-2 rounded-lg leading-relaxed text-xs">
-                        <span className="font-semibold text-indigo-900">雅思话题：</span>
+                      <p className="text-teal-700 bg-teal-50 p-2 rounded-lg leading-relaxed text-xs">
+                        <span className="font-semibold text-teal-900">雅思话题：</span>
                         {expr.topic}
                       </p>
                     )}

@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import {
-  Clock, CheckCircle2, Circle, Play,
-  ChevronRight
+  Clock, Play
 } from 'lucide-react';
 
 // ---- Mock Data ----
@@ -10,6 +9,7 @@ interface VideoCard {
   title: string;
   duration: number;
   progress: number;
+  thumbnail?: string;
 }
 
 interface CategorySection {
@@ -25,38 +25,33 @@ const CATEGORIES: CategorySection[] = [
     part: 'Part 1',
     name: 'Hometown',
     videos: [
-      { id: 'pilot-001', title: 'Describing Your Hometown', duration: 180, progress: 100 },
-      { id: 'p1-002', title: 'What Do You Like About Your City?', duration: 240, progress: 65 },
-      { id: 'p1-003', title: 'Changes in Your Hometown', duration: 210, progress: 0 },
+      { id: 'pilot-001', title: 'A 450-Square-Foot LA Studio Apartment Tour', duration: 1009, progress: 0, thumbnail: '/thumbnails/video-001.jpg' },
+      { id: 'video-003', title: "Go Inside Lydia Millen's Timeless Country Home", duration: 653, progress: 0, thumbnail: '/thumbnails/video-003.jpg' },
     ],
   },
   {
     id: 'part1-study',
     part: 'Part 1',
     name: 'Study & Work',
-    videos: [
-      { id: 'p1-004', title: 'Talking About Your Studies', duration: 195, progress: 30 },
-      { id: 'p1-005', title: 'Your Ideal Job', duration: 225, progress: 0 },
-    ],
+    videos: [],
   },
   {
     id: 'part2-person',
     part: 'Part 2',
     name: 'Describe a Person',
-    videos: [
-      { id: 'p2-001', title: 'A Person You Admire', duration: 300, progress: 0 },
-      { id: 'p2-002', title: 'A Helpful Neighbor', duration: 280, progress: 0 },
-      { id: 'p2-003', title: 'A Famous Person You Like', duration: 310, progress: 0 },
-    ],
+    videos: [],
   },
   {
     id: 'part2-place',
     part: 'Part 2',
     name: 'Describe a Place',
-    videos: [
-      { id: 'p2-004', title: 'A Quiet Place You Enjoy', duration: 290, progress: 0 },
-      { id: 'p2-005', title: 'A Beautiful City You Visited', duration: 320, progress: 0 },
-    ],
+    videos: [],
+  },
+  {
+    id: 'part2-event',
+    part: 'Part 2',
+    name: 'Describe an Event',
+    videos: [],
   },
 ];
 
@@ -64,26 +59,6 @@ function formatDuration(seconds: number): string {
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
   return `${m}:${s.toString().padStart(2, '0')}`;
-}
-
-function ProgressBadge({ progress }: { progress: number }) {
-  if (progress === 100) {
-    return (
-      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-500 uppercase tracking-wider">
-        <CheckCircle2 size={10} />
-        已完成
-      </span>
-    );
-  }
-  if (progress > 0) {
-    return (
-      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-yellow-50 text-yellow-600 uppercase tracking-wider">
-        <Circle size={10} />
-        {progress}%
-      </span>
-    );
-  }
-  return null;
 }
 
 export default function CatalogPage() {
@@ -127,7 +102,7 @@ export default function CatalogPage() {
             Watch · Learn · Speak
           </h1>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            IELTS Speaking mastery, from native video models
+            IELTS Speaking mastery, one real conversation at a time
           </p>
         </header>
 
@@ -168,43 +143,44 @@ export default function CatalogPage() {
                   </span>
                 </div>
 
-                {/* Video Cards */}
-                <div className="space-y-2">
+                {/* Video Cards — Grid */}
+                {category.videos.length === 0 ? (
+                  <p className="text-xs text-slate-300 italic py-4">即将上线</p>
+                ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
                   {category.videos.map((video) => (
                     <button
                       key={video.id}
                       onClick={() => navigate(`/lesson/${video.id}`)}
-                      className="w-full text-left group"
+                      className="text-left group w-full"
                     >
-                      <div className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-200">
-                        {/* Thumbnail */}
-                        <div className="shrink-0 w-14 h-14 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-50 transition-colors">
-                          <Play size={18} className="text-slate-300 group-hover:text-blue-500 transition-colors" />
+                      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-200 overflow-hidden p-4">
+                        {/* Cover / Thumbnail — 16:9 */}
+                        <div className="aspect-video bg-slate-100 rounded-xl flex items-center justify-center overflow-hidden mb-3">
+                          {video.thumbnail ? (
+                            <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
+                          ) : (
+                            <Play size={36} className="text-slate-300 group-hover:text-teal-500 transition-colors" />
+                          )}
                         </div>
-
                         {/* Info */}
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-sm font-semibold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                        <div className="px-1">
+                          <h3 className="text-sm font-semibold text-slate-900 line-clamp-2 mb-2.5">
                             {video.title}
                           </h3>
-                          <div className="flex items-center gap-3 mt-1">
-                            <span className="flex items-center gap-1 text-[11px] text-slate-400 font-medium">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 font-medium">
                               <Clock size={11} />
                               {formatDuration(video.duration)}
                             </span>
-                            <ProgressBadge progress={video.progress} />
+                            <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-teal-50 text-teal-600">{formatDuration(video.duration)}</span>
                           </div>
                         </div>
-
-                        {/* Arrow */}
-                        <ChevronRight
-                          size={16}
-                          className="shrink-0 text-slate-300 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all"
-                        />
                       </div>
                     </button>
                   ))}
                 </div>
+                )}
               </div>
             );
           })}
