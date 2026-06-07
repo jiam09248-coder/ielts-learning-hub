@@ -888,194 +888,222 @@ export const videoData: VideoContent = {
   }
 ],
   expressions: [
-  {
-    "pattern": "Home isn't necessarily a place. It's more of a feeling.",
-    "meaning": "家不一定是一个地方，它更像是一种感觉。",
-    "usage": "用抽象、情感化的方式给某个概念下定义，先否定表层理解，再点出深层本质。描述家乡时用它能直接升华主题、增加个人色彩。",
-    "topic": "Where is your hometown? / Do you like your hometown?",
-    "example": "To me, my hometown isn't necessarily about the buildings—it's more of a feeling of belonging.（对我来说，家乡不一定关乎那些建筑，它更像是一种归属感。）"
-  },
-  {
-    "pattern": "It's more of a ... than a ...",
-    "meaning": "与其说是……不如说是……",
-    "usage": "用于在两个概念间做侧重比较，强调本质更偏向后者。描述家乡的属性或氛围时，可用它做出更精准、有层次的判断。",
-    "topic": "Is that a big city or a small place?",
-    "example": "My hometown is more of a quiet town than a busy city.（我的家乡与其说是个繁忙的城市，不如说是个安静的小镇。）"
-  },
-  {
-    "pattern": "give you a tour of ...",
-    "meaning": "带你参观一下……",
-    "usage": "表示带领某人参观某地。描述家乡时可用它自然引出后面要介绍的细节。",
-    "topic": "Please describe your hometown a little.",
-    "example": "If you ever visit, I'd love to give you a tour of my hometown's old town.（如果你来玩，我很乐意带你参观一下我家乡的老城区。）"
-  },
-  {
-    "pattern": "A as well as B",
-    "meaning": "A 以及 B",
-    "usage": "比 and 更书面、更地道地连接两个并列成分，重心略偏前者。列举家乡的特色、景点或活动时用它能让句子更丰满。",
-    "topic": "What's your hometown famous for?",
-    "example": "My hometown is famous for its seafood as well as its beautiful beaches.（我的家乡以海鲜以及美丽的海滩而闻名。）"
-  },
-  {
-    "pattern": "I'm a ..., she isn't, so this is a compromise for both of us.",
-    "meaning": "我是……，她不是，所以这对我们俩来说是一种折中。",
-    "usage": "用对比加“compromise”说明两人差异下的妥协方案。谈家乡生活或家庭安排时，能体现人际间的协调与让步。",
-    "topic": "Do you like living there?",
-    "example": "I love the countryside, my partner loves the city, so our hometown is a compromise for both of us.（我爱乡村，我伴侣爱城市，所以我们的家乡对我们俩来说是个折中。）"
-  },
-  {
-    "pattern": "Regardless, ...",
-    "meaning": "不管怎样，……",
-    "usage": "用作过渡词，表示“撇开前面的分歧/细节不谈”，引出共同点或结论。在表达完不同看法后做总结时非常自然。",
-    "topic": "Do you like your hometown?",
-    "example": "It has its flaws, but regardless, it's still home to me.（它有缺点，但不管怎样，它仍然是我的家。）"
-  },
-  {
-    "pattern": "a place that feels peaceful, warm, and welcoming",
-    "meaning": "一个让人感到平静、温暖且热情友好的地方",
-    "usage": "用三个并列形容词描绘地方给人的感受，画面感强。形容家乡氛围时是高分搭配。",
-    "topic": "What do you like (most) about your hometown?",
-    "example": "What I love most is that it's a place that feels peaceful, warm, and welcoming.（我最喜欢的是它是个让人感到平静、温暖又热情的地方。）"
-  },
-  {
-    "pattern": "This certainly isn't our forever home.",
-    "meaning": "这肯定不是我们永远的家。",
-    "usage": "“forever home“指打算长久定居的家。回答是否长期居住时，可用它说明当前居所只是暂时的。",
-    "topic": "Do you think you will continue living there for a long time?",
-    "example": "I like my current city, but honestly it isn't my forever home.（我喜欢现在的城市，但说实话它不是我永远的家。）"
-  },
-  {
-    "pattern": "plan to rent it out after we move out",
-    "meaning": "打算搬出去之后把它租出去",
-    "usage": "“rent something out“指把房产出租；”move out“指搬离。谈未来居住安排时很实用。",
-    "topic": "Do you think you will continue living there for a long time?",
-    "example": "My family plans to rent out our old flat after we move out.（我家打算搬出去之后把旧公寓租出去。）"
-  },
-  {
-    "pattern": "with that end in mind",
-    "meaning": "带着那个目标 / 以那个目的为出发点",
-    "usage": "表示做某事是为了某个明确目的。描述规划、做事动机时用它显得有条理、成熟。",
-    "topic": "Is your hometown a good place for young people to pursue their careers?",
-    "example": "Many young people move to big cities with that end in mind—building a career.（很多年轻人搬去大城市就是带着这个目标——打拼事业。）"
-  },
-  {
-    "pattern": "For the most part, ...",
-    "meaning": "在很大程度上 / 基本上……",
-    "usage": "做概括性陈述，表示“大体上如此”但留有例外。描述家乡整体情况时是很自然的过渡短语。",
-    "topic": "Is that a big city or a small place?",
-    "example": "For the most part, my hometown is pretty quiet, though it gets busy during festivals.（基本上我的家乡挺安静的，不过节日期间会热闹起来。）"
-  },
-  {
-    "pattern": "be immediately greeted by ...",
-    "meaning": "一……就立刻被……迎接 / 首先映入眼帘的是……",
-    "usage": "描述进入某地最先看到或感受到的事物，画面感强。介绍家乡街景、地标时很好用。",
-    "topic": "What's your hometown famous for?",
-    "example": "When you arrive, you're immediately greeted by rows of old trees lining the streets.（一到那儿，首先映入眼帘的就是街道两旁成排的老树。）"
-  },
-  {
-    "pattern": "a spot to do something",
-    "meaning": "一个用来做某事的地方",
-    "usage": "“spot“比 place 更口语、更具体，指特定的小地点。描述家乡某处的功能时用它很自然。",
-    "topic": "What do you like (most) about your hometown?",
-    "example": "There's a lovely spot by the river to sit and relax in the evenings.（河边有个很棒的地方，傍晚可以坐下来放松。）"
-  },
-  {
-    "pattern": "..., that kind of thing",
-    "meaning": "……诸如此类",
-    "usage": "口语中列举几个例子后用它收尾，表示“等等之类的”，让表达显得轻松随意。",
-    "topic": "Did you learn about the culture of your hometown in your childhood?",
-    "example": "We learned local songs, festivals, traditional food, that kind of thing.（我们学了当地歌曲、节日、传统美食，诸如此类。）"
-  },
-  {
-    "pattern": "do something to counteract that",
-    "meaning": "做点什么来抵消/缓解那一点",
-    "usage": "“counteract“指采取措施抵消负面影响，比 solve 更精准。谈家乡某个缺点及应对方式时很地道。",
-    "topic": "Is there anything you dislike about it?",
-    "example": "The winters can be gloomy, so people use warm lights to counteract that.（冬天有点阴沉，所以人们用暖色灯光来缓解这一点。）"
-  },
-  {
-    "pattern": "the largest ... by far",
-    "meaning": "到目前为止最大的 / 遥遥领先地最大",
-    "usage": "“by far“强化最高级，表示”遥遥领先“。比较家乡城市规模、建筑大小时用它对比效果强烈。",
-    "topic": "Is that a big city or a small place?",
-    "example": "It's by far the biggest city in the region.（它是这个地区到目前为止最大的城市。）"
-  },
-  {
-    "pattern": "It's actually awkwardly large, so we have it split into two parts.",
-    "meaning": "它其实大得有点尴尬，所以我们把它分成了两部分。",
-    "usage": "“awkwardly + 形容词“用副词幽默地修饰程度；”have something split into ...“指把某物分成几部分。描述家乡空间布局时生动自然。",
-    "topic": "Please describe your hometown a little.",
-    "example": "The main square is awkwardly large, so it's split into a market area and a park.（中心广场大得有点夸张，所以被分成了集市区和公园。）"
-  },
-  {
-    "pattern": "I much prefer A than/to B, especially when ...",
-    "meaning": "我更喜欢 A 而不是 B，尤其是当……的时候",
-    "usage": "“much prefer“加强偏好语气，后接”especially when“补充具体场景。表达对家乡某方面的偏爱时很实用。",
-    "topic": "What do you like (most) about your hometown?",
-    "example": "I much prefer my hometown to big cities, especially when I want some peace and quiet.（我更喜欢家乡而不是大城市，尤其是当我想要一些宁静的时候。）"
-  },
-  {
-    "pattern": "I bought it off of ... years ago",
-    "meaning": "我多年前从……那儿买的",
-    "usage": "“buy something off of + 渠道/平台“表示从某处购买，口语常见。谈家乡的购物或生活方式时很自然。",
-    "topic": "Do you like living there?",
-    "example": "I bought my bike off of a local seller years ago and still ride it around town.（我多年前从本地卖家那儿买了这辆自行车，现在还骑着它在城里转。）"
-  },
-  {
-    "pattern": "We ended up doing something",
-    "meaning": "我们最终（还是）做了某事",
-    "usage": "“end up doing“表示经过一番过程后的最终结果，常带点意料之外的意味。叙述家乡经历或决定时很地道。",
-    "topic": "How long have you been living there?",
-    "example": "We ended up staying in my hometown much longer than we'd planned.（我们最终在家乡待的时间比原计划长得多。）"
-  },
-  {
-    "pattern": "especially when there's nothing to do",
-    "meaning": "尤其是当无事可做的时候",
-    "usage": "用“when there's nothing to do”描述闲暇、无聊的时段。谈家乡的休闲生活或淡季时很贴切。",
-    "topic": "Is there anything you dislike about it?",
-    "example": "In winter, especially when there's nothing to do, the town feels really sleepy.（冬天，尤其是无事可做的时候，小镇显得特别冷清。）"
-  },
-  {
-    "pattern": "going on ... years now",
-    "meaning": "到现在快……年了",
-    "usage": "“going on + 时间段“表示某状态”快要持续到“某个时长，强调时间之久。回答在家乡住了多久时很地道。",
-    "topic": "How long have you been living there?",
-    "example": "I've been living in my hometown going on twenty years now.（我在家乡生活到现在快二十年了。）"
-  },
-  {
-    "pattern": "we don't know how long we're going to be here",
-    "meaning": "我们不知道会在这儿待多久",
-    "usage": "表达对居住时长的不确定。回答是否长期居住、未来打算时是个自然又实用的句型。",
-    "topic": "Do you think you will continue living there for a long time?",
-    "example": "I might move for work, so I don't really know how long I'm going to be here.（我可能会因工作搬走，所以我真不知道会在这儿待多久。）"
-  },
-  {
-    "pattern": "It's been fine ..., but not our favorite either.",
-    "meaning": "它还行……，但也算不上我们的最爱。",
-    "usage": "用“fine ... but not ... favorite”做不褒不贬的中性评价，语气真实克制。评价家乡设施、地方时显得客观。",
-    "topic": "Is there anything you dislike about it?",
-    "example": "The local park is fine for a walk, but it's not our favorite either.（当地公园散步还行，但也算不上我们最喜欢的。）"
-  },
-  {
-    "pattern": "In classic ... style, ...",
-    "meaning": "以典型的……作风，……",
-    "usage": "用幽默口吻调侃某人/某群体符合刻板印象的行为。聊家乡的人或某类群体的典型特点时增添轻松语气。",
-    "topic": "Are there many young people in your hometown?",
-    "example": "In classic young-people style, most of them spend weekends glued to their phones in cafés.（以典型的年轻人作风，他们大多周末泡在咖啡馆里盯着手机。）"
-  },
-  {
-    "pattern": "I had absolutely no idea ... until very recently",
-    "meaning": "直到最近我才知道……",
-    "usage": "“have no idea ... until recently“强调对某事一直不知情、近期才发觉，语气夸张生动。讲家乡里自己后知后觉的趣事时很自然。",
-    "topic": "Have you learned anything about the history of your hometown?",
-    "example": "I had absolutely no idea my hometown was so old until very recently.（直到最近我才知道我的家乡历史这么悠久。）"
-  },
-  {
-    "pattern": "we just like it a lot and we'll take it into our next home",
-    "meaning": "我们就是很喜欢它，会把它带去下一个家",
-    "usage": "用“just like it a lot”表达单纯的喜爱，加“take it into our next home”体现长久珍视。谈对家乡某物的情感依恋时很真诚。",
-    "topic": "What do you like (most) about your hometown?",
-    "example": "We just love that little café a lot, and we always bring friends there.（我们就是很喜欢那家小咖啡馆，总会带朋友去那儿。）"
-  }
+        {
+          "pattern": "It's more of a ... than a ...",
+          "meaning": "与其说是……不如说是……",
+          "usage": "在两个概念间做侧重比较，强调本质更偏向后者。描述家乡的属性或氛围时能做出更精准、有层次的判断。",
+          "topic": "Is that a big city or a small place?",
+          "example": "My hometown is more of a quiet town than a busy city.（我的家乡与其说是个繁忙的城市，不如说是个安静的小镇。）"
+        },
+        {
+          "pattern": "give somebody a tour of ...",
+          "meaning": "带某人参观一下……",
+          "usage": "固定搭配，表示带领某人参观某地。描述家乡时可用它自然引出后面要介绍的细节。",
+          "topic": "Please describe your hometown a little.",
+          "example": "If you ever visit, I'd love to give you a tour of my hometown's old town.（如果你来玩，我很乐意带你参观一下我家乡的老城区。）"
+        },
+        {
+          "pattern": "A as well as B",
+          "meaning": "A 以及 B",
+          "usage": "比 and 更书面、更地道地连接并列成分，重心略偏前者。列举家乡特色、景点或活动时让句子更丰满。",
+          "topic": "What's your hometown famous for?",
+          "example": "My hometown is famous for its seafood as well as its beautiful beaches.（我的家乡以海鲜以及美丽的海滩而闻名。）"
+        },
+        {
+          "pattern": "a compromise for both of us",
+          "meaning": "对我们俩来说的一种折中/妥协",
+          "usage": "\"a compromise for sb\"指兼顾双方差异的折中方案。谈家乡生活或家庭安排中的协调让步时很贴切。",
+          "topic": "Do you like living there?",
+          "example": "I love the countryside and my partner loves the city, so where we live is a compromise for both of us.（我爱乡村，伴侣爱城市，所以我们住的地方是个折中。）"
+        },
+        {
+          "pattern": "Regardless, ...",
+          "meaning": "不管怎样，……",
+          "usage": "过渡词，撇开前面的分歧或细节，引出共同点或结论。表达完不同看法后做总结时很自然。",
+          "topic": "Do you like your hometown?",
+          "example": "It has its flaws, but regardless, it's still home to me.（它有缺点，但不管怎样，它仍是我的家。）"
+        },
+        {
+          "pattern": "a place that feels peaceful, warm, and welcoming",
+          "meaning": "一个让人感到平静、温暖且热情友好的地方",
+          "usage": "用三个并列形容词描绘地方给人的感受，画面感强。形容家乡氛围时是高分搭配。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "What I love most is that it's a place that feels peaceful, warm, and welcoming.（我最喜欢的是它是个让人感到平静、温暖又热情的地方。）"
+        },
+        {
+          "pattern": "forever home",
+          "meaning": "永远定居的家 / 长久之家",
+          "usage": "固定说法，指打算长久居住、不再搬走的家。回答是否长期居住时，可用它说明当前居所只是暂时的。",
+          "topic": "Do you think you will continue living there for a long time?",
+          "example": "I like my current city, but honestly it isn't my forever home.（我喜欢现在的城市，但说实话它不是我永远的家。）"
+        },
+        {
+          "pattern": "rent something out",
+          "meaning": "把（房产）出租出去",
+          "usage": "动词短语，指把房子等出租给别人，out 体现\"租出去\"的方向感。谈未来居住或房产安排时很实用。",
+          "topic": "Do you think you will continue living there for a long time?",
+          "example": "My family plans to rent out our old flat after we move out.（我家打算搬出去之后把旧公寓租出去。）"
+        },
+        {
+          "pattern": "with that end in mind",
+          "meaning": "带着那个目标 / 以那个目的为出发点",
+          "usage": "表示做某事是为了某个明确目的。描述规划、做事动机时显得有条理、成熟。",
+          "topic": "Is your hometown a good place for young people to pursue their careers?",
+          "example": "Many young people move to big cities with that end in mind—building a career.（很多年轻人搬去大城市就是带着这个目标——打拼事业。）"
+        },
+        {
+          "pattern": "For the most part, ...",
+          "meaning": "在很大程度上 / 基本上……",
+          "usage": "做概括性陈述，表示\"大体上如此\"但留有例外。描述家乡整体情况时是自然的过渡短语。",
+          "topic": "Is that a big city or a small place?",
+          "example": "For the most part, my hometown is pretty quiet, though it gets busy during festivals.（基本上我的家乡挺安静的，不过节日期间会热闹起来。）"
+        },
+        {
+          "pattern": "be immediately greeted by ...",
+          "meaning": "一……就立刻被……迎接 / 首先映入眼帘的是……",
+          "usage": "描述进入某地最先看到或感受到的事物，画面感强。介绍家乡街景、地标时很好用。",
+          "topic": "What's your hometown famous for?",
+          "example": "When you arrive, you're immediately greeted by rows of old trees lining the streets.（一到那儿，首先映入眼帘的就是街道两旁成排的老树。）"
+        },
+        {
+          "pattern": "do something to counteract that",
+          "meaning": "做点什么来抵消/缓解那一点",
+          "usage": "\"counteract\"指采取措施抵消负面影响，比 solve 更精准。谈家乡某个缺点及应对方式时很地道。",
+          "topic": "Is there anything you dislike about it?",
+          "example": "The winters can be gloomy, so people use warm lights to counteract that.（冬天有点阴沉，所以人们用暖色灯光来缓解这一点。）"
+        },
+        {
+          "pattern": "the largest ... by far",
+          "meaning": "到目前为止最大的 / 遥遥领先地最大",
+          "usage": "\"by far\"强化最高级，表示\"遥遥领先\"。比较家乡城市规模、建筑大小时对比效果强烈。",
+          "topic": "Is that a big city or a small place?",
+          "example": "It's by far the biggest city in the region.（它是这个地区到目前为止最大的城市。）"
+        },
+        {
+          "pattern": "have something split into two parts",
+          "meaning": "把某物分成两部分",
+          "usage": "\"have sth split into ...\"表示把某空间或事物划分成几块。描述家乡空间布局、功能分区时很自然。",
+          "topic": "Please describe your hometown a little.",
+          "example": "The main square is split into a market area and a small park.（中心广场被分成了集市区和一个小公园。）"
+        },
+        {
+          "pattern": "I much prefer A to B, especially when ...",
+          "meaning": "我更喜欢 A 而不是 B，尤其是当……的时候",
+          "usage": "\"much prefer\"加强偏好语气，接\"especially when\"补充具体场景。表达对家乡某方面的偏爱时很实用。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "I much prefer my hometown to big cities, especially when I want some peace and quiet.（我更喜欢家乡而不是大城市，尤其是想要宁静的时候。）"
+        },
+        {
+          "pattern": "buy something off of someone/somewhere",
+          "meaning": "从某人/某处买来某物",
+          "usage": "口语搭配，指从某个渠道或卖家购买。谈家乡的购物习惯、二手交易或生活方式时很自然。",
+          "topic": "Do you like living there?",
+          "example": "I bought my bike off of a local seller and still ride it around town.（我从一个本地卖家那儿买了这辆车，现在还骑着它在城里转。）"
+        },
+        {
+          "pattern": "end up doing something",
+          "meaning": "最终（还是）做了某事",
+          "usage": "表示经过一番过程后的最终结果，常带意料之外的意味。叙述家乡经历或决定时很地道。",
+          "topic": "How long have you been living there?",
+          "example": "We ended up staying in my hometown much longer than we'd planned.（我们最终在家乡待的时间比原计划长得多。）"
+        },
+        {
+          "pattern": "going on ... years now",
+          "meaning": "到现在快……年了",
+          "usage": "\"going on + 时间段\"表示某状态快持续到某时长，强调时间之久。回答在家乡住了多久时很地道。",
+          "topic": "How long have you been living there?",
+          "example": "I've been living in my hometown going on twenty years now.（我在家乡生活到现在快二十年了。）"
+        },
+        {
+          "pattern": "not our favorite either",
+          "meaning": "也算不上我们的最爱",
+          "usage": "\"not ... favorite either\"做不褒不贬的中性评价，语气真实克制。客观评价家乡的设施或地方时很自然。",
+          "topic": "Is there anything you dislike about it?",
+          "example": "The local park is fine for a walk, but it's not our favorite either.（当地公园散步还行，但也算不上我们最喜欢的。）"
+        },
+        {
+          "pattern": "In classic ... style, ...",
+          "meaning": "以典型的……作风，……",
+          "usage": "用幽默口吻调侃某人或群体符合刻板印象的行为。聊家乡的人或某类群体的典型特点时增添轻松语气。",
+          "topic": "Are there many young people in your hometown?",
+          "example": "In classic young-people style, most of them spend weekends glued to their phones in cafés.（以典型的年轻人作风，他们大多周末泡在咖啡馆里盯着手机。）"
+        },
+        {
+          "pattern": "have no idea ... until very recently",
+          "meaning": "直到最近才知道……",
+          "usage": "强调对某事一直不知情、近期才发觉，语气生动。讲家乡里自己后知后觉的趣事或历史时很自然。",
+          "topic": "Have you learned anything about the history of your hometown?",
+          "example": "I had no idea my hometown was so old until very recently.（直到最近我才知道我的家乡历史这么悠久。）"
+        },
+        {
+          "pattern": "work from home",
+          "meaning": "在家办公 / 远程工作",
+          "usage": "固定搭配，指不去办公室、在家中工作。谈家乡是否适合年轻人发展或当地生活方式时常用。",
+          "topic": "Is your hometown a good place for young people to pursue their careers?",
+          "example": "More and more young people in my hometown can work from home now.（我家乡越来越多的年轻人现在能在家办公了。）"
+        },
+        {
+          "pattern": "I'll show you in a minute",
+          "meaning": "我一会儿就给你看 / 待会儿再说",
+          "usage": "口语过渡语，预告稍后展开介绍，让叙述有节奏感。分点介绍家乡时很好用。",
+          "topic": "Please describe your hometown a little.",
+          "example": "There's an amazing old temple too, but I'll tell you about that in a minute.（还有一座很棒的古庙，不过我待会儿再说。）"
+        },
+        {
+          "pattern": "prized possession",
+          "meaning": "珍视的物品 / 心爱之物",
+          "usage": "固定搭配，指最珍贵、最看重的东西。谈家乡里对自己意义重大的事物或纪念品时是高分词组。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "That old bookshop is one of my hometown's most prized possessions, in a way.（某种程度上，那家老书店是我家乡最珍视的东西之一。）"
+        },
+        {
+          "pattern": "with one's own money",
+          "meaning": "用自己的钱",
+          "usage": "固定搭配，强调靠自己的钱，凸显独立与自豪。谈年轻人在家乡自力更生、独立生活时很贴切。",
+          "topic": "Are there many young people in your hometown?",
+          "example": "A lot of young people there are proud to rent a flat with their own money.（那里很多年轻人都为能用自己的钱租房而自豪。）"
+        },
+        {
+          "pattern": "so far, for the last ... or so",
+          "meaning": "到目前为止，过去……左右",
+          "usage": "\"so far\"加\"for the last ... or so\"表达\"至今、近一段时间\"的持续评价，时间表达地道。回答在家乡住了多久、近况如何时实用。",
+          "topic": "How long have you been living there?",
+          "example": "I've been living downtown for the last year or so, and it's been great so far.（我在市中心住了大概一年了，到目前为止挺好。）"
+        },
+        {
+          "pattern": "..., which I think is super ...",
+          "meaning": "……，我觉得超……的",
+          "usage": "用非限制性定语从句插入个人评价，让描述更口语、更有感情。形容家乡的小物件、街景时很自然。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "There are tiny cobbled streets, which I think are super charming.（那里有窄窄的石板路，我觉得超有韵味的。）"
+        },
+        {
+          "pattern": "Next up is ...",
+          "meaning": "接下来是……",
+          "usage": "口语过渡词，引出下一个要介绍的事物。分段介绍家乡的多个地点或方面时让结构清晰流畅。",
+          "topic": "Please describe your hometown a little.",
+          "example": "Next up is the riverside park, which is where everyone goes on weekends.（接下来是河边公园，那是大家周末都会去的地方。）"
+        },
+        {
+          "pattern": "have control of/over something",
+          "meaning": "对某事物有掌控权",
+          "usage": "固定搭配，指能支配、掌控某物。谈家乡里属于自己的小天地或对生活的掌控感时很地道。",
+          "topic": "Do you like living there?",
+          "example": "My little balcony is the only spot I really have control of, so I've made it my own.（小阳台是唯一一个真正由我掌控的地方，所以我把它布置成了自己的风格。）"
+        },
+        {
+          "pattern": "try doing something just to see if ...",
+          "meaning": "尝试做某事，只为看看是否……",
+          "usage": "表示带着实验心态去尝试，看看结果如何。谈在家乡尝试新生活方式或习惯时很地道。",
+          "topic": "Do you think you will continue living there for a long time?",
+          "example": "I've been trying living away from my hometown just to see if I miss it.（我一直在尝试离开家乡生活，就为了看看自己会不会想念它。）"
+        },
+        {
+          "pattern": "we'll see where we go from there",
+          "meaning": "之后再看情况吧 / 顺其自然再说",
+          "usage": "表示之后顺其自然、再看着办，带不确定但开放的语气。回答未来是否长期居住时非常好用。",
+          "topic": "Do you think you will continue living there for a long time?",
+          "example": "I'll stay in my hometown for now, and we'll see where I go from there after I graduate.（我目前会留在家乡，毕业后再看情况吧。）"
+        }
 ],
 };

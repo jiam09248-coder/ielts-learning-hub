@@ -61,12 +61,6 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
     video.playbackRate = playbackRate;
   }, [playbackRate]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.play().catch(() => {});
-  }, []);
-
   const handleTimeUpdate = () => {
     const video = videoRef.current;
     if (!video || isDragging) return;
