@@ -8,6 +8,8 @@ import WordPopup from '../components/dictionary/WordPopup';
 import ExpressionPopup from '../components/dictionary/ExpressionPopup';
 import { mockVideoContent } from '../data/mockVideo';
 import { videoData as video003 } from '../data/video-003';
+import { videoData as video004 } from '../data/video-004';
+import { getVideoUrl } from '../data/videoUrlMap';
 import type { Paragraph, Expression } from '../types/video';
 import type { VideoContent } from '../types/video';
 
@@ -52,9 +54,11 @@ function matchExpression(expr: Expression, text: string): { matchText: string; s
 export default function LessonPage() {
   const { videoId } = useParams();
   const navigate = useNavigate();
+  void videoId;
   const VIDEO_MAP: Record<string, VideoContent> = {
     'pilot-001': mockVideoContent,
     'video-003': video003 as unknown as VideoContent,
+    'video-004': video004 as unknown as VideoContent,
   };
   const content: VideoContent = VIDEO_MAP[videoId || 'pilot-001'] || mockVideoContent;
   if (!content.paragraphs) content.paragraphs = [];
@@ -223,29 +227,13 @@ export default function LessonPage() {
     return parts;
   }, [expressionMatches, subtitleMode, handleWordClick, handleExpressionClick]);
 
-  const handlePreviousVideo = useCallback(() => {
-    const currentId = videoId || 'pilot-001';
-    const keys = Object.keys(VIDEO_MAP);
-    const idx = keys.indexOf(currentId);
-    if (idx > 0) navigate(`/lesson/${keys[idx - 1]}`);
-  }, [navigate, videoId]);
-
-  const handleNextVideo = useCallback(() => {
-    const currentId = videoId || 'pilot-001';
-    const keys = Object.keys(VIDEO_MAP);
-    const idx = keys.indexOf(currentId);
-    if (idx < keys.length - 1) navigate(`/lesson/${keys[idx + 1]}`);
-  }, [navigate, videoId]);
-
   return (
     <div className="h-dvh flex flex-col bg-white font-sans overflow-hidden">
       {/* Header */}
       <header className="h-11 bg-white flex items-center px-4 border-b border-slate-100 shrink-0 gap-2">
         <button onClick={() => navigate('/catalog')} className="p-1.5 hover:bg-slate-100 rounded-lg"><ChevronLeft className="w-4 h-4 text-slate-500" /></button>
-        <Video className="w-3.5 h-3.5 text-slate-400" />
+        <Video className="w-4 h-4 text-slate-900" />
         <h1 className="font-semibold text-slate-900 truncate text-[13px] flex-1">{content.meta.title}</h1>
-        <button onClick={handlePreviousVideo} title="上一个视频" className="p-1.5 hover:bg-slate-100 rounded-lg"><SkipBack className="w-3.5 h-3.5 text-slate-400" /></button>
-        <button onClick={handleNextVideo} title="下一个视频" className="p-1.5 hover:bg-slate-100 rounded-lg"><SkipForward className="w-3.5 h-3.5 text-slate-400" /></button>
       </header>
 
       <div className="flex-1 flex overflow-hidden min-h-0">
@@ -260,7 +248,7 @@ export default function LessonPage() {
             </div>
           )}
           <div className="shrink-0 bg-black rounded-2xl overflow-hidden shadow-lg w-full" style={{ aspectRatio: '16/9', maxWidth: '640px', margin: '0 auto' }}>
-            <VideoPlayer ref={videoPlayerRef} videoUrl={content.meta.videoUrl} isPlaying={isPlaying} playbackRate={playbackRate}
+            <VideoPlayer ref={videoPlayerRef} videoUrl={content.meta.videoUrl || getVideoUrl(videoId || 'pilot-001')} isPlaying={isPlaying} playbackRate={playbackRate}
               onPlayPause={handlePlayPause} onTimeUpdate={handleTimeUpdate} onDurationChange={() => {}} onSeek={handleSeek} />
           </div>
           <div className="flex-1 bg-slate-50 rounded-2xl flex flex-col overflow-hidden min-h-0">

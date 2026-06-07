@@ -38,7 +38,7 @@ export default function LoginPage() {
         <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
           <GraduationCap className="text-white w-6 h-6" />
         </div>
-        <span className="text-xl font-bold tracking-tight text-slate-900">IELTS · Hub</span>
+        <span className="text-xl font-bold tracking-tight text-slate-900">言之英语</span>
       </button>
 
       {/* Login Card */}

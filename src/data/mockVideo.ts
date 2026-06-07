@@ -5,9 +5,8 @@ export const mockVideoContent: VideoContent = {
     id: 'video-002',
     title: 'YouTube｜A 450-Square-Foot LA Studio’s Vibe Is “Main Character of a Rom-com’s Apartment” | Apartment Therapy',
     duration: 1009,
-    videoUrl: '/videos/video.mp4',
+    videoUrl: import.meta.env.VITE_VIDEO_001_URL || '/videos/video.mp4',
     dataUrl: '',
-    thumbnail: '/thumbnails/video-001.jpg',
     tags: {
       difficulty: 'hard',
       speed: 'fast',

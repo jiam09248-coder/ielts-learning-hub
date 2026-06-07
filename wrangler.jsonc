@@ -12,8 +12,9 @@
     "nodejs_compat"
   ],
   "vars": {
+    "VITE_VIDEO_001_URL": "https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/video-002.mp4",
     "VITE_VIDEO_002_URL": "https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/video-002.mp4",
-    "VITE_VIDEO_URL": "https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/video-002.mp4",
+    "VITE_VIDEO_URL": "/videos/video.mp4",
     "VITE_VIDEO_003_URL": "https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/Go%20Inside%20Lydia%20Millen%E2%80%99s%20Timeless%20Country%20Home%20%7C%20Home%20Tour.mp4"
   }
 }
