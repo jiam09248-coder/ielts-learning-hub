@@ -1105,5 +1105,125 @@ export const videoData: VideoContent = {
           "topic": "Do you think you will continue living there for a long time?",
           "example": "I'll stay in my hometown for now, and we'll see where I go from there after I graduate.（我目前会留在家乡，毕业后再看情况吧。）"
         }
+,
+        {
+          "pattern": "original from + 年份",
+          "meaning": "（保留至今的）某年的原物 / 自某年起的原装",
+          "usage": "\"original from + 年份\"指某物是某个年代留存下来的原始之物，强调历史感与原汁原味。谈家乡的老建筑、古迹时很地道。",
+          "topic": "What's your hometown famous for?",
+          "example": "Many of the houses in my hometown are original from the Qing dynasty.（我家乡很多房子都是清朝留存至今的原物。）"
+        },
+        {
+          "pattern": "that's part of the process",
+          "meaning": "这也是过程的一部分（这很正常）",
+          "usage": "用来豁达地接受某个不完美的情况，表示这是必经的、正常的。谈家乡老房子、老设施的小缺点时口吻很地道。",
+          "topic": "Is there anything you dislike about it?",
+          "example": "The old houses creak a lot, but hey, that's part of the process of living in a historic town.（那些老房子吱吱作响，但嘿，这也是住在古镇里必经的一部分。）"
+        },
+        {
+          "pattern": "to be realistic",
+          "meaning": "为了显得真实 / 实话实说",
+          "usage": "插入语，表示\"为了贴近真实、不加修饰\"。描述家乡真实、不完美的一面时能体现坦诚客观的态度。",
+          "topic": "Do you like your hometown?",
+          "example": "My hometown isn't picture-perfect, but to be realistic, that's part of its charm.（我的家乡并非完美无缺，但实话实说，这也是它魅力的一部分。）"
+        },
+        {
+          "pattern": "a month's supply of ...",
+          "meaning": "一个月的……储备量",
+          "usage": "\"a + 时间段's supply of sth\"表示\"够用某段时间的某物存量\"。谈家乡的物产、储备或生活方式时很自然。",
+          "topic": "What's your hometown famous for?",
+          "example": "In autumn we'd stock up a whole winter's supply of vegetables.（秋天我们会囤上一整个冬天的蔬菜储备。）"
+        },
+        {
+          "pattern": "give somebody a quick tour of ...",
+          "meaning": "带某人快速参观一下……",
+          "usage": "\"give sb a tour of\"的变体，加 quick 表示简短带过。介绍家乡时可用它引出一段快速概览。",
+          "topic": "Please describe your hometown a little.",
+          "example": "Let me give you a quick tour of what my hometown is like.（让我带你快速参观一下我家乡的样子。）"
+        },
+        {
+          "pattern": "we just kinda made it work",
+          "meaning": "我们就将就着把它弄好了 / 凑合着解决了",
+          "usage": "\"make it work\"指在条件不理想时设法解决、让事情运转起来。谈家乡设施不完善但人们想办法适应时很贴切。",
+          "topic": "Is there anything you dislike about it?",
+          "example": "The public transport isn't great, but locals just kinda make it work.（公共交通不太行，但当地人凑合着解决了。）"
+        },
+        {
+          "pattern": "... and whatnot",
+          "meaning": "……之类的 / 等等",
+          "usage": "口语收尾词，列举后表示\"以及诸如此类\"，比 etc. 更随意自然。列举家乡的事物、活动时很地道。",
+          "topic": "Did you learn about the culture of your hometown in your childhood?",
+          "example": "We celebrated with lanterns, dumplings, and whatnot.（我们用灯笼、饺子之类的来庆祝。）"
+        },
+        {
+          "pattern": "for when people come over",
+          "meaning": "以备有人来访时（用）",
+          "usage": "\"for when ...\"表示\"为……的时候做准备\"；\"come over\"指（到家里）做客。谈家乡的待客习惯、人情往来时很自然。",
+          "topic": "Do you like living there?",
+          "example": "People always keep extra tea and snacks for when neighbours come over.（人们总会备些茶和零食，以备邻居来串门时用。）"
+        },
+        {
+          "pattern": "this is all work stuff for me",
+          "meaning": "这些对我来说全是工作用的东西",
+          "usage": "\"... stuff for me\"口语化地说明某物的用途归类。介绍家乡某处或自己工作生活时很自然随意。",
+          "topic": "Is your hometown a good place for young people to pursue their careers?",
+          "example": "I set up a small studio at home, so this is all work stuff for me.（我在家弄了个小工作室，所以这些对我来说全是工作用的。）"
+        },
+        {
+          "pattern": "on the opposite side from that is ...",
+          "meaning": "在它对面的是……",
+          "usage": "方位表达，指\"与之相对的另一侧\"。描述家乡某地的布局、方位关系时让叙述更有条理。",
+          "topic": "Please describe your hometown a little.",
+          "example": "On the opposite side from the market is an old stone bridge.（在集市对面是一座古老的石桥。）"
+        },
+        {
+          "pattern": "house a bunch of different things",
+          "meaning": "容纳/存放着一堆各式各样的东西",
+          "usage": "动词 house 指\"容纳、存放\"，比 store 更地道。描述家乡某建筑、场馆收纳或承载了什么时很实用。",
+          "topic": "What's your hometown famous for?",
+          "example": "The old museum houses a bunch of artefacts from the town's history.（那座老博物馆收藏着一堆关于小镇历史的文物。）"
+        },
+        {
+          "pattern": "nice to have(s)",
+          "meaning": "锦上添花之物 / 有了更好但非必需的东西",
+          "usage": "固定说法，指\"拥有了不错但并非必需\"的事物，与 necessity 相对。谈家乡的设施、配套是否必需时很地道。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "A cinema and a few cafés are nice to haves, but the real charm is the people.（电影院和几家咖啡馆是锦上添花，但真正的魅力在于人。）"
+        },
+        {
+          "pattern": "as well as ...",
+          "meaning": "以及……",
+          "usage": "比 and 更书面地连接并列成分，列举时让句子更丰满有层次。介绍家乡的设施、特色时常用。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "There are cosy cafés as well as a few traditional teahouses.（那里有温馨的咖啡馆，以及几家传统茶馆。）"
+        },
+        {
+          "pattern": "It's functional. It gets the job done.",
+          "meaning": "它很实用，能把事情办好。",
+          "usage": "\"functional + get the job done\"形容某物虽不华丽但管用、够用。评价家乡的设施、交通时是高分中性评价。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "Our local market isn't fancy, but it's functional and gets the job done.（我们当地的市场不算高档，但很实用，能满足需求。）"
+        },
+        {
+          "pattern": "one of my prized possessions is ...",
+          "meaning": "我最珍视的物品之一是……",
+          "usage": "\"prized possession\"指最珍贵、最看重的东西。谈家乡里对自己意义重大的纪念物时是高分搭配。",
+          "topic": "What do you like (most) about your hometown?",
+          "example": "One of my prized possessions is an old photo of my hometown's main street.（我最珍视的物品之一是一张家乡主街的老照片。）"
+        },
+        {
+          "pattern": "too cold and too snowy to do so outside",
+          "meaning": "外面太冷又太多雪，没法在户外做这件事",
+          "usage": "\"too + 形容词 + to do\"表示\"太……以至于不能……\"，这里叠加两个形容词描述恶劣天气。谈家乡气候对生活的影响时很实用。",
+          "topic": "Is there anything you dislike about it?",
+          "example": "In winter it's often too cold and too snowy to go out, so people stay indoors.（冬天常常太冷又太多雪，没法出门，所以人们待在室内。）"
+        },
+        {
+          "pattern": "Thanks so much for coming along for ...",
+          "meaning": "非常感谢你一路陪同/参与……",
+          "usage": "\"come along for ...\"指\"一同参与某段经历\"，结尾致谢时亲切自然。介绍完家乡、收尾时可借用这种温暖口吻。",
+          "topic": "Please describe your hometown a little.",
+          "example": "Thanks so much for coming along for this little look at my hometown.（非常感谢你一路陪我看了看我的家乡。）"
+        }
 ],
 };
