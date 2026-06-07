@@ -919,14 +919,14 @@ export const videoData: VideoContent = {
   {
     "pattern": "I'm a ..., she isn't, so this is a compromise for both of us.",
     "meaning": "我是……，她不是，所以这对我们俩来说是一种折中。",
-    "usage": "用对比加"compromise"说明两人差异下的妥协方案。谈家乡生活或家庭安排时，能体现人际间的协调与让步。",
+    "usage": "用对比加“compromise”说明两人差异下的妥协方案。谈家乡生活或家庭安排时，能体现人际间的协调与让步。",
     "topic": "Do you like living there?",
     "example": "I love the countryside, my partner loves the city, so our hometown is a compromise for both of us.（我爱乡村，我伴侣爱城市，所以我们的家乡对我们俩来说是个折中。）"
   },
   {
     "pattern": "Regardless, ...",
     "meaning": "不管怎样，……",
-    "usage": "用作过渡词，表示"撇开前面的分歧/细节不谈"，引出共同点或结论。在表达完不同看法后做总结时非常自然。",
+    "usage": "用作过渡词，表示“撇开前面的分歧/细节不谈”，引出共同点或结论。在表达完不同看法后做总结时非常自然。",
     "topic": "Do you like your hometown?",
     "example": "It has its flaws, but regardless, it's still home to me.（它有缺点，但不管怎样，它仍然是我的家。）"
   },
@@ -940,14 +940,14 @@ export const videoData: VideoContent = {
   {
     "pattern": "This certainly isn't our forever home.",
     "meaning": "这肯定不是我们永远的家。",
-    "usage": ""forever home"指打算长久定居的家。回答是否长期居住时，可用它说明当前居所只是暂时的。",
+    "usage": "“forever home“指打算长久定居的家。回答是否长期居住时，可用它说明当前居所只是暂时的。",
     "topic": "Do you think you will continue living there for a long time?",
     "example": "I like my current city, but honestly it isn't my forever home.（我喜欢现在的城市，但说实话它不是我永远的家。）"
   },
   {
     "pattern": "plan to rent it out after we move out",
     "meaning": "打算搬出去之后把它租出去",
-    "usage": ""rent something out"指把房产出租；"move out"指搬离。谈未来居住安排时很实用。",
+    "usage": "“rent something out“指把房产出租；”move out“指搬离。谈未来居住安排时很实用。",
     "topic": "Do you think you will continue living there for a long time?",
     "example": "My family plans to rent out our old flat after we move out.（我家打算搬出去之后把旧公寓租出去。）"
   },
@@ -961,7 +961,7 @@ export const videoData: VideoContent = {
   {
     "pattern": "For the most part, ...",
     "meaning": "在很大程度上 / 基本上……",
-    "usage": "做概括性陈述，表示"大体上如此"但留有例外。描述家乡整体情况时是很自然的过渡短语。",
+    "usage": "做概括性陈述，表示“大体上如此”但留有例外。描述家乡整体情况时是很自然的过渡短语。",
     "topic": "Is that a big city or a small place?",
     "example": "For the most part, my hometown is pretty quiet, though it gets busy during festivals.（基本上我的家乡挺安静的，不过节日期间会热闹起来。）"
   },
@@ -975,70 +975,70 @@ export const videoData: VideoContent = {
   {
     "pattern": "a spot to do something",
     "meaning": "一个用来做某事的地方",
-    "usage": ""spot"比 place 更口语、更具体，指特定的小地点。描述家乡某处的功能时用它很自然。",
+    "usage": "“spot“比 place 更口语、更具体，指特定的小地点。描述家乡某处的功能时用它很自然。",
     "topic": "What do you like (most) about your hometown?",
     "example": "There's a lovely spot by the river to sit and relax in the evenings.（河边有个很棒的地方，傍晚可以坐下来放松。）"
   },
   {
     "pattern": "..., that kind of thing",
     "meaning": "……诸如此类",
-    "usage": "口语中列举几个例子后用它收尾，表示"等等之类的"，让表达显得轻松随意。",
+    "usage": "口语中列举几个例子后用它收尾，表示“等等之类的”，让表达显得轻松随意。",
     "topic": "Did you learn about the culture of your hometown in your childhood?",
     "example": "We learned local songs, festivals, traditional food, that kind of thing.（我们学了当地歌曲、节日、传统美食，诸如此类。）"
   },
   {
     "pattern": "do something to counteract that",
     "meaning": "做点什么来抵消/缓解那一点",
-    "usage": ""counteract"指采取措施抵消负面影响，比 solve 更精准。谈家乡某个缺点及应对方式时很地道。",
+    "usage": "“counteract“指采取措施抵消负面影响，比 solve 更精准。谈家乡某个缺点及应对方式时很地道。",
     "topic": "Is there anything you dislike about it?",
     "example": "The winters can be gloomy, so people use warm lights to counteract that.（冬天有点阴沉，所以人们用暖色灯光来缓解这一点。）"
   },
   {
     "pattern": "the largest ... by far",
     "meaning": "到目前为止最大的 / 遥遥领先地最大",
-    "usage": ""by far"强化最高级，表示"遥遥领先"。比较家乡城市规模、建筑大小时用它对比效果强烈。",
+    "usage": "“by far“强化最高级，表示”遥遥领先“。比较家乡城市规模、建筑大小时用它对比效果强烈。",
     "topic": "Is that a big city or a small place?",
     "example": "It's by far the biggest city in the region.（它是这个地区到目前为止最大的城市。）"
   },
   {
     "pattern": "It's actually awkwardly large, so we have it split into two parts.",
     "meaning": "它其实大得有点尴尬，所以我们把它分成了两部分。",
-    "usage": ""awkwardly + 形容词"用副词幽默地修饰程度；"have something split into ..."指把某物分成几部分。描述家乡空间布局时生动自然。",
+    "usage": "“awkwardly + 形容词“用副词幽默地修饰程度；”have something split into ...“指把某物分成几部分。描述家乡空间布局时生动自然。",
     "topic": "Please describe your hometown a little.",
     "example": "The main square is awkwardly large, so it's split into a market area and a park.（中心广场大得有点夸张，所以被分成了集市区和公园。）"
   },
   {
     "pattern": "I much prefer A than/to B, especially when ...",
     "meaning": "我更喜欢 A 而不是 B，尤其是当……的时候",
-    "usage": ""much prefer"加强偏好语气，后接"especially when"补充具体场景。表达对家乡某方面的偏爱时很实用。",
+    "usage": "“much prefer“加强偏好语气，后接”especially when“补充具体场景。表达对家乡某方面的偏爱时很实用。",
     "topic": "What do you like (most) about your hometown?",
     "example": "I much prefer my hometown to big cities, especially when I want some peace and quiet.（我更喜欢家乡而不是大城市，尤其是当我想要一些宁静的时候。）"
   },
   {
     "pattern": "I bought it off of ... years ago",
     "meaning": "我多年前从……那儿买的",
-    "usage": ""buy something off of + 渠道/平台"表示从某处购买，口语常见。谈家乡的购物或生活方式时很自然。",
+    "usage": "“buy something off of + 渠道/平台“表示从某处购买，口语常见。谈家乡的购物或生活方式时很自然。",
     "topic": "Do you like living there?",
     "example": "I bought my bike off of a local seller years ago and still ride it around town.（我多年前从本地卖家那儿买了这辆自行车，现在还骑着它在城里转。）"
   },
   {
     "pattern": "We ended up doing something",
     "meaning": "我们最终（还是）做了某事",
-    "usage": ""end up doing"表示经过一番过程后的最终结果，常带点意料之外的意味。叙述家乡经历或决定时很地道。",
+    "usage": "“end up doing“表示经过一番过程后的最终结果，常带点意料之外的意味。叙述家乡经历或决定时很地道。",
     "topic": "How long have you been living there?",
     "example": "We ended up staying in my hometown much longer than we'd planned.（我们最终在家乡待的时间比原计划长得多。）"
   },
   {
     "pattern": "especially when there's nothing to do",
     "meaning": "尤其是当无事可做的时候",
-    "usage": "用"when there's nothing to do"描述闲暇、无聊的时段。谈家乡的休闲生活或淡季时很贴切。",
+    "usage": "用“when there's nothing to do”描述闲暇、无聊的时段。谈家乡的休闲生活或淡季时很贴切。",
     "topic": "Is there anything you dislike about it?",
     "example": "In winter, especially when there's nothing to do, the town feels really sleepy.（冬天，尤其是无事可做的时候，小镇显得特别冷清。）"
   },
   {
     "pattern": "going on ... years now",
     "meaning": "到现在快……年了",
-    "usage": ""going on + 时间段"表示某状态"快要持续到"某个时长，强调时间之久。回答在家乡住了多久时很地道。",
+    "usage": "“going on + 时间段“表示某状态”快要持续到“某个时长，强调时间之久。回答在家乡住了多久时很地道。",
     "topic": "How long have you been living there?",
     "example": "I've been living in my hometown going on twenty years now.（我在家乡生活到现在快二十年了。）"
   },
@@ -1052,7 +1052,7 @@ export const videoData: VideoContent = {
   {
     "pattern": "It's been fine ..., but not our favorite either.",
     "meaning": "它还行……，但也算不上我们的最爱。",
-    "usage": "用"fine ... but not ... favorite"做不褒不贬的中性评价，语气真实克制。评价家乡设施、地方时显得客观。",
+    "usage": "用“fine ... but not ... favorite”做不褒不贬的中性评价，语气真实克制。评价家乡设施、地方时显得客观。",
     "topic": "Is there anything you dislike about it?",
     "example": "The local park is fine for a walk, but it's not our favorite either.（当地公园散步还行，但也算不上我们最喜欢的。）"
   },
@@ -1066,14 +1066,14 @@ export const videoData: VideoContent = {
   {
     "pattern": "I had absolutely no idea ... until very recently",
     "meaning": "直到最近我才知道……",
-    "usage": ""have no idea ... until recently"强调对某事一直不知情、近期才发觉，语气夸张生动。讲家乡里自己后知后觉的趣事时很自然。",
+    "usage": "“have no idea ... until recently“强调对某事一直不知情、近期才发觉，语气夸张生动。讲家乡里自己后知后觉的趣事时很自然。",
     "topic": "Have you learned anything about the history of your hometown?",
     "example": "I had absolutely no idea my hometown was so old until very recently.（直到最近我才知道我的家乡历史这么悠久。）"
   },
   {
     "pattern": "we just like it a lot and we'll take it into our next home",
     "meaning": "我们就是很喜欢它，会把它带去下一个家",
-    "usage": "用"just like it a lot"表达单纯的喜爱，加"take it into our next home"体现长久珍视。谈对家乡某物的情感依恋时很真诚。",
+    "usage": "用“just like it a lot”表达单纯的喜爱，加“take it into our next home”体现长久珍视。谈对家乡某物的情感依恋时很真诚。",
     "topic": "What do you like (most) about your hometown?",
     "example": "We just love that little café a lot, and we always bring friends there.（我们就是很喜欢那家小咖啡馆，总会带朋友去那儿。）"
   }
