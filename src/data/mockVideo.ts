@@ -2,10 +2,10 @@ import type { VideoContent } from '../types/video';
 
 export const mockVideoContent: VideoContent = {
   meta: {
-    id: 'video-002',
+    id: 'pilot-001',
     title: 'YouTube｜A 450-Square-Foot LA Studio’s Vibe Is “Main Character of a Rom-com’s Apartment” | Apartment Therapy',
     duration: 1009,
-    videoUrl: import.meta.env.VITE_VIDEO_001_URL || '/videos/video.mp4',
+    videoUrl: '',
     dataUrl: '',
     tags: {
       difficulty: 'hard',

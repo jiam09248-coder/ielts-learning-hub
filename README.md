@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# IELTS Learning Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+本项目只维护一份源代码：本地项目 / Git 仓库。Cloudflare 只是备案期间的临时预览部署目标，阿里云是未来正式生产部署目标。
 
-Currently, two official plugins are available:
+## Deployment Model
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+local source code / Git
+        |
+        | npm run build
+        v
+dist static files
+        |
+        +--> temporary Cloudflare deployment
+        |
+        +--> final Aliyun server / OSS / CDN deployment
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Daily Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+Only edit local source files. Do not edit deployed files directly in Cloudflare or on the server.
+
+## Inner Test Operations
+
+第一批个人用户内测的账号发放、视频验收和反馈记录流程见 [docs/inner-test-operations.md](docs/inner-test-operations.md)。
+
+## Build For Aliyun
+
+```bash
+npm run build
+```
+
+This creates `dist/`, which can be uploaded to an Aliyun server or static hosting service. For an Nginx server, point the site root to this `dist/` directory and configure SPA fallback to `index.html`.
+
+## Temporary Cloudflare Preview
+
+```bash
+npm run build:cloudflare
+npm run deploy:cloudflare
+```
+
+Cloudflare-specific configuration lives in `vite.cloudflare.config.ts` and `wrangler.jsonc`. If Cloudflare is no longer needed, these files and scripts can be ignored or removed.
+
+## Video URLs
+
+During the temporary phase, `.env` may point to Cloudflare R2 video URLs. Before Aliyun launch, replace `VITE_VIDEO_001_URL`, `VITE_VIDEO_PART1_STUDY_WORK_001_URL`, and other `VITE_VIDEO_*_URL` values with Aliyun OSS/CDN URLs, then run `npm run build` again.

@@ -5,7 +5,7 @@ export const videoData: VideoContent = {
     id: 'video-003',
     title: 'YouTube｜Go Inside Lydia Millen’s Timeless Country Home | Home Tour',
     duration: 653,
-    videoUrl: import.meta.env.VITE_VIDEO_003_URL || '/videos/video-003.mp4',
+    videoUrl: '',
     dataUrl: '',
     tags: {
       difficulty: 'hard',

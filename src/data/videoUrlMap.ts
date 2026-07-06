@@ -5,30 +5,14 @@
  * and LessonPage (full player) resolve consistently.
  */
 export function getVideoUrl(videoId: string): string {
-  switch (videoId) {
-    case 'pilot-001':
-      return (
-        import.meta.env.VITE_VIDEO_001_URL ||
-        'https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/video-002.mp4'
-      );
-    case 'video-002':
-      return (
-        import.meta.env.VITE_VIDEO_002_URL ||
-        '/videos/video-002.mp4'
-      );
-    case 'video-003':
-      return (
-        import.meta.env.VITE_VIDEO_003_URL ||
-        '/videos/video-003.mp4'
-      );
-    case 'video-004':
-      return (
-        import.meta.env.VITE_VIDEO_004_URL ||
-        'https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/Realistic%20Minimalist%20Home%20Tour%20%7C%20Everything%20We%20Own.mp4'
-      );
-    default:
-      return `/videos/${videoId}.mp4`;
-  }
+  const URL_MAP: Record<string, string | undefined> = {
+    'pilot-001': import.meta.env.VITE_VIDEO_001_URL,
+    'part1-study-work-001': import.meta.env.VITE_VIDEO_PART1_STUDY_WORK_001_URL || 'https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/study-work1.mp4',
+    'video-003': import.meta.env.VITE_VIDEO_003_URL,
+    'video-004': import.meta.env.VITE_VIDEO_004_URL,
+  };
+
+  return URL_MAP[videoId] || '';
 }
 
 /**

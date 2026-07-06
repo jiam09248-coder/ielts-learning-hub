@@ -1,2 +1,6 @@
-VITE_VIDEO_002_URL=https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/video-002.mp4
+# Cloudflare-only preview values. Keep source code local; only deploy build output.
+VITE_VIDEO_001_URL=https://example-r2.dev/pilot-001.mp4
+VITE_VIDEO_PART1_STUDY_WORK_001_URL=https://example-oss.com/study-work-001.mp4
+VITE_VIDEO_003_URL=https://example-r2.dev/video-003.mp4
+VITE_VIDEO_004_URL=https://example-r2.dev/video-004.mp4
 VITE_VIDEO_URL=/videos/video.mp4

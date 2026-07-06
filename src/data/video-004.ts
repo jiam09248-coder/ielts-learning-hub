@@ -5,7 +5,7 @@ export const videoData: VideoContent = {
     id: 'video-004',
     title: 'YouTube｜Realistic Minimalist Home Tour | Everything We Own',
     duration: 532,
-    videoUrl: 'https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/Realistic%20Minimalist%20Home%20Tour%20%7C%20Everything%20We%20Own.mp4',
+    videoUrl: '',
     dataUrl: '',
     thumbnail: '/thumbnails/video-004.jpg',
     tags: {

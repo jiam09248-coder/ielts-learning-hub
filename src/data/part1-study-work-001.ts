@@ -1,0 +1,640 @@
+import type { VideoContent } from '../types/video';
+
+export const videoData: VideoContent = {
+  meta: {
+    id: 'part1-study-work-001',
+    title: 'YouTube｜Asking college students 5 questions about how they chose their major',
+    duration: 400,
+    videoUrl: '/videos/part1-study-work-001.mp4',
+    dataUrl: '',
+    thumbnail: '/thumbnails/part1-study-work-001.jpg',
+    tags: {
+      difficulty: 'medium',
+      speed: 'normal',
+      durationTag: 'medium',
+    },
+  },
+  summary: `Several University of Idaho students share their desired career paths, the personal and experiential reasons for choosing their respective majors (including some shifts in academic focus), and their views on potential regret over their major choices, with most expressing confidence in their decisions despite uncertainties.
+
+多位爱达荷大学的学生分享了他们理想的职业道路、促使他们选择各自专业的个人及经历因素（包括一些学业方向的转变），以及对是否会后悔所选专业的看法，尽管存在不确定性，但大多数人都对自己的决定充满信心。`,
+  paragraphs: [
+  {
+    "id": 1,
+    "startTime": 6.16,
+    "endTime": 8.48,
+    "english": "My name is Alma Sokara Gurto.",
+    "chinese": "我叫阿尔玛·索卡拉·古尔托。"
+  },
+  {
+    "id": 2,
+    "startTime": 8.48,
+    "endTime": 13.44,
+    "english": "I'm hoping to go into diplomacy work or policy, anything in the government relations area.",
+    "chinese": "我希望能从事外交或政策相关工作，政府关系领域的任何岗位都行。"
+  },
+  {
+    "id": 3,
+    "startTime": 13.725,
+    "endTime": 15.085,
+    "english": "My name is Skyraf.",
+    "chinese": "我叫斯凯拉夫。"
+  },
+  {
+    "id": 4,
+    "startTime": 15.165,
+    "endTime": 16.285,
+    "english": "I'm not sure yet.",
+    "chinese": "我还没确定呢。"
+  },
+  {
+    "id": 5,
+    "startTime": 16.285,
+    "endTime": 21.404999,
+    "english": "I could go the private sector or I could go the government route. I'm Katie Ross.",
+    "chinese": "我可能去私企，也可能进政府部门。我是凯蒂·罗斯。"
+  },
+  {
+    "id": 6,
+    "startTime": 21.565,
+    "endTime": 26.525,
+    "english": "I think dream job would probably be like general music in like elementary school,",
+    "chinese": "我理想的工作大概是教小学的通用音乐课，"
+  },
+  {
+    "id": 7,
+    "startTime": 26.605,
+    "endTime": 32.6,
+    "english": "but I would be fine being a band director also, like, middle school, high school, wherever the one takes me, I guess.",
+    "chinese": "不过当乐队指挥我也没问题，比如初中或者高中的，反正哪儿需要我我就去哪儿吧。"
+  },
+  {
+    "id": 8,
+    "startTime": 33.72,
+    "endTime": 38.68,
+    "english": "Jasmine I want to go work in nuclear energy.",
+    "chinese": "我是贾斯敏，我想从事核能相关工作。"
+  },
+  {
+    "id": 9,
+    "startTime": 38.68,
+    "endTime": 44.795,
+    "english": "I think that's where we're headed as a society, so I might stay here and get my PhD in nuclear. Riley Gearing.",
+    "chinese": "我觉得这是社会发展的方向，所以我可能会留在这里攻读核能专业的博士学位。我是莱利·吉林。"
+  },
+  {
+    "id": 10,
+    "startTime": 44.875,
+    "endTime": 48.555,
+    "english": "I want to go back home to my family farm. I'm Rachel Varn.",
+    "chinese": "我想回到家里的农场工作。我是蕾切尔·瓦恩。"
+  },
+  {
+    "id": 11,
+    "startTime": 48.635,
+    "endTime": 51.835,
+    "english": "I want to be a speech pathologist. Maddie Eitzen.",
+    "chinese": "我想成为一名言语治疗师。我是麦迪·艾岑。"
+  },
+  {
+    "id": 12,
+    "startTime": 51.835,
+    "endTime": 54.635,
+    "english": "I'm just hoping to do something involving professional writing.",
+    "chinese": "我只是希望能做些和专业写作相关的工作。"
+  },
+  {
+    "id": 13,
+    "startTime": 55.23,
+    "endTime": 57.07,
+    "english": "Hi, I'm Samantha Smith.",
+    "chinese": "嗨，我是萨曼莎·史密斯。"
+  },
+  {
+    "id": 14,
+    "startTime": 57.309998,
+    "endTime": 62.35,
+    "english": "I hope to go into law and policy for the agricultural industry after college.",
+    "chinese": "大学毕业后，我希望进入农业领域从事法律和政策相关工作。"
+  },
+  {
+    "id": 15,
+    "startTime": 65.47,
+    "endTime": 72.045,
+    "english": "Growing up, I always looked up to my uncle because he was really cool and he went here for chemical engineering, and I really like chemistry and stuff.",
+    "chinese": "从小到大我一直很崇拜我叔叔，他超酷的，而且他就是在这里学的化学工程，我自己也特别喜欢化学这类东西。"
+  },
+  {
+    "id": 16,
+    "startTime": 72.045,
+    "endTime": 79.005,
+    "english": "During my high school years, I joined, like, my majors, like the mayor of my city's Mayor's Dean Council.",
+    "chinese": "我高中的时候加入了，就那种，我们市市长的市长院长理事会之类的组织。"
+  },
+  {
+    "id": 17,
+    "startTime": 79.16499,
+    "endTime": 86.420006,
+    "english": "Seeing just the amount of, like, impact that people can have in that stage really made me wanna to be in that environment.",
+    "chinese": "看到那个阶段的人能产生那么大的影响力，真的让我特别想置身于那样的环境里。"
+  },
+  {
+    "id": 18,
+    "startTime": 87.060005,
+    "endTime": 94.9,
+    "english": "I've always loved working with kids and I took medical classes in high school and I just I thought to myself and I realized,",
+    "chinese": "我一直很喜欢和孩子们打交道，高中还上过医学相关的课程，然后我就在心里琢磨，突然意识到，"
+  },
+  {
+    "id": 19,
+    "startTime": 94.9,
+    "endTime": 96.42,
+    "english": "oh, how about I combine the two?",
+    "chinese": "哦，那我把这两者结合起来怎么样？"
+  },
+  {
+    "id": 20,
+    "startTime": 96.985,
+    "endTime": 100.425,
+    "english": "There wasn't really one specific moment that I knew it was for me.",
+    "chinese": "其实并没有某个特定的瞬间让我确定这就是适合我的方向。"
+  },
+  {
+    "id": 21,
+    "startTime": 100.425,
+    "endTime": 103.305,
+    "english": "I think this summer working on a marketing team really helped.",
+    "chinese": "我觉得今年夏天在营销团队工作的经历真的帮了我大忙。"
+  },
+  {
+    "id": 22,
+    "startTime": 103.305,
+    "endTime": 111.43,
+    "english": "I was able to write long form content and get my work out there and seeing it actually go up on a real business website was really cool.",
+    "chinese": "我能写长篇内容，还能发布出去，看到自己的作品真的登上正经商业网站，感觉超棒的。"
+  },
+  {
+    "id": 23,
+    "startTime": 111.51,
+    "endTime": 114.87,
+    "english": "The summer after high school, my dad took me on a trip to Oregon.",
+    "chinese": "高中毕业那年夏天，我爸带我去俄勒冈州旅行了。"
+  },
+  {
+    "id": 24,
+    "startTime": 114.87,
+    "endTime": 120.47,
+    "english": "It was the first time I saw the landscapes of that kind, you know, the volcanoes and the coast.",
+    "chinese": "那是我第一次见到那样的风景，你懂的，有火山还有海岸。"
+  },
+  {
+    "id": 25,
+    "startTime": 120.47,
+    "endTime": 127.575,
+    "english": "It really just, like, opened my mind and inspired me to learn about what's around me and where I am in relation to things.",
+    "chinese": "那真的让我大开眼界，还激励我去了解身边的事物，以及我和周遭环境的关联。"
+  },
+  {
+    "id": 26,
+    "startTime": 130.535,
+    "endTime": 145.44,
+    "english": "Well, so I've always wanted to like teach and I kind of picked like what I thought would be like a safe option because I originally picked elementary education and then I realized how much I miss music.",
+    "chinese": "嗯，其实我一直想当老师，一开始选了个我觉得稳妥的方向，也就是小学教育，后来才发现我有多想念音乐。"
+  },
+  {
+    "id": 27,
+    "startTime": 145.44,
+    "endTime": 151.29501,
+    "english": "I felt like that would be something I would have more fun studying so I switched over to music ed.",
+    "chinese": "我觉得学音乐教育会更有意思，所以就转专业了。"
+  },
+  {
+    "id": 28,
+    "startTime": 151.455,
+    "endTime": 159.935,
+    "english": "I'm originally from Chile, so that international background always kind of followed me anywhere I went,",
+    "chinese": "我老家在智利，所以这种国际化背景不管我走到哪儿都一直伴随着我，"
+  },
+  {
+    "id": 29,
+    "startTime": 159.935,
+    "endTime": 164.5,
+    "english": "and I knew that it was something that I wanted to go into as a career path.",
+    "chinese": "而且我知道这是我想从事的职业方向。"
+  },
+  {
+    "id": 30,
+    "startTime": 164.57999,
+    "endTime": 170.18001,
+    "english": "So when I realized that I wanted to do policy work and I wanted to serve in that area,",
+    "chinese": "所以当我意识到自己想做政策相关工作，想在这个领域发展时，"
+  },
+  {
+    "id": 31,
+    "startTime": 170.34,
+    "endTime": 178.295,
+    "english": "I also knew that I wanted to make sure that I could include that part of my identity and it just worked out really nicely to do international studies.",
+    "chinese": "我还想确保自己能把这部分个人特质融入学业，而选择国际研究专业刚好特别合适，一切都很顺利。"
+  },
+  {
+    "id": 32,
+    "startTime": 178.69499,
+    "endTime": 187.335,
+    "english": "I actually came to the University of Idaho on a music scholarship, but after music classes weren't exactly what I was looking for,",
+    "chinese": "其实我是拿音乐奖学金进的爱达荷大学，但上了音乐课之后发现，这根本不是我想要的。"
+  },
+  {
+    "id": 33,
+    "startTime": 187.495,
+    "endTime": 193.51001,
+    "english": "my friends and I made a giant list of pros and cons for each major and I fell in love with the idea of studying English.",
+    "chinese": "我和朋友们把每个专业的优缺点列了个大清单，然后就迷上了学英语这个想法。"
+  },
+  {
+    "id": 34,
+    "startTime": 193.67,
+    "endTime": 207.72499,
+    "english": "I went in looking at agribusiness and I was kind of committed to that and then I think two weeks before selecting classes my parents were looking online and they found ASM and it looked like a better fit and so I just switched to that kind of.",
+    "chinese": "一开始我考虑的是农业商务专业，都差不多定下来了，结果大概在选课两周前，我爸妈上网的时候发现了ASM专业，觉得这个更适合我，我就转过去了。"
+  },
+  {
+    "id": 35,
+    "startTime": 207.72499,
+    "endTime": 214.125,
+    "english": "It was rough because I didn't in high school I did not have the passion for geography. I do now.",
+    "chinese": "刚开始挺难的，因为我高中的时候对地理完全没兴趣，但现在不一样了。"
+  },
+  {
+    "id": 36,
+    "startTime": 214.125,
+    "endTime": 218.205,
+    "english": "I thought I was going to go into some kind of trade or maybe even law enforcement.",
+    "chinese": "我本来以为自己会从事某种手艺行当，甚至可能去当警察。"
+  },
+  {
+    "id": 37,
+    "startTime": 220.18,
+    "endTime": 227.78,
+    "english": "It wasn't until I got back from a military deployment that I thought geography in university would be the way to go.",
+    "chinese": "直到我完成军事部署任务回来，才觉得大学读地理专业才是我该走的路。"
+  },
+  {
+    "id": 38,
+    "startTime": 231.45999,
+    "endTime": 242.95499,
+    "english": "I'm most passionate about my, when it comes to my classes, about the community that I have within my freshman class and just in our CALS division all over the CALS college.",
+    "chinese": "说到我的课程，我最在意的是我们新生班的氛围，还有整个CALS学院里我们CALS学部的社群感。"
+  },
+  {
+    "id": 39,
+    "startTime": 242.95499,
+    "endTime": 259.78,
+    "english": "I think it's so cool how, my pre health classes and my music classes work together and it really helps me understand like how we like process sound and how we speak and I think I really like those very two different majors and how they can come together for speech.",
+    "chinese": "我觉得特别酷的是，我的预健康课程和音乐课能相辅相成，这能帮我理解我们是怎么处理声音、怎么说话的。我真的很喜欢这两个完全不同的专业，还有它们在言语领域的结合方式。"
+  },
+  {
+    "id": 40,
+    "startTime": 264.145,
+    "endTime": 271.82498,
+    "english": "Now with that 6 figure salary. No. I will not.",
+    "chinese": "现在给我六位数的薪水？不行，我才不干呢。"
+  },
+  {
+    "id": 41,
+    "startTime": 271.82498,
+    "endTime": 276.785,
+    "english": "I love music and I love teaching and so it's like win win.",
+    "chinese": "我喜欢音乐，也喜欢教书，这简直是双赢啊。"
+  },
+  {
+    "id": 42,
+    "startTime": 276.785,
+    "endTime": 278.9,
+    "english": "I don't think I'll regret studying English.",
+    "chinese": "我觉得我不会后悔学英语的。"
+  },
+  {
+    "id": 43,
+    "startTime": 278.9,
+    "endTime": 285.14,
+    "english": "It's so broad and so applicable in so many areas that I think no matter where I am, I'll be able to take these skills with me.",
+    "chinese": "它的应用范围太广了，不管我以后在哪，这些技能都能用得上。"
+  },
+  {
+    "id": 44,
+    "startTime": 285.62,
+    "endTime": 288.26,
+    "english": "I don't think I'm going to regret studying in this field.",
+    "chinese": "我觉得我不会后悔在这个领域学习的。"
+  },
+  {
+    "id": 45,
+    "startTime": 288.34,
+    "endTime": 291.3,
+    "english": "I really love having the two very different things.",
+    "chinese": "我真的很喜欢同时兼顾这两件完全不同的事。"
+  },
+  {
+    "id": 46,
+    "startTime": 291.895,
+    "endTime": 299.41498,
+    "english": "Right now, in the moment, it is pretty hard because I think both are very different majors and they ask for very different things.",
+    "chinese": "现在这段时间真的挺难的，因为这两个专业完全不同，要求也差很多。"
+  },
+  {
+    "id": 47,
+    "startTime": 299.57498,
+    "endTime": 303.095,
+    "english": "But at the end of the day, I am really happy for what I'm doing.",
+    "chinese": "但说到底，我对自己现在做的事还是很开心的。"
+  },
+  {
+    "id": 48,
+    "startTime": 303.41498,
+    "endTime": 304.455,
+    "english": "I don't think so.",
+    "chinese": "我不这么觉得。"
+  },
+  {
+    "id": 49,
+    "startTime": 304.97,
+    "endTime": 309.69,
+    "english": "My major is really broad in agriculture, and so I'm getting kind of every aspect of it.",
+    "chinese": "我的农业专业涉猎面很广，各个方面的知识我都能学到。"
+  },
+  {
+    "id": 50,
+    "startTime": 309.69,
+    "endTime": 315.77,
+    "english": "And even if I don't want to farm, know I want to be in agriculture, so this is setting me up really well. Absolutely not.",
+    "chinese": "就算我不想务农，我也知道自己想从事农业相关工作，所以这个专业能给我打下很好的基础。绝对不会后悔的。"
+  },
+  {
+    "id": 51,
+    "startTime": 315.77,
+    "endTime": 320.535,
+    "english": "I love geography, and even though I'm not sure what I'm gonna do after school,",
+    "chinese": "我喜欢地理，虽说我还不确定毕业后要做什么，"
+  },
+  {
+    "id": 52,
+    "startTime": 320.535,
+    "endTime": 324.215,
+    "english": "I know that I am loving what I'm studying now and I'm not gonna regret it.",
+    "chinese": "但我知道我现在热爱所学的内容，而且我不会后悔的。"
+  },
+  {
+    "id": 53,
+    "startTime": 324.375,
+    "endTime": 325.495,
+    "english": "I don't think so.",
+    "chinese": "我可不这么想。"
+  },
+  {
+    "id": 54,
+    "startTime": 325.495,
+    "endTime": 330.135,
+    "english": "I I have always had such a large passion for the agricultural industry.",
+    "chinese": "我一直对农业这行充满热情。"
+  },
+  {
+    "id": 55,
+    "startTime": 330.135,
+    "endTime": 335.46,
+    "english": "I'm a seventh generation agriculturalist and, you know it's it's what I've grown up on.",
+    "chinese": "我是第七代务农人，你懂的，这就是我从小接触的行当。"
+  },
+  {
+    "id": 56,
+    "startTime": 335.46,
+    "endTime": 338.34,
+    "english": "Yeah, I don't think I'll ever regret it because I love it so much.",
+    "chinese": "是啊，我觉得我永远不会后悔，因为我太热爱这行了。"
+  },
+  {
+    "id": 57,
+    "startTime": 338.66,
+    "endTime": 342.18,
+    "english": "I think that's a really good question.",
+    "chinese": "我觉得这是个很棒的问题。"
+  },
+  {
+    "id": 58,
+    "startTime": 342.82,
+    "endTime": 366.47003,
+    "english": "I think that there's a lot of fields that are harder to kind of foresee where they're going and I think this is definitely one of them but I don't think that should ever disencourage someone from taking this path because uncertainty doesn't mean failure It just means that you have to be flexible.",
+    "chinese": "我觉得很多行业的发展趋势都很难预判，这个行业肯定也是其中之一，但我觉得这绝不该打消人们入行的念头，因为不确定性不代表失败，只是说你得懂得变通。"
+  },
+  {
+    "id": 59,
+    "startTime": 366.79,
+    "endTime": 382.255,
+    "english": "And I appreciate all the lessons that I'm learning through language learning and through like my international studies and policy work because it shows you that it never has been, you know, predictable career and that just means that you can do all the more impact with it.",
+    "chinese": "而且我很感激通过语言学习、国际研究还有政策工作学到的所有东西，因为这些都让你明白，这从来都不是一份可以预见的职业，但这恰恰意味着你能在这上面做出更大的影响。"
+  }
+],
+  expressions: [
+    {
+      pattern: "go into + 职业/领域",
+      meaning: "从事；进入（某行业、领域工作）",
+      usage: "用于表达未来想要投身的职业或行业方向，是口语中谈论职业规划的高频搭配",
+      topic: "What work do you do? / Why did you choose to do that type of work (or that job)? / Do you have any plans for your work in the next five years?",
+      example: "I want to go into education after graduation.（毕业后我想从事教育行业。）",
+    },
+    {
+      pattern: "private sector",
+      meaning: "私营部门；私企",
+      usage: "特指非政府、非公立的商业领域，常和public sector（公共部门）对比使用，用于谈论就业选择",
+      topic: "Do you have any plans for your studies in the next five years? / Do you have any plans for your work in the next five years?",
+      example: "Many young people prefer to work in the private sector these days.（如今很多年轻人更愿意在私企工作。）",
+    },
+    {
+      pattern: "public sector",
+      meaning: "公共部门；公职、体制内工作",
+      usage: "母语者谈论进入政府或公立机构工作时的地道说法，与private sector形成自然对照，比government route更常用",
+      topic: "Why did you choose to do that type of work (or that job)? / Do you want to change to another job?",
+      example: "He decided to work in the public sector and became a civil servant.（他决定进入体制内工作，成为了一名公务员。）",
+    },
+    {
+      pattern: "be fine doing sth",
+      meaning: "乐意做某事；也可以接受做某事",
+      usage: "用来表示除了理想选择外，也能接受其他相关的工作或安排，语气随和自然",
+      topic: "Do you want to change to another job? / Why did you choose to do that type of work (or that job)?",
+      example: "My dream is to be a designer, but I'm fine working as an assistant too.（我的理想是当设计师，不过做助理我也可以接受。）",
+    },
+    {
+      pattern: "get one's PhD",
+      meaning: "攻读博士学位；取得博士学位",
+      usage: "学术场景固定搭配，专门用于谈论深造、学历提升相关规划",
+      topic: "Do you have any plans for your studies in the next five years?",
+      example: "She plans to stay abroad and get her PhD in biology.（她打算留在国外攻读生物学博士学位。）",
+    },
+    {
+      pattern: "look up to sb",
+      meaning: "敬仰；钦佩某人",
+      usage: "描述因他人优秀而心生敬佩，常用来解释选择专业、职业的原因",
+      topic: "Why did you choose to study that subject? / Why did you choose to do that type of work (or that job)?",
+      example: "I have always looked up to my teacher, so I want to be an educator.（我一直很敬佩我的老师，所以想成为一名教育工作者。）",
+    },
+    {
+      pattern: "work with kids",
+      meaning: "和孩子打交道；从事少儿相关工作",
+      usage: "日常惯用搭配，多用于说明职业倾向、专业选择的个人喜好",
+      topic: "Why did you choose to study that subject? / Do you like your subject?",
+      example: "I love working with kids, so I major in preschool education.（我喜欢和孩子打交道，所以主修学前教育。）",
+    },
+    {
+      pattern: "combine the two",
+      meaning: "将两者结合起来",
+      usage: "口语短句，指把两种爱好、技能、领域融合在一起，解释专业或职业选择的思路",
+      topic: "Why did you choose to study that subject? / Do you want to change your major?",
+      example: "I like art and technology, so I decided to combine the two.（我喜欢艺术和科技，于是决定把两者结合起来。）",
+    },
+    {
+      pattern: "long-form content",
+      meaning: "长篇内容；长文案",
+      usage: "职场、传媒领域常用搭配，特指篇幅较长的文字内容，用于描述工作内容（注意需带连字符）",
+      topic: "What work do you do? / What technology do you use when you study?",
+      example: "My main job is to create long-form content for our social media accounts.（我的主要工作是为我们的社媒账号撰写长篇内容。）",
+    },
+    {
+      pattern: "get one's work out there",
+      meaning: "让自己的作品/成果被大众看到；对外展示成果",
+      usage: "地道口语表达，侧重分享、发布个人创作或工作成果，也常说put one's work out there",
+      topic: "What work do you do? / Do you like your job?",
+      example: "As a writer, I'm just glad to get my work out there.（作为一名作者，我很开心能把自己的作品展示给大家。）",
+    },
+    {
+      pattern: "open one's mind",
+      meaning: "开阔眼界；拓宽思路",
+      usage: "形容经历、见闻让人增长见识、转变想法，常用来解释人生或学业选择的契机",
+      topic: "Why did you choose to study that subject? / Do you miss being a student?",
+      example: "Travelling abroad really opened my mind.（出国旅行真的让我开阔了眼界。）",
+    },
+    {
+      pattern: "safe option",
+      meaning: "稳妥的选择；保底选择",
+      usage: "用于形容选择专业、工作时偏向保守、风险低的选项，雅思口语高频表达",
+      topic: "Why did you choose to study that subject? / Do you want to change your major?",
+      example: "Choosing finance was a safe option for me at that time.（当时选择金融对我来说是个稳妥的决定。）",
+    },
+    {
+      pattern: "switch over to sth",
+      meaning: "转而选择某物；改做某事",
+      usage: "侧重中途更换专业、工作、方向，描述改变选择的行为",
+      topic: "Do you want to change your major? / Do you want to change to another job?",
+      example: "I switched over to journalism after studying law for a year.（学了一年法律后，我转去学了新闻。）",
+    },
+    {
+      pattern: "career path",
+      meaning: "职业道路；职业发展方向",
+      usage: "正式且通用的搭配，用于谈论长期的职业规划与发展方向",
+      topic: "Do you have any plans for your work in the next five years? / Why did you choose to do that type of work (or that job)?",
+      example: "I hope my career path will be related to environmental protection.（我希望我的职业发展方向和环保相关。）",
+    },
+    {
+      pattern: "work out nicely",
+      meaning: "进展顺利；结果很不错",
+      usage: "口语表达，形容事情、选择最终收获了好的结果",
+      topic: "Do you like your subject? / Do you like your job?",
+      example: "Changing my major worked out nicely in the end.（最后转专业这件事结果很不错。）",
+    },
+    {
+      pattern: "make a list of pros and cons",
+      meaning: "列出利弊；权衡优缺点",
+      usage: "做选择时的常用行为表达，解释挑选专业、工作的思考过程",
+      topic: "Why did you choose to study that subject? / Do you want to change your major?",
+      example: "I made a list of pros and cons before choosing my major.（选专业前我列了一份利弊清单。）",
+    },
+    {
+      pattern: "be committed to sth",
+      meaning: "决心从事某事；坚定选择某事",
+      usage: "表示一开始坚定地选定某个专业、工作或目标，后续可能发生改变",
+      topic: "Do you want to change your major? / Why did you choose to do that type of work (or that job)?",
+      example: "I was committed to learning design at first.（起初我一心想学设计。）",
+    },
+    {
+      pattern: "a better fit",
+      meaning: "更合适的选择；更适配的事物",
+      usage: "对比多个选项时使用，指某一专业、工作、环境等更契合自身情况",
+      topic: "Do you want to change your major? / Do you want to change to another job?",
+      example: "This major is a better fit for my hobbies and abilities.（这个专业更契合我的爱好和能力。）",
+    },
+    {
+      pattern: "the way to go",
+      meaning: "正确的选择；理想的方向",
+      usage: "口语高频句型，用来认定某件事、某个方向是最优选择",
+      topic: "Why did you choose to study that subject? / Do you have any plans for your work in the next five years?",
+      example: "I believe learning foreign languages is the way to go for my future career.（我认为学习外语是我未来职业的正确方向。）",
+    },
+    {
+      pattern: "come together",
+      meaning: "融合；结合起来",
+      usage: "形容不同专业、知识、领域相互结合形成新的方向，用于谈论专业学习与发展",
+      topic: "Why did you choose to study that subject? / Do you want to change your major?",
+      example: "Art and technology come together in this new major.（艺术与科技在这个新专业里相互融合。）",
+    },
+    {
+      pattern: "6-figure salary",
+      meaning: "六位数薪资（年薪达十万及以上）",
+      usage: "职场常用搭配，用来指代高薪收入，谈论工作待遇与职业选择（书面常带连字符）",
+      topic: "What work do you do? / Do you like your job?",
+      example: "Many people hope to land a 6-figure salary after graduation.（很多人希望毕业后能拿到六位数的薪水。）",
+    },
+    {
+      pattern: "win-win",
+      meaning: "双赢；两全其美",
+      usage: "口语常用表达，形容选择或局面能带来双方/多方都满意的结果，此处指爱好与职业兼顾",
+      topic: "Do you like your subject? / Why did you choose to do that type of work (or that job)?",
+      example: "Combining my hobby with my career is a win-win situation.（把爱好和职业结合起来，可谓两全其美。）",
+    },
+    {
+      pattern: "be applicable in many areas",
+      meaning: "适用于多个领域；用途广泛",
+      usage: "描述专业、技能、知识实用性强，适用范围广，评价所学科目或技能",
+      topic: "Do you think that your subject is popular in your country? / Do you like your subject?",
+      example: "Communication skills are applicable in many areas of life.（沟通技巧在生活的诸多领域都能派上用场。）",
+    },
+    {
+      pattern: "at the end of the day",
+      meaning: "说到底；归根结底",
+      usage: "口语高频过渡短语，用于总结观点、表达内心真实想法，评价当下的学习或工作状态",
+      topic: "Do you like your subject? / Do you like your job?",
+      example: "At the end of the day, doing what you love is the most important thing.（说到底，做自己热爱的事才是最重要的。）",
+    },
+    {
+      pattern: "set sb up well",
+      meaning: "为某人打下良好基础；让某人做好准备",
+      usage: "固定搭配，指所学知识、经历为未来职业或发展铺路，谈论专业学习的价值",
+      topic: "Do you have any plans for your studies in the next five years? / Why did you choose to study that subject?",
+      example: "Learning computer skills sets me up well for future work.（学习计算机技能为我未来的工作打下了良好基础。）",
+    },
+    {
+      pattern: "grow up on sth",
+      meaning: "从小接触某物；在某种环境/事物中长大",
+      usage: "用来讲述成长背景，解释选择专业、职业的缘由",
+      topic: "Why did you choose to study that subject? / Why did you choose to do that type of work (or that job)?",
+      example: "He grew up on traditional music, so he decided to study it.（他从小听传统音乐长大，因此决定学习这个专业。）",
+    },
+    {
+      pattern: "foresee where sth is going",
+      meaning: "预判事物的发展走向",
+      usage: "用于谈论行业、专业未来的发展趋势，分析职业与学科前景",
+      topic: "Do you have any plans for your work in the next five years? / Do you think that your subject is popular in your country?",
+      example: "It's hard to foresee where this new industry is going.（很难预判这个新兴行业的发展走向。）",
+    },
+    {
+      pattern: "discourage sb from doing sth",
+      meaning: "劝阻某人做某事；使某人打消做某事的念头",
+      usage: "固定动词搭配，表达不要因外界因素放弃选择，谈论职业与专业选择的态度",
+      topic: "Do you want to change your major? / Do you want to change to another job?",
+      example: "Don't let difficulties discourage you from pursuing your dream.（别因为困难就放弃追逐梦想。）",
+    },
+    {
+      pattern: "take this path",
+      meaning: "选择这条路；选择这个发展方向",
+      usage: "比喻用法，指代选择某类专业、职业或人生发展方向",
+      topic: "Why did you choose to study that subject? / Do you have any plans for your work in the next five years?",
+      example: "I chose to take this path because I am truly interested in medicine.（我选择这条路，是因为我真心热爱医学。）",
+    }
+  ]
+};

@@ -5,6 +5,11 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface CurrentUser {
+  username: string;
+  loginAt: number;
+}
+
 export interface UserDevice {
   username: string;
   deviceType: DeviceType;
