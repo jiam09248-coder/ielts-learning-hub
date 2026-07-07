@@ -65,6 +65,7 @@ export function useVideoThumbnail(
 
       video.preload = 'metadata';
       video.muted = true;
+      video.setAttribute('referrerpolicy', 'no-referrer');
       video.crossOrigin = 'anonymous';
 
       video.addEventListener('loadedmetadata', () => {
@@ -104,6 +105,7 @@ export function useVideoThumbnail(
 
       video.preload = 'metadata';
       video.muted = true;
+      video.setAttribute('referrerpolicy', 'no-referrer');
 
       video.addEventListener('loadedmetadata', () => {
         if (gen !== genRef.current || !video) return;

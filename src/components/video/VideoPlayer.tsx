@@ -51,18 +51,19 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
     setIsReady(false);
     setHasError(false);
     retryCountRef.current = 0;
+    video.setAttribute('referrerpolicy', 'no-referrer');
     video.load();
   }, [videoUrl]);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !isReady) return;
+    if (!video) return;
     if (isPlaying) {
       video.play().catch(() => {});
     } else {
       video.pause();
     }
-  }, [isPlaying, isReady]);
+  }, [isPlaying]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -125,7 +126,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
 
       {/* Loading */}
       {!isReady && !hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-900 z-10">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-900 z-10">
           <div className={`${variant === 'desktop' ? 'w-6 h-6' : 'w-7 h-7'} border-2 border-white/20 border-t-white/60 rounded-full animate-spin`} />
         </div>
       )}
