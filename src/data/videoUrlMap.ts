@@ -25,6 +25,8 @@ export function getThumbnailUrl(videoId: string): string | undefined {
   switch (videoId) {
     case 'pilot-001':
       return '/thumbnails/pilot-001.jpg';
+    case 'part1-study-work-001':
+      return '/thumbnails/part1-study-work-001.jpg';
     case 'video-003':
       return '/thumbnails/video-003.jpg';
     case 'video-004':
