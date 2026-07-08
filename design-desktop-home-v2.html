@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>言之英语 PC 首页 v2</title>
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: #f8f5ee;
+        color: #10201d;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      .page {
+        width: 1440px;
+        min-height: 1080px;
+        margin: 0 auto;
+        padding: 28px 56px 56px;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 52px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 22px;
+        font-weight: 850;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: #17453d;
+        color: #fff8e8;
+        font-size: 20px;
+      }
+
+      .login {
+        border: 0;
+        border-radius: 18px;
+        padding: 10px 16px;
+        background: #10201d;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(480px, 0.86fr);
+        gap: 72px;
+        align-items: center;
+        padding: 54px 0 48px;
+      }
+
+      .eyebrow,
+      .kicker {
+        display: inline-flex;
+        border-radius: 10px;
+        padding: 6px 10px;
+        background: rgba(47, 132, 115, 0.14);
+        color: #2f776b;
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 0.02em;
+      }
+
+      .hero h1 {
+        margin: 18px 0 18px;
+        font-size: 56px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 540px;
+        margin: 0;
+        color: #61706a;
+        font-size: 17px;
+        line-height: 1.85;
+      }
+
+      .flow-note {
+        display: inline-flex;
+        margin-top: 24px;
+        border-radius: 14px;
+        padding: 11px 14px;
+        background: rgba(23, 69, 61, 0.1);
+        color: #477069;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .promo-card {
+        overflow: hidden;
+        border-radius: 18px;
+        background: #10201d;
+        color: #fff;
+        box-shadow: 0 18px 36px rgba(30, 55, 51, 0.12);
+      }
+
+      .promo-thumb {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background:
+          linear-gradient(180deg, rgba(16, 32, 29, 0.02), rgba(16, 32, 29, 0.5)),
+          url("public/thumbnails/part1-home-accommodation-001.jpg");
+        background-position: center;
+        background-size: cover;
+      }
+
+      .play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: grid;
+        place-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background: #f0b86e;
+        color: #10201d;
+        font-size: 23px;
+        box-shadow: 0 14px 28px rgba(16, 32, 29, 0.25);
+      }
+
+      .promo-label {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        border-radius: 10px;
+        padding: 7px 10px;
+        background: rgba(255, 255, 255, 0.94);
+        color: #17453d;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .promo-body {
+        padding: 18px 22px 20px;
+      }
+
+      .promo-body h2 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        line-height: 1.22;
+      }
+
+      .promo-body p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .section {
+        margin-top: 32px;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 16px;
+      }
+
+      .section-title h2 {
+        margin: 7px 0 0;
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .section-head .note {
+        color: #6d7b75;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .free-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .free-card,
+      .course-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 8px 18px rgba(30, 55, 51, 0.08);
+      }
+
+      .free-card {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        background: #10201d;
+        color: #fff;
+      }
+
+      .free-thumb,
+      .course-thumb {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .free-thumb.home {
+        background-image: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.32)), url("public/thumbnails/part1-home-accommodation-001.jpg");
+      }
+
+      .free-thumb.pilot {
+        background-image: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.32)), url("public/thumbnails/pilot-001.jpg");
+      }
+
+      .free-thumb .play {
+        width: 52px;
+        height: 52px;
+        font-size: 18px;
+      }
+
+      .duration {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 10px;
+        padding: 6px 8px;
+        background: rgba(16, 32, 29, 0.78);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .free-body {
+        display: flex;
+        min-height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 20px;
+      }
+
+      .free-body h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .free-body p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .unlock-note {
+        width: fit-content;
+        margin: 0 0 16px;
+        border-radius: 14px;
+        padding: 11px 14px;
+        background: rgba(23, 69, 61, 0.1);
+        color: #477069;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .filters {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .filter {
+        border-radius: 18px;
+        padding: 10px 17px;
+        background: #fff;
+        color: #66716c;
+        font-size: 14px;
+        font-weight: 850;
+        box-shadow: 0 8px 18px rgba(30, 55, 51, 0.08);
+      }
+
+      .filter.active {
+        background: #17453d;
+        color: #fff8e8;
+      }
+
+      .topic {
+        margin-top: 24px;
+      }
+
+      .topic-head {
+        display: flex;
+        align-items: baseline;
+        gap: 9px;
+        margin-bottom: 12px;
+      }
+
+      .part {
+        color: #7d8984;
+        font-size: 12px;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .topic-head h3 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.25;
+      }
+
+      .course-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .country { background-image: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.14)), url("public/thumbnails/video-003.jpg"); }
+      .minimal { background-image: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.14)), url("public/thumbnails/video-004.jpg"); }
+      .study { background-image: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.14)), url("public/thumbnails/part1-study-work-001.jpg"); }
+
+      .lock {
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        border-radius: 10px;
+        padding: 5px 8px;
+        background: rgba(255, 255, 255, 0.94);
+        color: #17453d;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .card-body {
+        min-height: 92px;
+        padding: 12px 13px 14px;
+      }
+
+      .card-body h4 {
+        min-height: 38px;
+        margin: 0 0 6px;
+        font-size: 15px;
+        line-height: 1.28;
+      }
+
+      .card-body p {
+        display: -webkit-box;
+        margin: 0;
+        overflow: hidden;
+        color: #7a8580;
+        font-size: 12px;
+        line-height: 1.5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav">
+        <div class="brand"><span class="mark">I</span><span>言之英语</span></div>
+        <button class="login">登录</button>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <span class="eyebrow">IELTS Speaking Lab</span>
+          <h1>看真实英语视频<br />学得分口语表达</h1>
+          <p>地道表达提取、动态跟随字幕、AI 语境解析。先体验免费课程，再决定是否登录学习正式视频。</p>
+          <div class="flow-note">路径清晰：免费专区在上，正式课程在下</div>
+        </div>
+
+        <article class="promo-card">
+          <div class="promo-thumb">
+            <span class="promo-label">推广视频占位</span>
+            <span class="play">▶</span>
+          </div>
+          <div class="promo-body">
+            <h2>一分钟了解言之英语怎么学</h2>
+            <p>这里可以后续放产品介绍/学习方式预览，不承担课程入口功能。</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">
+            <span class="kicker">FREE TRIAL</span>
+            <h2>免费专区</h2>
+          </div>
+          <span class="note">可直接观看</span>
+        </div>
+        <div class="free-list">
+          <article class="free-card">
+            <div class="free-thumb home">
+              <span class="play">▶</span>
+              <span class="duration">3:47</span>
+            </div>
+            <div class="free-body">
+              <h3>公寓阳台与居住空间样板</h3>
+              <p>学习描述住所、家中区域和舒适的居住感受。</p>
+            </div>
+          </article>
+          <article class="free-card">
+            <div class="free-thumb pilot">
+              <span class="play">▶</span>
+              <span class="duration">16:49</span>
+            </div>
+            <div class="free-body">
+              <h3>450平方英尺洛杉矶单间公寓参观</h3>
+              <p>学习描述小空间、居住感受和房间布置。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">
+            <span class="kicker">FULL COURSE</span>
+            <h2>正式课程</h2>
+          </div>
+        </div>
+
+        <p class="unlock-note">以下为正式视频区：可浏览课程框架，登录后解锁完整学习。</p>
+        <div class="filters">
+          <span class="filter active">全部</span>
+          <span class="filter">Part 1</span>
+          <span class="filter">Part 2&3</span>
+        </div>
+
+        <section class="topic">
+          <div class="topic-head">
+            <span class="part">Part 1</span>
+            <h3>Hometown</h3>
+          </div>
+          <div class="course-grid">
+            <article class="course-card">
+              <span class="lock">登录解锁</span>
+              <div class="course-thumb country"></div>
+              <div class="card-body">
+                <h4>走进莉迪亚·米伦的经典乡村住宅</h4>
+                <p>学习描述理想住宅、乡村生活和个人审美。</p>
+              </div>
+            </article>
+            <article class="course-card">
+              <span class="lock">登录解锁</span>
+              <div class="course-thumb minimal"></div>
+              <div class="card-body">
+                <h4>真实极简家居参观</h4>
+                <p>学习表达生活方式、物品取舍和家的优缺点。</p>
+              </div>
+            </article>
+            <article class="course-card">
+              <span class="lock">登录解锁</span>
+              <div class="course-thumb study"></div>
+              <div class="card-body">
+                <h4>Study or Work 话题 01</h4>
+                <p>学习说明专业选择、职业规划和未来方向。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

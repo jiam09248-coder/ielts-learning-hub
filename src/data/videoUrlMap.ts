@@ -5,15 +5,28 @@
  * and LessonPage (full player) resolve consistently.
  */
 export function getVideoUrl(videoId: string): string {
-  const OSS_PROXY_BASE_URL = '/oss-videos';
+  const isLocalPreview = typeof window !== 'undefined'
+    && ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const OSS_PROXY_BASE_URL = isLocalPreview ? 'https://cocolab.cn/oss-videos' : '/oss-videos';
+  const localPreviewUrl = (filename: string) => (
+    isLocalPreview ? `/videos/${filename}` : `${OSS_PROXY_BASE_URL}/${filename}`
+  );
   const URL_MAP: Record<string, string | undefined> = {
     'pilot-001': import.meta.env.VITE_VIDEO_001_URL || `${OSS_PROXY_BASE_URL}/video-002.mp4`,
+    'part1-home-accommodation-001': import.meta.env.VITE_VIDEO_PART1_HOME_ACCOMMODATION_001_URL || localPreviewUrl('part1-home-accommodation-001.mp4'),
+    'part1-home-accommodation-002': import.meta.env.VITE_VIDEO_PART1_HOME_ACCOMMODATION_002_URL || localPreviewUrl('part1-home-accommodation-002.mp4'),
+    'part1-home-accommodation-003': import.meta.env.VITE_VIDEO_PART1_HOME_ACCOMMODATION_003_URL || localPreviewUrl('part1-home-accommodation-003.mp4'),
     'part1-study-work-001': import.meta.env.VITE_VIDEO_PART1_STUDY_WORK_001_URL || `${OSS_PROXY_BASE_URL}/study-work1.mp4`,
     'video-003': import.meta.env.VITE_VIDEO_003_URL || `${OSS_PROXY_BASE_URL}/Go%20Inside%20Lydia%20Millen%E2%80%99s%20Timeless%20Country%20Home%20_%20Home%20Tour.mp4`,
     'video-004': import.meta.env.VITE_VIDEO_004_URL || `${OSS_PROXY_BASE_URL}/Realistic%20Minimalist%20Home%20Tour%20_%20Everything%20We%20Own.mp4`,
   };
 
-  return URL_MAP[videoId] || '';
+  const url = URL_MAP[videoId] || '';
+  if (isLocalPreview && url.startsWith('/oss-videos/')) {
+    return `https://cocolab.cn${url}`;
+  }
+
+  return url;
 }
 
 /**
@@ -25,6 +38,12 @@ export function getThumbnailUrl(videoId: string): string | undefined {
   switch (videoId) {
     case 'pilot-001':
       return '/thumbnails/pilot-001.jpg';
+    case 'part1-home-accommodation-001':
+      return '/thumbnails/part1-home-accommodation-001.jpg';
+    case 'part1-home-accommodation-002':
+      return '/thumbnails/part1-home-accommodation-002.jpg';
+    case 'part1-home-accommodation-003':
+      return '/thumbnails/part1-home-accommodation-003.jpg';
     case 'part1-study-work-001':
       return '/thumbnails/part1-study-work-001.jpg';
     case 'video-003':

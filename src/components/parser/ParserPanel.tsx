@@ -89,8 +89,8 @@ export default function ParserPanel({ selectedParagraph, expressions }: ParserPa
                   固定搭配
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {selectedParagraph.parse.collocations.map((col: any, i: number) => (
-                    <span key={i}>{col.phrase || col}</span>
+                  {selectedParagraph.parse.collocations.map((col, i: number) => (
+                    <span key={i}>{typeof col === 'string' ? col : col.phrase}</span>
                   ))}
                 </div>
               </div>

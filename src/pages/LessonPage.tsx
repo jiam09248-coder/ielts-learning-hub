@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Video, Play, Pause, SkipBack, SkipForward, Repeat, Repeat1, Maximize2, Sparkles, EyeOff, X } from 'lucide-react';
+import { ChevronLeft, Video, Play, Pause, SkipBack, SkipForward, Repeat, Repeat1, Maximize2, Sparkles, EyeOff, X, Menu } from 'lucide-react';
 import { PLAYBACK_RATES } from '../constants';
 import VideoPlayer from '../components/video/VideoPlayer';
 import type { VideoPlayerHandle } from '../components/video/VideoPlayer';
@@ -30,6 +30,27 @@ const LOOP_MODE_LABELS: Record<LoopMode, string> = {
 };
 
 const MOBILE_PLAYBACK_RATES = [0.5, 1, 1.5, 2];
+const NARROW_MOBILE_QUERY = '(max-width: 480px)';
+const LESSON_HEADER_TITLES: Record<string, string> = {
+  'pilot-001': 'Part 1 Hometown｜450平方英尺洛杉矶单间公寓参观',
+  'video-003': 'Part 1 Hometown｜走进莉迪亚·米伦的经典乡村住宅',
+  'video-004': 'Part 1 Hometown｜真实极简家居参观',
+  'part1-study-work-001': 'Part 1 Study & Work｜Study or Work 话题 01',
+};
+
+function useIsNarrowMobile() {
+  const [isNarrowMobile, setIsNarrowMobile] = useState(() => window.matchMedia(NARROW_MOBILE_QUERY).matches);
+
+  useEffect(() => {
+    const media = window.matchMedia(NARROW_MOBILE_QUERY);
+    const updateLayout = (event: MediaQueryList | MediaQueryListEvent) => setIsNarrowMobile(event.matches);
+    updateLayout(media);
+    media.addEventListener('change', updateLayout);
+    return () => media.removeEventListener('change', updateLayout);
+  }, []);
+
+  return isNarrowMobile;
+}
 
 function formatTime(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -456,7 +477,7 @@ function DesktopLessonView({
             <div className="flex-1 overflow-y-auto p-5 space-y-4 min-h-0" onClick={e => e.stopPropagation()}>
               <div className="bg-teal-50 rounded-xl p-4">
                 <h4 className="text-[11px] font-bold text-teal-500 uppercase tracking-wider mb-2">句子原文</h4>
-                <p className="text-sm font-medium text-slate-800 leading-relaxed">{selectedParagraph.english}</p>
+                <p className="text-sm font-medium text-slate-800 leading-relaxed">{renderHighlightedText(selectedParagraph)}</p>
                 <p className="text-xs text-slate-500 mt-1.5">{selectedParagraph.chinese}</p>
               </div>
               <div className="bg-white rounded-xl p-4">
@@ -550,6 +571,22 @@ function MobileLessonView({
   onOpenParser,
   onParagraphClick,
 }: LessonViewProps) {
+  const isNarrowMobile = useIsNarrowMobile();
+  const [showMobileMoreMenu, setShowMobileMoreMenu] = useState(false);
+  const mobileMoreMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showMobileMoreMenu) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (mobileMoreMenuRef.current?.contains(event.target as Node)) return;
+      setShowMobileMoreMenu(false);
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [showMobileMoreMenu]);
+
   return (
     <div className="flex-1 flex flex-col min-h-0 bg-white">
       <div className="border-b border-slate-200">
@@ -618,19 +655,48 @@ function MobileLessonView({
 
       <div className="shrink-0 bg-white border-t border-slate-200 px-3 py-2.5 space-y-2">
         <MobileProgressBar currentTime={currentTime} duration={duration} onSeek={onProgressSeek} />
-        <div className="flex items-center justify-between gap-1.5 relative">
-          <MobileCtrlBtn icon={loopMode === 'single' ? <Repeat1 size={17} /> : <Repeat size={17} />} label={LOOP_MODE_LABELS[loopMode]} onClick={onCycleLoopMode} />
-          <MobileMenuBtn label="倍速" value={formatPlaybackRate} onClick={onCycleMobilePlaybackRate} />
-          <div className="flex items-center gap-1.5 justify-center flex-1">
-            <MobileCtrlBtn icon={<SkipBack size={17} />} label="上一句" onClick={onPrevParagraph} />
-            <button onClick={onPlayPause} className="flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">
-              {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-              <span className="text-xs">{isPlaying ? '暂停' : '播放'}</span>
-            </button>
-            <MobileCtrlBtn icon={<SkipForward size={17} />} label="下一句" onClick={onNextParagraph} />
+        <div className="relative" ref={mobileMoreMenuRef}>
+          {isNarrowMobile && showMobileMoreMenu && (
+            <div className="absolute bottom-full right-0 mb-2 w-40 rounded-xl border border-slate-200 bg-white shadow-lg p-1.5 z-30">
+              <button onClick={onCycleMobilePlaybackRate} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50">
+                <span>倍速</span>
+                <span className="font-semibold">{formatPlaybackRate}</span>
+              </button>
+              <button onClick={onToggleSubtitleView} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50">
+                <span>字幕视图</span>
+                <span className="font-semibold">{mobileSubtitleView === 'single' ? '单句' : '列表'}</span>
+              </button>
+              <button onClick={onCycleSubtitleMode} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50">
+                <span>中英模式</span>
+                <span className="font-semibold">{SUBTITLE_MODE_LABELS[subtitleMode]}</span>
+              </button>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between gap-1.5">
+            <MobileCtrlBtn icon={loopMode === 'single' ? <Repeat1 size={17} /> : <Repeat size={17} />} label={LOOP_MODE_LABELS[loopMode]} onClick={onCycleLoopMode} />
+            {!isNarrowMobile && <MobileMenuBtn label="倍速" value={formatPlaybackRate} onClick={onCycleMobilePlaybackRate} />}
+            <div className="flex items-center gap-1.5 justify-center flex-1">
+              <MobileCtrlBtn icon={<SkipBack size={17} />} label="上一句" onClick={onPrevParagraph} />
+              <button onClick={onPlayPause} className="flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">
+                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                <span className="text-xs">{isPlaying ? '暂停' : '播放'}</span>
+              </button>
+              <MobileCtrlBtn icon={<SkipForward size={17} />} label="下一句" onClick={onNextParagraph} />
+            </div>
+            {!isNarrowMobile && <MobileMenuBtn label="字幕" value={mobileSubtitleView === 'single' ? '单' : '列表'} onClick={onToggleSubtitleView} />}
+            {!isNarrowMobile && <MobileMenuBtn label="中/英模式" value={SUBTITLE_MODE_LABELS[subtitleMode]} onClick={onCycleSubtitleMode} />}
+            {isNarrowMobile && (
+              <button
+                onClick={() => setShowMobileMoreMenu((value) => !value)}
+                className="flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:bg-slate-100 min-w-[48px]"
+                title="更多设置"
+              >
+                <Menu size={18} />
+                <span className="text-xs leading-none whitespace-nowrap">更多</span>
+              </button>
+            )}
           </div>
-          <MobileMenuBtn label="字幕" value={mobileSubtitleView === 'single' ? '单' : '列表'} onClick={onToggleSubtitleView} />
-          <MobileMenuBtn label="中/英模式" value={SUBTITLE_MODE_LABELS[subtitleMode]} onClick={onCycleSubtitleMode} />
         </div>
         <div className="flex justify-end">
           <button onClick={onOpenExpressions} className="shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 text-amber-700 text-sm font-semibold">
@@ -654,6 +720,7 @@ export default function LessonPage() {
     expressions: baseContent.expressions ?? [],
   };
   const videoUrl = getVideoUrl(resolvedVideoId);
+  const headerTitle = LESSON_HEADER_TITLES[resolvedVideoId] ?? content.meta.title.replace(/^YouTube｜/, '');
   const currentUser = getCurrentUser();
   const isLocked = !isFreeVideo(resolvedVideoId) && !currentUser;
 
@@ -661,14 +728,14 @@ export default function LessonPage() {
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
-  const [loopMode, setLoopMode] = useState<LoopMode>('single');
+  const [loopMode, setLoopMode] = useState<LoopMode>('list');
   const [subtitleMode, setSubtitleMode] = useState<SubtitleDisplayMode>('bilingual');
   const [selectedParagraph, setSelectedParagraph] = useState<Paragraph | null>(null);
   const [showParser, setShowParser] = useState(false);
   const [showExpressions, setShowExpressions] = useState(false);
   const [expandedExpr, setExpandedExpr] = useState<number | null>(null);
   const [showSpeedMenu, setShowSpeedMenu] = useState(false);
-  const [mobileSubtitleView, setMobileSubtitleView] = useState<MobileSubtitleView>('single');
+  const [mobileSubtitleView, setMobileSubtitleView] = useState<MobileSubtitleView>('list');
   const isDesktop = useIsDesktop();
   const videoPlayerRef = useRef<VideoPlayerHandle>(null);
 
@@ -684,6 +751,8 @@ export default function LessonPage() {
 
   const [lookupWord, setLookupWord] = useState('');
   const [lookupAnchor, setLookupAnchor] = useState<HTMLElement | null>(null);
+  const wordLookupWasPlayingRef = useRef(false);
+  const wordLookupWasAutoScrollRef = useRef(true);
 
   useEffect(() => {
     if (!isLocked) return;
@@ -709,7 +778,10 @@ export default function LessonPage() {
   }, [currentParagraph]);
 
   useEffect(() => {
-    setShowSpeedMenu(false);
+    const frame = window.requestAnimationFrame(() => {
+      setShowSpeedMenu(false);
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [isDesktop]);
 
   const syncActiveSubtitlePosition = useCallback((behavior?: ScrollBehavior) => {
@@ -736,9 +808,9 @@ export default function LessonPage() {
   }, [currentParagraphId, autoScroll, mobileSubtitleView, subtitleMode, syncActiveSubtitlePosition]);
 
   const expressionMatches = useMemo(() => {
-    const map: Record<number, any[]> = {};
+    const map: Record<number, { expr: Expression; match: NonNullable<ReturnType<typeof matchExpression>> }[]> = {};
     for (const p of paragraphs) {
-      const ms: any[] = [];
+      const ms: { expr: Expression; match: NonNullable<ReturnType<typeof matchExpression>> }[] = [];
       for (const expr of content.expressions) {
         const m = matchExpression(expr, p.english);
         if (m) ms.push({ expr, match: m });
@@ -908,7 +980,24 @@ export default function LessonPage() {
     if (wasPlayingRef.current) setIsPlaying(true);
   }, []);
 
-  const handleWordClick = useCallback((word: string, el: HTMLElement) => { setLookupWord(word); setLookupAnchor(el); }, []);
+  const handleWordClick = useCallback((word: string, el: HTMLElement) => {
+    if (!lookupWord) {
+      wordLookupWasPlayingRef.current = isPlaying;
+      wordLookupWasAutoScrollRef.current = autoScroll;
+    }
+
+    if (isPlaying) setIsPlaying(false);
+    if (autoScroll) setAutoScroll(false);
+    setLookupWord(word);
+    setLookupAnchor(el);
+  }, [autoScroll, isPlaying, lookupWord]);
+
+  const handleCloseWordPopup = useCallback(() => {
+    setLookupWord('');
+    setLookupAnchor(null);
+    setAutoScroll(wordLookupWasAutoScrollRef.current);
+    if (wordLookupWasPlayingRef.current) setIsPlaying(true);
+  }, []);
 
   const renderHighlightedText = useCallback((p: Paragraph) => {
     const text = p.english;
@@ -966,7 +1055,7 @@ export default function LessonPage() {
       <header className="h-11 bg-white flex items-center px-4 border-b border-slate-100 shrink-0 gap-2">
         <button onClick={() => navigate('/catalog')} className="p-1.5 hover:bg-slate-100 rounded-lg"><ChevronLeft className="w-4 h-4 text-slate-500" /></button>
         <Video className="w-4 h-4 text-slate-900" />
-        <h1 className={`font-semibold text-slate-900 truncate flex-1 ${isDesktop ? 'text-[13px]' : 'text-[15px]'}`}>{content.meta.title}</h1>
+        <h1 className={`font-semibold text-slate-900 truncate flex-1 ${isDesktop ? 'text-[13px]' : 'text-[15px]'}`}>{headerTitle}</h1>
       </header>
 
       {isDesktop ? (
@@ -1064,7 +1153,7 @@ export default function LessonPage() {
       )}
 
       {!isDesktop && <ParserSheet isOpen={showParser} onClose={closeOverlay} paragraph={selectedParagraph} />}
-      {lookupWord && <WordPopup word={lookupWord} anchorEl={lookupAnchor} onClose={() => { setLookupWord(''); setLookupAnchor(null); }} />}
+      {lookupWord && <WordPopup word={lookupWord} anchorEl={lookupAnchor} onClose={handleCloseWordPopup} />}
       {activeExpression && <ExpressionPopup expression={activeExpression} anchorEl={expressionAnchor} onClose={handleExpressionClose} />}
     </div>
   );

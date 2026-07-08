@@ -26,12 +26,21 @@ export function useVideoThumbnail(
 
   useEffect(() => {
     if (!videoUrl) {
-      setState({ thumbnail: null, loading: false, error: true, tainted: false, debug: 'no-url' });
+      const frame = window.requestAnimationFrame(() => {
+        setState({ thumbnail: null, loading: false, error: true, tainted: false, debug: 'no-url' });
+      });
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    const startFrame = window.requestAnimationFrame(() => {
+      setState({ thumbnail: null, loading: true, error: false, tainted: false, debug: `starting cors attempt: ${videoUrl.slice(0, 60)}` });
+    });
+
+    if (!videoUrl) {
       return;
     }
 
     const gen = ++genRef.current;
-    setState({ thumbnail: null, loading: true, error: false, tainted: false, debug: `starting cors attempt: ${videoUrl.slice(0, 60)}` });
 
     let video: HTMLVideoElement | null = null;
     let canvas: HTMLCanvasElement | null = null;
@@ -138,7 +147,8 @@ export function useVideoThumbnail(
     tryWithCORS();
 
     return () => {
-      genRef.current++;
+      window.cancelAnimationFrame(startFrame);
+      genRef.current = gen + 1;
       cleanup();
     };
   }, [videoUrl, seekSeconds]);
@@ -177,8 +187,9 @@ function captureAndFinish(
     const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
     console.log('[thumbnail] SUCCESS, dataUrl length:', dataUrl.length);
     finish({ thumbnail: dataUrl, debug: 'success' });
-  } catch (e: any) {
-    console.log('[thumbnail] capture error:', e.name, e.message);
-    finish(noCORS ? { tainted: true, debug: 'tainted' } : { error: true, debug: `cors-error:${e.name}` });
+  } catch (error: unknown) {
+    const captureError = error instanceof Error ? error : new Error(String(error));
+    console.log('[thumbnail] capture error:', captureError.name, captureError.message);
+    finish(noCORS ? { tainted: true, debug: 'tainted' } : { error: true, debug: `cors-error:${captureError.name}` });
   }
 }

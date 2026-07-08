@@ -1,18 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useLayoutEffect, useRef } from 'react';
 import { X, Volume2, BookOpen } from 'lucide-react';
 import useIsDesktop from '../../hooks/useIsDesktop';
-
-interface WordData {
-  word: string;
-  phonetic?: string;
-  meanings: {
-    partOfSpeech: string;
-    definitions: {
-      definition: string;
-      example?: string;
-    }[];
-  }[];
-}
+import { lookupWord } from '../../services/dictionaryService';
+import type { DictionaryEntry } from '../../types/dictionary';
 
 interface WordPopupProps {
   word: string;
@@ -20,26 +10,19 @@ interface WordPopupProps {
   onClose: () => void;
 }
 
-const FREE_DICT_API = 'https://api.dictionaryapi.dev/api/v2/entries/en';
-
-// Local fallback vocabulary (IELTS core words)
-const LOCAL_VOCAB: Record<string, { meaning: string; phonetic?: string; example?: string }> = {
-  'coastal': { meaning: '沿海的；海岸的', phonetic: '/ˈkoʊstəl/', example: 'a coastal town' },
-  'iconic': { meaning: '标志性的；符号化的', phonetic: '/aɪˈkɒnɪk/', example: 'an iconic building' },
-  'vibrant': { meaning: '充满活力的；鲜艳的', phonetic: '/ˈvaɪbrənt/', example: 'a vibrant arts scene' },
-  'commercialized': { meaning: '商业化的', phonetic: '/kəˈmɜːrʃəlaɪzd/', example: 'The area has become too commercialized.' },
-  'skyrocketed': { meaning: '飞涨；猛增', phonetic: '/ˈskaɪrɒkɪtɪd/', example: 'Prices have skyrocketed.' },
-  'belonging': { meaning: '归属感', phonetic: '/bɪˈlɒŋɪŋ/', example: 'a sense of belonging' },
-};
-
 function playWordAudio(word: string) {
+  if (!('speechSynthesis' in window)) return;
   const utterance = new SpeechSynthesisUtterance(word);
   utterance.lang = 'en-US';
   utterance.rate = 0.9;
   window.speechSynthesis.speak(utterance);
 }
 
-function DesktopWordPopupBody({ loading, error, data }: { loading: boolean; error: string; data: WordData | null }) {
+function canPlayAudio() {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+}
+
+function DesktopWordPopupBody({ loading, error, data }: { loading: boolean; error: string; data: DictionaryEntry | null }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-6">
@@ -61,13 +44,15 @@ function DesktopWordPopupBody({ loading, error, data }: { loading: boolean; erro
         {data.phonetic && (
           <span className="text-xs text-slate-500 font-mono">{data.phonetic}</span>
         )}
-        <button
-          onClick={() => playWordAudio(data.word)}
-          className="p-1 rounded-lg hover:bg-blue-50 text-blue-500 transition-colors"
-          title="播放发音"
-        >
-          <Volume2 size={14} />
-        </button>
+        {canPlayAudio() && (
+          <button
+            onClick={() => playWordAudio(data.word)}
+            className="p-1 rounded-lg hover:bg-blue-50 text-blue-500 transition-colors"
+            title="播放发音"
+          >
+            <Volume2 size={14} />
+          </button>
+        )}
       </div>
 
       {data.meanings.map((meaning, i) => (
@@ -87,11 +72,20 @@ function DesktopWordPopupBody({ loading, error, data }: { loading: boolean; erro
           ))}
         </div>
       ))}
+
+      {data.englishDefinitions?.length ? (
+        <div className="pt-2 border-t border-slate-100">
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">English</p>
+          {data.englishDefinitions.slice(0, 2).map((definition, index) => (
+            <p key={index} className="text-xs text-slate-500 leading-relaxed">{definition}</p>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
 
-function MobileWordPopupBody({ loading, error, data }: { loading: boolean; error: string; data: WordData | null }) {
+function MobileWordPopupBody({ loading, error, data }: { loading: boolean; error: string; data: DictionaryEntry | null }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-6">
@@ -113,13 +107,15 @@ function MobileWordPopupBody({ loading, error, data }: { loading: boolean; error
         {data.phonetic && (
           <span className="text-sm text-slate-500 font-mono">{data.phonetic}</span>
         )}
-        <button
-          onClick={() => playWordAudio(data.word)}
-          className="p-1 rounded-lg hover:bg-blue-50 text-blue-500 transition-colors"
-          title="播放发音"
-        >
-          <Volume2 size={14} />
-        </button>
+        {canPlayAudio() && (
+          <button
+            onClick={() => playWordAudio(data.word)}
+            className="p-1 rounded-lg hover:bg-blue-50 text-blue-500 transition-colors"
+            title="播放发音"
+          >
+            <Volume2 size={14} />
+          </button>
+        )}
       </div>
 
       {data.meanings.map((meaning, i) => (
@@ -139,6 +135,15 @@ function MobileWordPopupBody({ loading, error, data }: { loading: boolean; error
           ))}
         </div>
       ))}
+
+      {data.englishDefinitions?.length ? (
+        <div className="pt-2 border-t border-slate-100">
+          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">English</p>
+          {data.englishDefinitions.slice(0, 2).map((definition, index) => (
+            <p key={index} className="text-sm text-slate-500 leading-relaxed">{definition}</p>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -154,30 +159,68 @@ function DesktopWordPopup({
   onClose: () => void;
   loading: boolean;
   error: string;
-  data: WordData | null;
+  data: DictionaryEntry | null;
 }) {
   const popupRef = useRef<HTMLDivElement>(null);
   const [style, setStyle] = useState<React.CSSProperties>({});
+  const [positioned, setPositioned] = useState(false);
+  const placementRef = useRef<'above' | 'below' | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    placementRef.current = null;
     if (!anchorEl || !popupRef.current) return;
 
-    const anchorRect = anchorEl.getBoundingClientRect();
-    const popupRect = popupRef.current.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+    const positionPopup = () => {
+      if (!anchorEl || !popupRef.current) return;
 
-    let top = anchorRect.bottom + 8;
-    let left = anchorRect.left;
+      const viewportPadding = 16;
+      const gap = 8;
+      const anchorRect = anchorEl.getBoundingClientRect();
+      const popupRect = popupRef.current.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-    if (left + popupRect.width > viewportWidth - 16) {
-      left = viewportWidth - popupRect.width - 16;
-    }
-    if (top + popupRect.height > viewportHeight - 16) {
-      top = anchorRect.top - popupRect.height - 8;
-    }
+      let left = anchorRect.left;
+      if (left + popupRect.width > viewportWidth - viewportPadding) {
+        left = viewportWidth - popupRect.width - viewportPadding;
+      }
+      left = Math.max(viewportPadding, left);
 
-    setStyle({ top, left, position: 'fixed', zIndex: 100 });
+      const spaceBelow = viewportHeight - anchorRect.bottom - viewportPadding - gap;
+      const spaceAbove = anchorRect.top - viewportPadding - gap;
+      const targetHeight = Math.min(360, viewportHeight - viewportPadding * 2);
+
+      if (!placementRef.current) {
+        placementRef.current = spaceBelow >= targetHeight || spaceBelow >= spaceAbove ? 'below' : 'above';
+      }
+
+      const maxHeight = placementRef.current === 'below'
+        ? Math.max(160, viewportHeight - anchorRect.bottom - gap - viewportPadding)
+        : Math.max(160, anchorRect.top - viewportPadding - gap);
+      const height = Math.min(360, maxHeight);
+
+      setStyle({
+        top: placementRef.current === 'below' ? anchorRect.bottom + gap : undefined,
+        bottom: placementRef.current === 'above' ? viewportHeight - anchorRect.top + gap : undefined,
+        left,
+        position: 'fixed',
+        zIndex: 100,
+        maxHeight,
+        height,
+      });
+      setPositioned(true);
+    };
+
+    positionPopup();
+    const frame = window.requestAnimationFrame(positionPopup);
+    window.addEventListener('resize', positionPopup);
+    window.addEventListener('scroll', positionPopup, true);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('resize', positionPopup);
+      window.removeEventListener('scroll', positionPopup, true);
+    };
   }, [anchorEl]);
 
   useEffect(() => {
@@ -196,7 +239,7 @@ function DesktopWordPopup({
     <div
       ref={popupRef}
       style={style}
-      className="w-72 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+      className={`w-72 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col ${positioned ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
     >
       <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-slate-50/50">
         <div className="flex items-center gap-2">
@@ -211,7 +254,7 @@ function DesktopWordPopup({
         </button>
       </div>
 
-      <div className="p-4 max-h-80 overflow-y-auto">
+      <div className="p-4 overflow-y-auto min-h-0">
         <DesktopWordPopupBody loading={loading} error={error} data={data} />
       </div>
     </div>
@@ -227,13 +270,12 @@ function MobileWordPopup({
   onClose: () => void;
   loading: boolean;
   error: string;
-  data: WordData | null;
+  data: DictionaryEntry | null;
 }) {
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    setClosing(false);
     return () => {
       document.body.style.overflow = '';
     };
@@ -279,64 +321,27 @@ function MobileWordPopup({
 
 export default function WordPopup({ word, anchorEl, onClose }: WordPopupProps) {
   const isDesktop = useIsDesktop();
-  const [data, setData] = useState<WordData | null>(null);
+  const [data, setData] = useState<DictionaryEntry | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const cleanWord = word.replace(/[.,!?;:'"]/g, '').toLowerCase();
-
   const fetchWord = useCallback(async () => {
-    if (!cleanWord) return;
     setLoading(true);
     setError('');
 
-    try {
-      const res = await fetch(`${FREE_DICT_API}/${encodeURIComponent(cleanWord)}`);
-      if (res.ok) {
-        const json = await res.json();
-        if (Array.isArray(json) && json.length > 0) {
-          const entry = json[0];
-          const meanings = entry.meanings?.map((m: any) => ({
-            partOfSpeech: m.partOfSpeech || '',
-            definitions: (m.definitions || []).slice(0, 3).map((d: any) => ({
-              definition: d.definition || '',
-              example: d.example || '',
-            })),
-          })) || [];
-          setData({
-            word: entry.word || cleanWord,
-            phonetic: entry.phonetic || '',
-            meanings,
-          });
-          setLoading(false);
-          return;
-        }
-      }
-    } catch {
-      // API failed, try local fallback
-    }
+    const result = await lookupWord(word);
+    if (result) setData(result);
+    else setError('该词汇暂未收录');
 
-    // Fallback to local vocab
-    const local = LOCAL_VOCAB[cleanWord];
-    if (local) {
-      setData({
-        word: cleanWord,
-        phonetic: local.phonetic,
-        meanings: [
-          {
-            partOfSpeech: '',
-            definitions: [{ definition: local.meaning, example: local.example || '' }],
-          },
-        ],
-      });
-    } else {
-      setError('该词汇暂未收录');
-    }
     setLoading(false);
-  }, [cleanWord]);
+  }, [word]);
 
   useEffect(() => {
-    fetchWord();
+    const timer = window.setTimeout(() => {
+      void fetchWord();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, [fetchWord]);
 
   return isDesktop

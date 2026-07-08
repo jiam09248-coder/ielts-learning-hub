@@ -1,0 +1,6 @@
+ECDICT compact dictionary data
+
+Source: https://github.com/skywind3000/ECDICT
+License: MIT
+
+This file is a filtered, compact runtime subset generated from ecdict.csv for local English-Chinese word lookup.

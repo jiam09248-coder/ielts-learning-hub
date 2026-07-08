@@ -78,7 +78,6 @@ function MobileExpressionPopup({ expression, onClose }: Omit<ExpressionPopupProp
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    setClosing(false);
     return () => {
       document.body.style.overflow = '';
     };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { X, BookOpen, MonitorPlay } from 'lucide-react';
+import WordPopup from '../dictionary/WordPopup';
 import type { Paragraph } from '../../types/video';
 
 interface ParserSheetProps {
@@ -10,11 +11,12 @@ interface ParserSheetProps {
 
 export default function ParserSheet({ isOpen, onClose, paragraph }: ParserSheetProps) {
   const [closing, setClosing] = useState(false);
+  const [lookupWord, setLookupWord] = useState('');
+  const [lookupAnchor, setLookupAnchor] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      setClosing(false);
     }
     return () => {
       document.body.style.overflow = '';
@@ -26,12 +28,37 @@ export default function ParserSheet({ isOpen, onClose, paragraph }: ParserSheetP
     setTimeout(() => {
       onClose();
       setClosing(false);
+      setLookupWord('');
+      setLookupAnchor(null);
     }, 250);
   };
 
   if (!isOpen) return null;
 
   const parse = paragraph?.parse;
+  const renderEnglishWords = (text: string) => {
+    return text.split(/(\s+)/).map((token, idx) => {
+      if (/^\s+$/.test(token)) return <span key={`ws-${idx}`}>{token}</span>;
+
+      const clean = token.replace(/[^a-zA-Z]/g, '');
+      const isWord = clean.length > 0;
+
+      return (
+        <span
+          key={`w-${idx}`}
+          className={isWord ? 'hover:bg-blue-100 rounded px-0.5 transition-colors cursor-pointer' : ''}
+          onClick={(event) => {
+            event.stopPropagation();
+            if (!isWord) return;
+            setLookupWord(token);
+            setLookupAnchor(event.currentTarget as HTMLElement);
+          }}
+        >
+          {token}
+        </span>
+      );
+    });
+  };
 
   return (
     <div className="fixed inset-0 z-50">
@@ -74,7 +101,7 @@ export default function ParserSheet({ isOpen, onClose, paragraph }: ParserSheetP
                 </div>
                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
                   <p className="text-[19px] font-semibold text-slate-800 leading-relaxed">
-                    {paragraph?.english}
+                    {paragraph?.english ? renderEnglishWords(paragraph.english) : null}
                   </p>
                   <p className="text-sm text-slate-500 mt-1.5 leading-relaxed">
                     {paragraph?.chinese}
@@ -94,8 +121,8 @@ export default function ParserSheet({ isOpen, onClose, paragraph }: ParserSheetP
                   固定搭配
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {parse.collocations.map((col: any, i: number) => (
-                    <span key={i} className="px-3 py-1.5 bg-slate-50 text-slate-700 text-base font-medium rounded-lg border border-slate-100">{col.phrase || col}</span>
+                  {parse.collocations.map((col, i) => (
+                    <span key={i} className="px-3 py-1.5 bg-slate-50 text-slate-700 text-base font-medium rounded-lg border border-slate-100">{col.phrase}</span>
                   ))}
                 </div>
               </div>
@@ -114,6 +141,16 @@ export default function ParserSheet({ isOpen, onClose, paragraph }: ParserSheetP
             </div>
           )}
         </div>
+        {lookupWord && (
+          <WordPopup
+            word={lookupWord}
+            anchorEl={lookupAnchor}
+            onClose={() => {
+              setLookupWord('');
+              setLookupAnchor(null);
+            }}
+          />
+        )}
       </div>
     </div>
   );

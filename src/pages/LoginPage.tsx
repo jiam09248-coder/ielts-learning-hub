@@ -74,7 +74,7 @@ function DesktopLoginView({
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-500 transition"
                 tabIndex={-1}
               >
-                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                {showPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
               </button>
             </div>
           </div>
@@ -126,7 +126,7 @@ function MobileLoginView({
 
       <div className="mt-4 mb-8">
         <h1 className="text-[32px] font-bold text-slate-900 mb-2">欢迎回来</h1>
-        <p className="text-base text-slate-400 leading-7">登录你的学习账号，继续学习进度。</p>
+        <p className="text-base text-slate-400 leading-7">登录你的学习账号，解锁正式课程。</p>
       </div>
 
       <form onSubmit={onSubmit} className="space-y-5">
@@ -160,7 +160,7 @@ function MobileLoginView({
               className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-500 transition"
               tabIndex={-1}
             >
-              {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              {showPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
             </button>
           </div>
         </div>

@@ -3,6 +3,11 @@ export interface DictionaryEntry {
   phonetic?: string;
   meanings: DictionaryMeaning[];
   audio?: string;
+  source?: 'local' | 'api';
+  tags?: string[];
+  frequency?: number;
+  collins?: number;
+  englishDefinitions?: string[];
 }
 
 export interface DictionaryMeaning {

@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>言之英语首页视觉方向</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(47, 132, 115, 0.16), transparent 28%),
+          radial-gradient(circle at 78% 10%, rgba(223, 151, 84, 0.18), transparent 30%),
+          linear-gradient(135deg, #f5f1e8 0%, #f7faf8 46%, #eef4f7 100%);
+        color: #10201d;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      .canvas {
+        width: 1600px;
+        height: 1050px;
+        margin: 0 auto;
+        padding: 44px 56px;
+      }
+
+      .label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+      }
+
+      .label h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .label p {
+        margin: 10px 0 0;
+        color: #5d6b65;
+        font-size: 16px;
+      }
+
+      .swatches {
+        display: flex;
+        gap: 10px;
+      }
+
+      .swatch {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.75);
+        box-shadow: 0 12px 24px rgba(33, 48, 43, 0.12);
+      }
+
+      .stage {
+        display: grid;
+        grid-template-columns: 430px 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .phone {
+        width: 390px;
+        height: 844px;
+        margin-left: 12px;
+        border-radius: 42px;
+        padding: 14px;
+        background: #16201d;
+        box-shadow: 0 34px 70px rgba(20, 34, 32, 0.26);
+      }
+
+      .phone-screen {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 32px;
+        background: #f8f5ee;
+      }
+
+      .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px 12px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 850;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 14px;
+        background: #17453d;
+        color: #fff8e8;
+        font-size: 20px;
+      }
+
+      .login {
+        border: 0;
+        border-radius: 999px;
+        padding: 9px 13px;
+        background: #10201d;
+        color: white;
+        font-weight: 750;
+      }
+
+      .mobile-hero {
+        padding: 10px 20px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(47, 132, 115, 0.12);
+        color: #2f776b;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .mobile-hero h2 {
+        margin: 12px 0 10px;
+        font-size: 31px;
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      .mobile-hero p {
+        margin: 0;
+        color: #64716c;
+        font-size: 13px;
+        line-height: 1.62;
+      }
+
+      .hero-card {
+        margin: 0;
+        border-radius: 22px;
+        overflow: hidden;
+        background: #10201d;
+        color: white;
+        box-shadow: 0 18px 34px rgba(30, 55, 51, 0.16);
+        cursor: pointer;
+      }
+
+      .hero-thumb {
+        position: relative;
+        height: 138px;
+        background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.58)), url("public/thumbnails/pilot-001.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .play {
+        position: absolute;
+        left: 18px;
+        bottom: 16px;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #f0b86e;
+        color: #10201d;
+        font-size: 20px;
+      }
+
+      .badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        border-radius: 999px;
+        padding: 7px 10px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #17453d;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .tap-hint {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        border-radius: 999px;
+        padding: 7px 10px;
+        background: rgba(16, 32, 29, 0.78);
+        color: #fff8e8;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .hero-card .copy {
+        padding: 16px 18px 18px;
+      }
+
+      .hero-card h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .hero-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .chips {
+        display: flex;
+        gap: 8px;
+        padding: 12px 20px 14px;
+        overflow: hidden;
+      }
+
+      .chip {
+        flex: 0 0 auto;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: #66716c;
+        font-size: 13px;
+        font-weight: 750;
+        box-shadow: 0 8px 18px rgba(30, 55, 51, 0.08);
+      }
+
+      .chip.active {
+        background: #17453d;
+        color: #fff8e8;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        padding: 0 0 12px;
+      }
+
+      .section-title strong {
+        font-size: 18px;
+      }
+
+      .section-title span {
+        color: #89938e;
+        font-size: 12px;
+      }
+
+      .mobile-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 0;
+      }
+
+      .mobile-zone {
+        margin: 16px 20px 0;
+        padding: 14px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 16px 32px rgba(30, 55, 51, 0.08);
+      }
+
+      .mobile-zone.formal {
+        margin-top: 10px;
+        background: rgba(237, 244, 241, 0.82);
+      }
+
+      .zone-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        padding: 5px 9px;
+        background: rgba(240, 184, 110, 0.22);
+        color: #8a5a1f;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .formal .zone-kicker {
+        background: rgba(47, 132, 115, 0.13);
+        color: #2f776b;
+      }
+
+      .mobile-zone-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+
+      .mobile-zone-title strong {
+        font-size: 18px;
+      }
+
+      .mobile-zone-title span {
+        color: #7d8984;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .section-note {
+        margin: 10px 20px 0;
+        border-radius: 16px;
+        padding: 9px 12px;
+        background: rgba(23, 69, 61, 0.09);
+        color: #477069;
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .mini-card {
+        overflow: hidden;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 0 10px 24px rgba(30, 55, 51, 0.08);
+      }
+
+      .mini-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+      }
+
+      .mini-card div {
+        padding: 10px;
+      }
+
+      .mini-card b {
+        display: block;
+        min-height: 36px;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .mini-card small {
+        color: #8a948f;
+      }
+
+      .desktop {
+        height: 844px;
+        border-radius: 34px;
+        overflow: hidden;
+        background: #fbfaf6;
+        box-shadow: 0 34px 70px rgba(20, 34, 32, 0.18);
+      }
+
+      .desktop-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 34px;
+        border-bottom: 1px solid rgba(39, 70, 64, 0.08);
+      }
+
+      .desktop-nav .links {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #65716d;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .desktop-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 34px;
+        padding: 34px 48px 22px;
+        align-items: center;
+      }
+
+      .desktop-hero h2 {
+        margin: 16px 0 16px;
+        font-size: 46px;
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      .desktop-hero p {
+        margin: 0;
+        color: #65716d;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .preview-stack {
+        position: relative;
+        min-height: 258px;
+      }
+
+      .main-preview {
+        position: absolute;
+        inset: 0 0 auto 42px;
+        width: 520px;
+        border-radius: 26px;
+        overflow: hidden;
+        background: #10201d;
+        color: white;
+        box-shadow: 0 26px 44px rgba(30, 55, 51, 0.2);
+        cursor: pointer;
+      }
+
+      .main-preview img {
+        display: block;
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+      }
+
+      .main-preview .copy {
+        padding: 18px 22px 20px;
+      }
+
+      .floating-note {
+        position: absolute;
+        right: 28px;
+        bottom: 0;
+        width: 220px;
+        border-radius: 20px;
+        padding: 16px;
+        background: white;
+        box-shadow: 0 18px 36px rgba(30, 55, 51, 0.16);
+      }
+
+      .floating-note b {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .floating-note span {
+        color: #6a7771;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .desktop-hint {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        border-radius: 999px;
+        padding: 10px 14px;
+        background: rgba(47, 132, 115, 0.11);
+        color: #2f776b;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .desktop-content {
+        display: block;
+        padding: 0 48px 40px;
+      }
+
+      .desktop-sections {
+        display: grid;
+        grid-template-columns: 0.78fr 1.22fr;
+        gap: 24px;
+      }
+
+      .desktop-zone {
+        border-radius: 28px;
+        padding: 22px;
+        background: #ffffff;
+        box-shadow: 0 16px 32px rgba(30, 55, 51, 0.08);
+      }
+
+      .desktop-zone.formal {
+        background: #edf4f1;
+      }
+
+      .desktop-zone-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 16px;
+      }
+
+      .desktop-zone-head h3 {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .desktop-zone-head span {
+        color: #73807b;
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .side-panel {
+        border-radius: 24px;
+        padding: 20px;
+        background: #edf4f1;
+      }
+
+      .side-panel h3 {
+        margin: 0 0 14px;
+      }
+
+      .topic {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        border-radius: 16px;
+        padding: 12px;
+        background: white;
+        color: #31403c;
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      .course-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .course-grid.formal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .course {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0 12px 26px rgba(30, 55, 51, 0.08);
+      }
+
+      .course.featured img {
+        height: 178px;
+      }
+
+      .course img {
+        width: 100%;
+        height: 120px;
+        display: block;
+        object-fit: cover;
+      }
+
+      .course div {
+        padding: 13px 14px 15px;
+      }
+
+      .course b {
+        display: block;
+        min-height: 38px;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .course small {
+        color: #82908a;
+      }
+
+      .lock-tag {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 999px;
+        padding: 6px 9px;
+        background: rgba(255, 255, 255, 0.92);
+        color: #17453d;
+        font-size: 12px;
+        font-weight: 850;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="label">
+        <div>
+          <h1>言之英语 首页视觉方向</h1>
+          <p>延续原有路径：先免费体验区，再进入登录解锁的正式视频区</p>
+        </div>
+        <div class="swatches">
+          <span class="swatch" style="background:#17453d"></span>
+          <span class="swatch" style="background:#f0b86e"></span>
+          <span class="swatch" style="background:#f8f5ee"></span>
+          <span class="swatch" style="background:#10201d"></span>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="phone">
+          <div class="phone-screen">
+            <nav class="mobile-nav">
+              <div class="brand"><span class="mark">I</span><span>言之英语</span></div>
+              <button class="login">登录</button>
+            </nav>
+            <section class="mobile-hero">
+              <span class="eyebrow">IELTS Speaking Lab</span>
+              <h2>看真实视频<br />练出得分表达</h2>
+              <p>用生活场景学习雅思口语：字幕跟随、表达提取、语境解析，一次练完整套表达。</p>
+            </section>
+            <section class="mobile-zone">
+              <span class="zone-kicker">FREE TRIAL</span>
+              <div class="mobile-zone-title">
+                <strong>免费体验区</strong>
+                <span>可直接观看</span>
+              </div>
+              <section class="hero-card">
+                <div class="hero-thumb">
+                  <span class="badge">免费体验</span>
+                  <span class="play">▶</span>
+                  <span class="tap-hint">点开学习</span>
+                </div>
+                <div class="copy">
+                  <h3>450平方英尺洛杉矶单间公寓参观</h3>
+                  <p>先体验字幕跟随、表达提取和语境解析，再决定是否登录学习完整课程。</p>
+                </div>
+              </section>
+            </section>
+            <div class="chips">
+              <span class="chip active">全部</span>
+              <span class="chip">Part 1</span>
+              <span class="chip">Part 2&3</span>
+            </div>
+            <div class="section-note">以下为正式视频区：可浏览课程框架，登录后解锁学习。</div>
+            <section class="mobile-zone formal">
+              <span class="zone-kicker">FULL COURSE</span>
+              <div class="mobile-zone-title">
+                <strong>正式视频区</strong>
+                <span>登录解锁</span>
+              </div>
+              <div class="mobile-list">
+                <article class="mini-card">
+                  <img src="public/thumbnails/video-003.jpg" alt="" />
+                  <div><b>走进莉迪亚·米伦的经典乡村住宅</b><small>Hometown · 解锁</small></div>
+                </article>
+                <article class="mini-card">
+                  <img src="public/thumbnails/video-004.jpg" alt="" />
+                  <div><b>真实极简家居参观</b><small>Hometown · 解锁</small></div>
+                </article>
+                <article class="mini-card">
+                  <img src="public/thumbnails/part1-study-work-001.jpg" alt="" />
+                  <div><b>Study or Work 话题 01</b><small>Study & Work · 解锁</small></div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="desktop">
+          <nav class="desktop-nav">
+            <div class="brand"><span class="mark">I</span><span>言之英语</span></div>
+            <div class="links"><button class="login">登录</button></div>
+          </nav>
+          <section class="desktop-hero">
+            <div>
+              <span class="eyebrow">Real video based IELTS speaking</span>
+              <h2>看真实英语视频<br />练雅思口语表达</h2>
+              <p>围绕雅思口语高频话题，把真实场景拆成可复用表达、跟读字幕和语境解析。页面路径保持清楚：先免费体验，再浏览正式课程。</p>
+              <div class="desktop-hint">路径不变：免费区可直接看，正式区登录解锁</div>
+            </div>
+            <div class="preview-stack">
+              <article class="main-preview">
+                <img src="public/thumbnails/pilot-001.jpg" alt="" />
+                <div class="copy"><b>页面分区明确：免费体验区 / 正式视频区</b><br /><small>用户先试学，再决定是否登录完整课程</small></div>
+              </article>
+              <div class="floating-note">
+                <b>设计原则</b>
+                <span>漂亮但不改变路径；每个可点击卡片都对应现有视频跳转逻辑。</span>
+              </div>
+            </div>
+          </section>
+          <section class="desktop-content">
+            <div class="desktop-sections">
+              <section class="desktop-zone">
+                <div class="desktop-zone-head">
+                  <div>
+                    <span class="zone-kicker">FREE TRIAL</span>
+                    <h3>免费体验区</h3>
+                  </div>
+                  <span>可直接观看</span>
+                </div>
+                <article class="course featured"><img src="public/thumbnails/pilot-001.jpg" alt="" /><div><b>450平方英尺洛杉矶单间公寓参观</b><small>体验字幕跟随 · 表达提取 · 语境解析</small></div></article>
+              </section>
+              <section class="desktop-zone formal">
+                <div class="desktop-zone-head">
+                  <div>
+                    <span class="zone-kicker">FULL COURSE</span>
+                    <h3>正式视频区</h3>
+                  </div>
+                  <span>登录后解锁完整学习</span>
+                </div>
+                <div class="chips" style="padding:0 0 14px;">
+                  <span class="chip active">全部</span>
+                  <span class="chip">Part 1</span>
+                  <span class="chip">Part 2&3</span>
+                </div>
+                <div class="course-grid formal-grid">
+                  <article class="course"><span class="lock-tag">登录解锁</span><img src="public/thumbnails/video-003.jpg" alt="" /><div><b>走进莉迪亚·米伦的经典乡村住宅</b><small>Hometown · 理想住宅 · 审美表达</small></div></article>
+                  <article class="course"><span class="lock-tag">登录解锁</span><img src="public/thumbnails/video-004.jpg" alt="" /><div><b>真实极简家居参观</b><small>Hometown · 生活方式 · 物品取舍</small></div></article>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
