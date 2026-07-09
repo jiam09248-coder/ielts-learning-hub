@@ -32,10 +32,13 @@ const LOOP_MODE_LABELS: Record<LoopMode, string> = {
 const MOBILE_PLAYBACK_RATES = [0.5, 1, 1.5, 2];
 const NARROW_MOBILE_QUERY = '(max-width: 480px)';
 const LESSON_HEADER_TITLES: Record<string, string> = {
-  'pilot-001': 'Part 1 Hometown｜450平方英尺洛杉矶单间公寓参观',
-  'video-003': 'Part 1 Hometown｜走进莉迪亚·米伦的经典乡村住宅',
-  'video-004': 'Part 1 Hometown｜真实极简家居参观',
-  'part1-study-work-001': 'Part 1 Study & Work｜Study or Work 话题 01',
+  'pilot-001': '450平方英尺洛杉矶单间公寓参观',
+  'part1-home-accommodation-001': '公寓阳台与居住空间样板',
+  'part1-home-accommodation-002': '房子格局与日常房间介绍',
+  'part1-home-accommodation-003': '小户型餐厨客一体与收纳',
+  'video-003': '走进莉迪亚·米伦的经典乡村住宅',
+  'video-004': '真实极简家居参观',
+  'part1-study-work-001': 'Study or Work 话题 01',
 };
 
 function useIsNarrowMobile() {
@@ -156,7 +159,7 @@ function MobileProgressBar({
   onSeek: (time: number) => void;
 }) {
   return (
-    <div className="flex items-center gap-3 px-4 py-2 text-sm text-slate-500 font-medium tabular-nums">
+    <div className="flex items-center gap-2 py-2 text-sm text-slate-500 font-medium tabular-nums">
       <span className="w-10 text-right">{formatTime(currentTime)}</span>
       <input
         type="range"
@@ -658,6 +661,10 @@ function MobileLessonView({
         <div className="relative" ref={mobileMoreMenuRef}>
           {isNarrowMobile && showMobileMoreMenu && (
             <div className="absolute bottom-full right-0 mb-2 w-40 rounded-xl border border-slate-200 bg-white shadow-lg p-1.5 z-30">
+              <button onClick={onCycleLoopMode} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50">
+                <span>循环模式</span>
+                <span className="font-semibold">{LOOP_MODE_LABELS[loopMode]}</span>
+              </button>
               <button onClick={onCycleMobilePlaybackRate} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50">
                 <span>倍速</span>
                 <span className="font-semibold">{formatPlaybackRate}</span>
@@ -673,10 +680,12 @@ function MobileLessonView({
             </div>
           )}
 
-          <div className="flex items-center justify-between gap-1.5">
-            <MobileCtrlBtn icon={loopMode === 'single' ? <Repeat1 size={17} /> : <Repeat size={17} />} label={LOOP_MODE_LABELS[loopMode]} onClick={onCycleLoopMode} />
-            {!isNarrowMobile && <MobileMenuBtn label="倍速" value={formatPlaybackRate} onClick={onCycleMobilePlaybackRate} />}
-            <div className="flex items-center gap-1.5 justify-center flex-1">
+          <div className="grid grid-cols-[minmax(48px,1fr)_auto_minmax(48px,1fr)] items-center gap-1.5">
+            <div className="flex items-center gap-1.5 justify-self-start">
+              <MobileCtrlBtn icon={<Sparkles size={17} />} label="地道表达" onClick={onOpenExpressions} />
+              {!isNarrowMobile && <MobileMenuBtn label="倍速" value={formatPlaybackRate} onClick={onCycleMobilePlaybackRate} />}
+            </div>
+            <div className="flex items-center gap-1.5 justify-center">
               <MobileCtrlBtn icon={<SkipBack size={17} />} label="上一句" onClick={onPrevParagraph} />
               <button onClick={onPlayPause} className="flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">
                 {isPlaying ? <Pause size={20} /> : <Play size={20} />}
@@ -684,25 +693,21 @@ function MobileLessonView({
               </button>
               <MobileCtrlBtn icon={<SkipForward size={17} />} label="下一句" onClick={onNextParagraph} />
             </div>
-            {!isNarrowMobile && <MobileMenuBtn label="字幕" value={mobileSubtitleView === 'single' ? '单' : '列表'} onClick={onToggleSubtitleView} />}
-            {!isNarrowMobile && <MobileMenuBtn label="中/英模式" value={SUBTITLE_MODE_LABELS[subtitleMode]} onClick={onCycleSubtitleMode} />}
-            {isNarrowMobile && (
-              <button
-                onClick={() => setShowMobileMoreMenu((value) => !value)}
-                className="flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:bg-slate-100 min-w-[48px]"
-                title="更多设置"
-              >
-                <Menu size={18} />
-                <span className="text-xs leading-none whitespace-nowrap">更多</span>
-              </button>
-            )}
+            <div className="flex items-center gap-1.5 justify-self-end">
+              {!isNarrowMobile && <MobileMenuBtn label="字幕" value={mobileSubtitleView === 'single' ? '单' : '列表'} onClick={onToggleSubtitleView} />}
+              {!isNarrowMobile && <MobileMenuBtn label="中/英模式" value={SUBTITLE_MODE_LABELS[subtitleMode]} onClick={onCycleSubtitleMode} />}
+              {isNarrowMobile && (
+                <button
+                  onClick={() => setShowMobileMoreMenu((value) => !value)}
+                  className="flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:bg-slate-100 min-w-[48px]"
+                  title="设置"
+                >
+                  <Menu size={18} />
+                  <span className="text-xs leading-none whitespace-nowrap">设置</span>
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="flex justify-end">
-          <button onClick={onOpenExpressions} className="shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 text-amber-700 text-sm font-semibold">
-            <Sparkles size={14} />
-            地道表达
-          </button>
         </div>
       </div>
     </div>
@@ -1052,9 +1057,15 @@ export default function LessonPage() {
 
   return (
     <div className="h-dvh flex flex-col bg-white font-sans overflow-hidden">
-      <header className="h-11 bg-white flex items-center px-4 border-b border-slate-100 shrink-0 gap-2">
-        <button onClick={() => navigate('/catalog')} className="p-1.5 hover:bg-slate-100 rounded-lg"><ChevronLeft className="w-4 h-4 text-slate-500" /></button>
-        <Video className="w-4 h-4 text-slate-900" />
+      <header className={`${isDesktop ? 'h-11 px-4' : 'h-14 px-3'} bg-white flex items-center border-b border-slate-100 shrink-0 gap-2`}>
+        <button
+          onClick={() => navigate('/catalog')}
+          className={`${isDesktop ? 'p-1.5' : 'p-2.5'} hover:bg-slate-100 rounded-xl`}
+          aria-label="返回课程列表"
+        >
+          <ChevronLeft className={`${isDesktop ? 'w-4 h-4' : 'w-5 h-5'} text-slate-600`} />
+        </button>
+        <Video className={`${isDesktop ? 'w-4 h-4' : 'w-4.5 h-4.5'} text-slate-900`} />
         <h1 className={`font-semibold text-slate-900 truncate flex-1 ${isDesktop ? 'text-[13px]' : 'text-[15px]'}`}>{headerTitle}</h1>
       </header>
 

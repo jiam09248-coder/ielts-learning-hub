@@ -116,48 +116,51 @@ function MobileLoginView({
   onBackHome,
 }: LoginViewProps) {
   return (
-    <div className="min-h-screen bg-white px-5 pt-10 pb-8 flex flex-col">
-      <button onClick={onBackHome} className="flex items-center gap-3 mb-10">
-        <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center">
-          <GraduationCap className="text-white w-6 h-6" />
+    <div className="min-h-screen bg-[#f8f5ee] px-4 pb-8 font-sans text-[#10201d]">
+      <button onClick={onBackHome} className="flex items-center gap-3 py-3.5">
+        <div className="flex h-10 w-10 items-center justify-center rounded-[12px] bg-[#17453d] text-lg font-bold text-[#fff8e8] shadow-sm">
+          I
         </div>
-        <span className="text-[24px] font-bold tracking-tight text-slate-900">言之英语</span>
+        <span className="text-[21px] font-bold tracking-tight text-[#10201d]">言之英语</span>
       </button>
 
-      <div className="mt-4 mb-8">
-        <h1 className="text-[32px] font-bold text-slate-900 mb-2">欢迎回来</h1>
-        <p className="text-base text-slate-400 leading-7">登录你的学习账号，解锁正式课程。</p>
+      <div className="mt-6 mb-7">
+        <span className="mb-3 inline-flex rounded-[10px] bg-[#2f8473]/15 px-2.5 py-1 text-[11px] font-bold text-[#2f776b]">
+          LOGIN
+        </span>
+        <h1 className="mb-2 text-[31px] font-bold leading-[1.08] tracking-tight text-[#10201d]">欢迎回来</h1>
+        <p className="text-[14px] leading-6 text-[#64716c]">登录你的学习账号，解锁正式课程。</p>
       </div>
 
-      <form onSubmit={onSubmit} className="space-y-5">
+      <form onSubmit={onSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-slate-500 mb-2">用户名</label>
+          <label className="mb-1.5 block text-[13px] font-bold text-[#61706a]">用户名</label>
           <input
             type="text"
             value={username}
             onChange={(e) => onUsernameChange(e.target.value)}
             placeholder="请输入用户名"
             autoFocus
-            className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-base text-slate-700 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            className="w-full rounded-[16px] border border-white bg-white px-4 py-3.5 text-base font-semibold text-[#10201d] placeholder:text-[#a8b0ac] shadow-[0_8px_18px_rgba(30,55,51,0.06)] outline-none transition focus:ring-2 focus:ring-[#2f8473]/25"
             autoComplete="username"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-500 mb-2">密码</label>
+          <label className="mb-1.5 block text-[13px] font-bold text-[#61706a]">密码</label>
           <div className="relative">
             <input
               type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => onPasswordChange(e.target.value)}
               placeholder="请输入密码"
-              className="w-full px-4 py-4 pr-12 bg-slate-50 border border-slate-200 rounded-2xl text-base text-slate-700 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              className="w-full rounded-[16px] border border-white bg-white px-4 py-3.5 pr-12 text-base font-semibold text-[#10201d] placeholder:text-[#a8b0ac] shadow-[0_8px_18px_rgba(30,55,51,0.06)] outline-none transition focus:ring-2 focus:ring-[#2f8473]/25"
               autoComplete="current-password"
             />
             <button
               type="button"
               onClick={onTogglePassword}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-500 transition"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#7d8984]"
               tabIndex={-1}
             >
               {showPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
@@ -166,7 +169,7 @@ function MobileLoginView({
         </div>
 
         {error && (
-          <div className="flex items-center gap-2 text-teal-500 text-sm font-medium bg-teal-50 px-4 py-3 rounded-2xl border border-teal-100">
+          <div className="flex items-center gap-2 rounded-[14px] border border-[#e3c08b]/40 bg-[#f0b86e]/18 px-4 py-3 text-sm font-bold text-[#8a5a1f]">
             <AlertCircle size={16} />
             {error}
           </div>
@@ -175,13 +178,13 @@ function MobileLoginView({
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-4 bg-slate-900 text-white rounded-2xl font-semibold text-base disabled:opacity-50 flex items-center justify-center gap-2"
+          className="flex w-full items-center justify-center gap-2 rounded-[18px] bg-[#10201d] py-3.5 text-base font-bold text-white shadow-sm disabled:opacity-50"
         >
           {isLoading ? <span>登录中...</span> : <span>登 录</span>}
         </button>
       </form>
 
-      <button onClick={onBackHome} className="mt-6 text-sm text-slate-400 hover:text-slate-600 transition">
+      <button onClick={onBackHome} className="mt-6 text-sm font-semibold text-[#7d8984] transition hover:text-[#10201d]">
         返回首页
       </button>
     </div>

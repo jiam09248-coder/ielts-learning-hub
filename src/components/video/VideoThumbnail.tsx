@@ -1,4 +1,5 @@
 import { Play, Loader } from 'lucide-react';
+import { useState } from 'react';
 import { useVideoThumbnail } from '../../hooks/useVideoThumbnail';
 import { getVideoUrl, getThumbnailUrl } from '../../data/videoUrlMap';
 
@@ -19,15 +20,29 @@ interface VideoThumbnailProps {
  */
 export default function VideoThumbnail({ videoId, manualThumbnail }: VideoThumbnailProps) {
   const staticThumbnail = getThumbnailUrl(videoId);
-  const videoUrl = manualThumbnail || staticThumbnail ? undefined : getVideoUrl(videoId);
+  const [failedImage, setFailedImage] = useState<{ key: string; src: string } | null>(null);
+  const preferredImage = manualThumbnail ?? staticThumbnail;
+  const imageKey = `${videoId}:${preferredImage ?? ''}`;
+  const preferredImageFailed = !!preferredImage
+    && failedImage?.key === imageKey
+    && failedImage.src === preferredImage;
+  const shouldTryVideoFrame = !preferredImage || preferredImageFailed;
+  const videoUrl = shouldTryVideoFrame ? getVideoUrl(videoId) : undefined;
   const { thumbnail, loading } = useVideoThumbnail(videoUrl, { seekSeconds: 1 });
 
-  const src = manualThumbnail ?? staticThumbnail ?? thumbnail;
+  const src = preferredImage && !preferredImageFailed ? preferredImage : thumbnail;
 
   if (src) {
     return (
       <div className="aspect-video bg-slate-100 overflow-hidden relative">
-        <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+        <img
+          src={src}
+          alt=""
+          className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          onError={() => setFailedImage({ key: imageKey, src })}
+        />
       </div>
     );
   }

@@ -376,22 +376,88 @@ function MobileVideoCard({ video, locked, onOpen }: { video: VideoCard; locked?:
 function MobileFeaturedVideoCard({ video, onOpen }: { video: VideoCard; onOpen: (id: string) => void }) {
   return (
     <button onClick={() => onOpen(video.id)} className="text-left w-full">
-      <div className="overflow-hidden rounded-[16px] bg-[#10201d] text-white shadow-[0_18px_34px_rgba(30,55,51,0.16)]">
+      <div className="overflow-hidden rounded-[14px] bg-[#10201d] text-white shadow-[0_12px_24px_rgba(30,55,51,0.13)]">
         <div className="relative">
           <VideoThumbnail videoId={video.id} />
-          <span className="absolute left-1/2 top-1/2 flex h-[58px] w-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#f0b86e] text-[#10201d] shadow-[0_12px_26px_rgba(16,32,29,0.24)]">
-            <Play size={18} fill="currentColor" />
+          <span className="absolute left-1/2 top-1/2 flex h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#f0b86e] text-[#10201d] shadow-[0_10px_22px_rgba(16,32,29,0.22)]">
+            <Play size={17} fill="currentColor" />
           </span>
-          <span className="absolute bottom-3 right-3 rounded-[10px] bg-[#10201d]/80 px-2.5 py-1.5 text-[12px] font-bold text-white">
+          <span className="absolute bottom-2.5 right-2.5 rounded-[9px] bg-[#10201d]/80 px-2 py-1 text-[11px] font-bold text-white">
             {formatDuration(video.duration)}
           </span>
         </div>
-        <div className="px-4 py-3.5">
-          <h3 className="mb-1.5 text-[18px] font-bold leading-snug">{video.titleZh}</h3>
-          <p className="text-[13px] leading-6 text-white/72">{video.description}</p>
+        <div className="px-3.5 py-2.5">
+          <h3 className="mb-1 text-[16px] font-bold leading-snug">{video.titleZh}</h3>
+          <p className="line-clamp-1 text-[12px] leading-5 text-white/72">{video.description}</p>
         </div>
       </div>
     </button>
+  );
+}
+
+function MobileFreeCarousel({ videos, onOpen }: { videos: VideoCard[]; onOpen: (id: string) => void }) {
+  const touchStartXRef = useRef<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const safeActiveIndex = videos.length > 0 ? activeIndex % videos.length : 0;
+  const activeVideo = videos[safeActiveIndex] ?? videos[0];
+
+  useEffect(() => {
+    if (videos.length <= 1) return undefined;
+    const id = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % videos.length);
+    }, 3000);
+    return () => window.clearInterval(id);
+  }, [videos.length]);
+
+  const showPrevious = () => {
+    if (videos.length === 0) return;
+    setActiveIndex((index) => (index - 1 + videos.length) % videos.length);
+  };
+  const showNext = () => {
+    if (videos.length === 0) return;
+    setActiveIndex((index) => (index + 1) % videos.length);
+  };
+  const handleTouchStart = (event: React.TouchEvent) => {
+    touchStartXRef.current = event.touches[0]?.clientX ?? null;
+  };
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    const startX = touchStartXRef.current;
+    touchStartXRef.current = null;
+    if (startX === null) return;
+
+    const endX = event.changedTouches[0]?.clientX ?? startX;
+    const distance = endX - startX;
+    if (Math.abs(distance) < 36) return;
+    if (distance > 0) showPrevious();
+    else showNext();
+  };
+
+  if (!activeVideo) return null;
+
+  return (
+    <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <div
+        className="transition-opacity duration-200"
+        key={activeVideo.id}
+      >
+        <MobileFeaturedVideoCard video={activeVideo} onOpen={onOpen} />
+      </div>
+
+      {videos.length > 1 && (
+        <div className="mt-2 flex justify-center gap-1.5">
+          {videos.map((video, index) => (
+            <button
+              key={video.id}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`切换到第 ${index + 1} 个免费体验视频`}
+              className={`h-1.5 rounded-full transition-all ${
+                index === safeActiveIndex ? 'w-5 bg-[#17453d]' : 'w-1.5 bg-[#17453d]/20'
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -566,9 +632,9 @@ function DesktopEmptyState() {
 
 function MobileEmptyState() {
   return (
-    <div className="border border-dashed border-slate-200 rounded-[16px] p-10 flex flex-col items-center justify-center text-slate-300">
-      <Play size={32} className="mb-3 opacity-40" />
-      <span className="text-base font-medium">即将上线</span>
+    <div className="flex items-center justify-center gap-2 rounded-[14px] border border-dashed border-[#d8ddd8] bg-white/45 px-4 py-4 text-[#b3bdb8]">
+      <Play size={18} className="opacity-50" />
+      <span className="text-[13px] font-bold">即将上线</span>
     </div>
   );
 }
@@ -718,14 +784,39 @@ function DesktopCatalogView({
 function MobileCatalogView({
   currentUser,
   activeFilter,
+  activeTopic,
+  topicOptions,
   freeVideos,
-  filteredCategories,
   onHome,
   onLogin,
   onLogout,
   onOpenVideo,
   onFilterChange,
+  onTopicChange,
 }: CatalogViewProps) {
+  const mobileFreeVideos = useMemo(
+    () => freeVideos.filter((video) => video.id !== 'pilot-001'),
+    [freeVideos],
+  );
+  const displayCategories = useMemo(
+    () => CATEGORIES
+      .filter((category) => partMatch(category.part, activeFilter))
+      .filter((category) => activeTopic === '全部主题' || category.name === activeTopic)
+      .map((category) => {
+        const videos = currentUser
+          ? category.videos
+          : category.videos.filter((video) => !isFreeVideo(video.id) || video.id === 'pilot-001');
+
+        return {
+          ...category,
+          videos,
+          shouldShow: videos.length > 0 || category.videos.length === 0,
+        };
+      })
+      .filter((category) => category.shouldShow),
+    [activeFilter, activeTopic, currentUser],
+  );
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f8f5ee] font-sans text-[#10201d]">
       <MobileCatalogNav currentUser={currentUser} onHome={onHome} onLogin={onLogin} onLogout={onLogout} />
@@ -744,56 +835,72 @@ function MobileCatalogView({
           </p>
           {!currentUser && (
             <p className="text-[12px] text-[#7d8984] leading-5">
-              先看免费体验区，再决定是否登录学习正式视频。
+              先看免费体验视频，再决定是否登录学习正式视频。
             </p>
           )}
         </section>
 
         {!currentUser && (
-          <section className="mb-4 rounded-[22px] bg-white/75 p-3.5 shadow-[0_16px_32px_rgba(30,55,51,0.08)]">
-            <MobileZoneHeader label="FREE TRIAL" title="免费体验区" note="可直接观看" />
-            <div className="space-y-3">
-              {freeVideos.map((video) => (
-                <MobileFeaturedVideoCard key={video.id} video={video} onOpen={onOpenVideo} />
-              ))}
-            </div>
+          <section className="mb-4 rounded-[20px] bg-white/75 p-3 shadow-[0_14px_28px_rgba(30,55,51,0.08)]">
+            <MobileZoneHeader label="FREE TRIAL" title="免费体验视频" note="可直接观看" />
+            <MobileFreeCarousel videos={mobileFreeVideos} onOpen={onOpenVideo} />
           </section>
         )}
 
         {!currentUser && (
-          <div className="mt-4 rounded-[14px] bg-[#17453d]/10 px-3 py-2.5 text-[12px] font-semibold leading-5 text-[#477069]">
-            以下为正式视频区：可浏览课程框架，登录后解锁学习。
+          <div className="mx-auto mt-5 inline-flex w-full justify-center">
+            <span className="whitespace-nowrap rounded-[14px] bg-[#17453d]/10 px-3.5 py-2 text-center text-[11px] font-bold leading-none text-[#477069]">
+              正式视频区：登录后解锁完整学习
+            </span>
           </div>
         )}
 
-        <div className="flex gap-2 overflow-x-auto px-0 pb-1 pt-2.5">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => onFilterChange(f)}
-              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeFilter === f
-                  ? 'rounded-[18px] bg-[#17453d] text-[#fff8e8] shadow-sm'
-                  : 'rounded-[18px] border border-white bg-white text-[#66716c] shadow-[0_8px_18px_rgba(30,55,51,0.08)]'
-              }`}
+        <div className="space-y-3 px-0 pb-1 pt-4">
+          <div className="flex gap-2 overflow-x-auto">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                onClick={() => onFilterChange(f)}
+                className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === f
+                    ? 'rounded-[18px] bg-[#17453d] text-[#fff8e8] shadow-sm'
+                    : 'rounded-[18px] border border-white bg-white text-[#66716c] shadow-[0_8px_18px_rgba(30,55,51,0.08)]'
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+          <label className="relative block">
+            <select
+              value={activeTopic}
+              onChange={(event) => onTopicChange(event.target.value)}
+              className="w-full appearance-none rounded-[16px] border border-white bg-white px-3.5 py-2.5 pr-9 text-[13px] font-bold text-[#10201d] shadow-[0_8px_18px_rgba(30,55,51,0.08)] outline-none"
             >
-              {f}
-            </button>
-          ))}
+              {topicOptions.map((topic) => (
+                <option key={topic} value={topic}>
+                  主题：{topic}
+                </option>
+              ))}
+            </select>
+            <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-[#7a8580]">
+              ▾
+            </span>
+          </label>
         </div>
 
-        <section className="mt-5">
+        <section className="mt-8">
           <span className="mb-1.5 inline-flex rounded-[10px] bg-[#2f8473]/15 px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#2f776b]">
             {currentUser ? 'COURSES' : 'FULL COURSE'}
           </span>
-          <h2 className="mb-4 text-[23px] font-bold leading-tight tracking-tight text-[#10201d]">
+          <h2 className="mb-5 text-[23px] font-bold leading-tight tracking-tight text-[#10201d]">
             {currentUser ? '全部课程' : '正式视频区'}
           </h2>
 
-          <div className="space-y-6">
-            {filteredCategories.map((category) => (
+          <div className="space-y-9">
+            {displayCategories.map((category) => (
               <section key={category.id}>
-                <div className="mb-2.5 flex items-baseline gap-2">
+                <div className="mb-3.5 flex items-baseline gap-2">
                   <div className="text-[12px] font-bold text-[#7d8984] uppercase tracking-wide">
                     {category.part}
                   </div>
@@ -801,8 +908,8 @@ function MobileCatalogView({
                 </div>
 
                 {category.videos.length > 0 ? (
-                  <div className="overflow-x-auto pb-1">
-                    <div className="grid min-w-[328px] grid-cols-[repeat(2,minmax(158px,1fr))] items-stretch gap-3">
+                  <div className="overflow-x-auto pb-1.5">
+                    <div className="grid min-w-[328px] grid-cols-[repeat(2,minmax(158px,1fr))] items-stretch gap-3.5">
                       {category.videos.map((video) => (
                         <MobileVideoCard key={video.id} video={video} locked={!currentUser} onOpen={onOpenVideo} />
                       ))}
@@ -864,7 +971,9 @@ export default function CatalogPage() {
     setCurrentUser(null);
   };
   const handleOpenVideo = (id: string) => {
-    if (!isFreeVideo(id) && !currentUser) {
+    const requiresMobileLogin = !isDesktop && id === 'pilot-001';
+
+    if ((!isFreeVideo(id) || requiresMobileLogin) && !currentUser) {
       if (isDesktop) {
         setPendingVideoId(id);
         setLoginModalOpen(true);
