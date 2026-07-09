@@ -37,6 +37,11 @@ interface FreeDictionaryEntry {
 
 let localDictionaryPromise: Promise<Map<string, EcdictRow>> | null = null;
 
+const DICTIONARY_URLS = [
+  '/dictionaries/ecdict-compact.json',
+  'https://cdn.jsdelivr.net/gh/jiam09248-coder/ielts-learning-hub@deploy-dist/dictionaries/ecdict-compact.json',
+];
+
 const CURATED_ENTRIES: Record<string, DictionaryEntry> = {
   coastal: {
     word: 'coastal',
@@ -97,12 +102,23 @@ export function normalizeLookupWord(word: string) {
 
 async function loadLocalDictionary() {
   if (!localDictionaryPromise) {
-    localDictionaryPromise = fetch('/dictionaries/ecdict-compact.json')
-      .then((response) => {
-        if (!response.ok) throw new Error('Local dictionary unavailable');
-        return response.json() as Promise<EcdictRow[]>;
-      })
-      .then((rows) => new Map(rows.map((row) => [row.w, row])));
+    localDictionaryPromise = (async () => {
+      for (const url of DICTIONARY_URLS) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) continue;
+
+          const rows = (await response.json()) as EcdictRow[];
+          if (!Array.isArray(rows)) continue;
+
+          return new Map(rows.map((row) => [row.w, row]));
+        } catch {
+          // Try the next dictionary source.
+        }
+      }
+
+      throw new Error('Local dictionary unavailable');
+    })();
   }
 
   return localDictionaryPromise;
