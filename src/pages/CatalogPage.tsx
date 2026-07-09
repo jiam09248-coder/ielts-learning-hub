@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AlertCircle, Eye, EyeOff, Lock, LogIn, LogOut, Play, User, X } from 'lucide-react';
 import VideoThumbnail from '../components/video/VideoThumbnail';
 import { validatePresetAccount } from '../data/accounts';
+import { getThumbnailUrl } from '../data/videoUrlMap';
 import { FREE_VIDEO_IDS, isFreeVideo } from '../data/videoLibrary';
 import useIsDesktop from '../hooks/useIsDesktop';
 import { clearCurrentUser, getCurrentUser, setCurrentUser as setStoredCurrentUser } from '../utils/storage';
@@ -409,6 +410,17 @@ function MobileFreeCarousel({ videos, onOpen }: { videos: VideoCard[]; onOpen: (
     return () => window.clearInterval(id);
   }, [videos.length]);
 
+  useEffect(() => {
+    videos.forEach((video) => {
+      const thumbnailUrl = getThumbnailUrl(video.id);
+      if (!thumbnailUrl) return;
+
+      const image = new Image();
+      image.decoding = 'async';
+      image.src = thumbnailUrl;
+    });
+  }, [videos]);
+
   const showPrevious = () => {
     if (videos.length === 0) return;
     setActiveIndex((index) => (index - 1 + videos.length) % videos.length);
@@ -436,10 +448,7 @@ function MobileFreeCarousel({ videos, onOpen }: { videos: VideoCard[]; onOpen: (
 
   return (
     <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-      <div
-        className="transition-opacity duration-200"
-        key={activeVideo.id}
-      >
+      <div className="transition-opacity duration-200">
         <MobileFeaturedVideoCard video={activeVideo} onOpen={onOpen} />
       </div>
 

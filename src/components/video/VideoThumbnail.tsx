@@ -31,18 +31,36 @@ export default function VideoThumbnail({ videoId, manualThumbnail }: VideoThumbn
   const { thumbnail, loading } = useVideoThumbnail(videoUrl, { seekSeconds: 1 });
 
   const src = preferredImage && !preferredImageFailed ? preferredImage : thumbnail;
+  const [visibleSrc, setVisibleSrc] = useState(src ?? null);
+  const pendingSrc = src && src !== visibleSrc ? src : null;
 
-  if (src) {
+  if (src || visibleSrc) {
     return (
       <div className="aspect-video bg-slate-100 overflow-hidden relative">
-        <img
-          src={src}
-          alt=""
-          className="w-full h-full object-cover"
-          loading="eager"
-          decoding="async"
-          onError={() => setFailedImage({ key: imageKey, src })}
-        />
+        {visibleSrc && (
+          <img
+            src={visibleSrc}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+            decoding="async"
+            onError={() => {
+              setFailedImage({ key: imageKey, src: visibleSrc });
+              setVisibleSrc(null);
+            }}
+          />
+        )}
+        {pendingSrc && (
+          <img
+            src={pendingSrc}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-0"
+            loading="eager"
+            decoding="async"
+            onLoad={() => setVisibleSrc(pendingSrc)}
+            onError={() => setFailedImage({ key: imageKey, src: pendingSrc })}
+          />
+        )}
       </div>
     );
   }
