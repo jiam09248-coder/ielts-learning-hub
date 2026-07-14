@@ -101,7 +101,7 @@ export default function SubtitlePanel({
           <button
             onClick={onExpressionsClick}
             className="p-1.5 rounded-lg text-amber-500 hover:text-amber-600 hover:bg-amber-50 transition-all"
-            title="地道表达"
+            title="重点表达"
           >
             <Sparkles className="w-3.5 h-3.5" />
           </button>

@@ -5,6 +5,7 @@ import VideoThumbnail from '../components/video/VideoThumbnail';
 import { validatePresetAccount } from '../data/accounts';
 import { getThumbnailUrl } from '../data/videoUrlMap';
 import { FREE_VIDEO_IDS, isFreeVideo } from '../data/videoLibrary';
+import { CONTENT_MANIFEST } from '../data/contentManifest';
 import useIsDesktop from '../hooks/useIsDesktop';
 import { clearCurrentUser, getCurrentUser, setCurrentUser as setStoredCurrentUser } from '../utils/storage';
 import type { CurrentUser } from '../types/auth';
@@ -25,76 +26,23 @@ interface CategorySection {
 }
 
 const CATEGORIES: CategorySection[] = [
-  {
-    id: 'part1-home-accommodation',
-    part: 'Part 1',
-    name: 'Home/accommodation',
-    videos: [
-      {
-        id: 'part1-home-accommodation-001',
-        titleZh: '公寓阳台与居住空间样板',
-        description: '学习描述住所、最喜欢的家中区域和舒适的居住感受。',
-        duration: 227,
-        progress: 0,
-      },
-      {
-        id: 'part1-home-accommodation-002',
-        titleZh: '房子格局与日常房间介绍',
-        description: '学习描述玄关、客厅、餐厨、浴室、卧室和收纳空间。',
-        duration: 299,
-        progress: 0,
-      },
-      {
-        id: 'part1-home-accommodation-003',
-        titleZh: '小户型餐厨客一体与收纳',
-        description: '学习表达小空间、收纳、功能性和灵活的居住动线。',
-        duration: 223,
-        progress: 0,
-      },
-    ],
-  },
-  {
-    id: 'part1-hometown',
-    part: 'Part 1',
-    name: 'Hometown',
-    videos: [
-      {
-        id: 'pilot-001',
-        titleZh: '450平方英尺洛杉矶单间公寓参观',
-        description: '学习描述小空间、居住感受和房间布置。',
-        duration: 1009,
-        progress: 0,
-      },
-      {
-        id: 'video-003',
-        titleZh: '走进莉迪亚·米伦的经典乡村住宅',
-        description: '学习描述理想住宅、乡村生活和个人审美。',
-        duration: 653,
-        progress: 0,
-      },
-      {
-        id: 'video-004',
-        titleZh: '真实极简家居参观',
-        description: '学习表达生活方式、物品取舍和家的优缺点。',
-        duration: 532,
-        progress: 0,
-      },
-    ],
-  },
-  {
-    id: 'part1-study',
-    part: 'Part 1',
-    name: 'Study & Work',
-    videos: [
-      {
-        id: 'part1-study-work-001',
-        titleZh: 'Study or Work 话题 01',
-        description: '学习说明专业选择、职业规划和未来方向。',
-        duration: 0,
-        progress: 0,
-      },
-    ],
-  },
+  ...[...new Set(CONTENT_MANIFEST.map((entry) => `${entry.part}:${entry.category}`))].map((key) => {
+    const [part, name] = key.split(':');
+    return {
+      id: key.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      part,
+      name,
+      videos: CONTENT_MANIFEST
+        .filter((entry) => entry.part === part && entry.category === name)
+        .map((entry) => ({
+          id: entry.id,
+          titleZh: entry.titleZh,
+          description: entry.description,
+          duration: entry.duration,
+          progress: 0,
+        })),
+    };
+  }),
   {
     id: 'part2-person',
     part: 'Part 2',
@@ -699,7 +647,7 @@ function DesktopCatalogView({
               学得分口语表达
             </h1>
             <p className="max-w-[540px] text-[17px] leading-8 text-[#61706a]">
-              地道表达提取、动态跟随字幕、AI 语境解析。先体验免费课程，再决定是否登录学习正式视频。
+              重点表达提取、动态跟随字幕、AI 语境解析。先体验免费内容，再决定是否登录查看正式视频。
             </p>
           </div>
 
@@ -803,10 +751,7 @@ function MobileCatalogView({
   onFilterChange,
   onTopicChange,
 }: CatalogViewProps) {
-  const mobileFreeVideos = useMemo(
-    () => freeVideos.filter((video) => video.id !== 'pilot-001'),
-    [freeVideos],
-  );
+  const mobileFreeVideos = freeVideos;
   const displayCategories = useMemo(
     () => CATEGORIES
       .filter((category) => partMatch(category.part, activeFilter))
@@ -840,7 +785,7 @@ function MobileCatalogView({
             学得分口语表达
           </h1>
           <p className="text-[13px] text-[#64716c] leading-6 mb-1">
-            地道表达提取 · 动态跟随字幕 · AI 语境解析
+            重点表达提取 · 动态跟随字幕 · AI 语境解析
           </p>
           {!currentUser && (
             <p className="text-[12px] text-[#7d8984] leading-5">
@@ -980,9 +925,7 @@ export default function CatalogPage() {
     setCurrentUser(null);
   };
   const handleOpenVideo = (id: string) => {
-    const requiresMobileLogin = !isDesktop && id === 'pilot-001';
-
-    if ((!isFreeVideo(id) || requiresMobileLogin) && !currentUser) {
+    if (!isFreeVideo(id) && !currentUser) {
       if (isDesktop) {
         setPendingVideoId(id);
         setLoginModalOpen(true);

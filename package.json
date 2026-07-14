@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "validate:content": "node scripts/validate-content.mjs",
+    "build:lesson-dictionary": "node scripts/build-lesson-dictionary.mjs",
     "preview": "npm run build && vite preview",
     "build:cloudflare": "tsc -b && vite build --config vite.cloudflare.config.ts",
     "preview:cloudflare": "npm run build:cloudflare && wrangler dev",

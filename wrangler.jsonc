@@ -12,6 +12,7 @@
     "nodejs_compat"
   ],
   "vars": {
+    "VITE_VIDEO_BASE_URL": "/oss-videos",
     "VITE_VIDEO_001_URL": "https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/video-002.mp4",
     "VITE_VIDEO_PART1_STUDY_WORK_001_URL": "https://pub-18bb19e4b4de4de982781a56d34ab41b.r2.dev/study-work1.mp4",
     "VITE_VIDEO_URL": "/videos/video.mp4",

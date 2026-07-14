@@ -35,9 +35,21 @@ interface FreeDictionaryEntry {
   meanings?: FreeDictionaryMeaning[];
 }
 
-let localDictionaryPromise: Promise<Map<string, EcdictRow>> | null = null;
+type DictionaryMap = Map<string, EcdictRow>;
 
-const DICTIONARY_URLS = [
+let lessonDictionaryPromise: Promise<DictionaryMap> | null = null;
+let fullDictionaryPromise: Promise<DictionaryMap> | null = null;
+const dictionaryRootIndexes = new WeakMap<DictionaryMap, Map<string, EcdictRow>>();
+const wordResultCache = new Map<string, DictionaryEntry | null>();
+const wordRequestCache = new Map<string, Promise<DictionaryEntry | null>>();
+const WORD_CACHE_KEY = 'ielts_hub_dictionary_cache_v2';
+
+const LESSON_DICTIONARY_URLS = [
+  '/dictionaries/home-accommodation-ecdict.json',
+  'https://cdn.jsdelivr.net/gh/jiam09248-coder/ielts-learning-hub@deploy-dist/dictionaries/home-accommodation-ecdict.json',
+];
+
+const FULL_DICTIONARY_URLS = [
   '/dictionaries/ecdict-compact.json',
   'https://cdn.jsdelivr.net/gh/jiam09248-coder/ielts-learning-hub@deploy-dist/dictionaries/ecdict-compact.json',
 ];
@@ -100,28 +112,36 @@ export function normalizeLookupWord(word: string) {
     .toLowerCase();
 }
 
-async function loadLocalDictionary() {
-  if (!localDictionaryPromise) {
-    localDictionaryPromise = (async () => {
-      for (const url of DICTIONARY_URLS) {
-        try {
-          const response = await fetch(url);
-          if (!response.ok) continue;
+async function loadDictionary(urls: string[]) {
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, { cache: 'force-cache' });
+      if (!response.ok) continue;
 
-          const rows = (await response.json()) as EcdictRow[];
-          if (!Array.isArray(rows)) continue;
+      const rows = (await response.json()) as EcdictRow[];
+      if (!Array.isArray(rows)) continue;
 
-          return new Map(rows.map((row) => [row.w, row]));
-        } catch {
-          // Try the next dictionary source.
-        }
-      }
-
-      throw new Error('Local dictionary unavailable');
-    })();
+      return new Map(rows.map((row) => [row.w, row]));
+    } catch {
+      // Try the next dictionary source.
+    }
   }
 
-  return localDictionaryPromise;
+  throw new Error('Local dictionary unavailable');
+}
+
+async function loadLessonDictionary() {
+  if (!lessonDictionaryPromise) lessonDictionaryPromise = loadDictionary(LESSON_DICTIONARY_URLS);
+  return lessonDictionaryPromise;
+}
+
+async function loadFullDictionary() {
+  if (!fullDictionaryPromise) fullDictionaryPromise = loadDictionary(FULL_DICTIONARY_URLS);
+  return fullDictionaryPromise;
+}
+
+export function preloadLessonDictionary() {
+  void loadLessonDictionary().catch(() => undefined);
 }
 
 function getSimpleCandidates(word: string) {
@@ -158,6 +178,20 @@ function getExchangeRoots(exchange?: string) {
     .filter(Boolean);
 }
 
+function getRootIndex(dictionary: DictionaryMap) {
+  const cached = dictionaryRootIndexes.get(dictionary);
+  if (cached) return cached;
+
+  const index = new Map<string, EcdictRow>();
+  for (const row of dictionary.values()) {
+    for (const root of getExchangeRoots(row.x)) {
+      if (!index.has(root)) index.set(root, row);
+    }
+  }
+  dictionaryRootIndexes.set(dictionary, index);
+  return index;
+}
+
 function splitDefinitions(text?: string) {
   return (text || '')
     .split('\n')
@@ -192,8 +226,7 @@ function rowToEntry(row: EcdictRow, displayedWord: string): DictionaryEntry {
   };
 }
 
-async function lookupLocal(word: string) {
-  const dictionary = await loadLocalDictionary();
+function lookupInDictionary(dictionary: DictionaryMap, word: string) {
   const directCandidates = getSimpleCandidates(word);
 
   for (const candidate of directCandidates) {
@@ -204,12 +237,54 @@ async function lookupLocal(word: string) {
     if (row) return rowToEntry(row, word);
   }
 
-  for (const row of dictionary.values()) {
-    const roots = getExchangeRoots(row.x);
-    if (roots.some((root) => directCandidates.includes(root))) return rowToEntry(row, word);
+  const rootIndex = getRootIndex(dictionary);
+  for (const candidate of directCandidates) {
+    const row = rootIndex.get(candidate);
+    if (row) return rowToEntry(row, word);
   }
 
   return null;
+}
+
+async function lookupLocal(word: string) {
+  const lessonDictionary = await loadLessonDictionary();
+  const lessonEntry = lookupInDictionary(lessonDictionary, word);
+  if (lessonEntry) return lessonEntry;
+
+  const fullDictionary = await loadFullDictionary();
+  return lookupInDictionary(fullDictionary, word);
+}
+
+function readStoredWord(word: string) {
+  if (wordResultCache.has(word)) return { found: true, value: wordResultCache.get(word) || null };
+  if (typeof window === 'undefined') return { found: false, value: null };
+
+  try {
+    const raw = window.sessionStorage.getItem(WORD_CACHE_KEY);
+    const stored = raw ? JSON.parse(raw) as Record<string, DictionaryEntry | null> : {};
+    if (Object.prototype.hasOwnProperty.call(stored, word)) {
+      wordResultCache.set(word, stored[word]);
+      return { found: true, value: stored[word] || null };
+    }
+  } catch {
+    // Ignore unavailable or malformed browser storage.
+  }
+
+  return { found: false, value: null };
+}
+
+function storeWord(word: string, entry: DictionaryEntry | null) {
+  wordResultCache.set(word, entry);
+  if (typeof window === 'undefined') return;
+
+  try {
+    const raw = window.sessionStorage.getItem(WORD_CACHE_KEY);
+    const stored = raw ? JSON.parse(raw) as Record<string, DictionaryEntry | null> : {};
+    stored[word] = entry;
+    window.sessionStorage.setItem(WORD_CACHE_KEY, JSON.stringify(stored));
+  } catch {
+    // Ignore unavailable browser storage; memory cache still works.
+  }
 }
 
 async function lookupFreeDictionary(word: string): Promise<DictionaryEntry | null> {
@@ -240,12 +315,33 @@ export async function lookupWord(word: string): Promise<DictionaryEntry | null> 
   const cleanWord = normalizeLookupWord(word);
   if (!cleanWord) return null;
 
-  const localEntry = await lookupLocal(cleanWord);
-  if (localEntry) return localEntry;
+  const cached = readStoredWord(cleanWord);
+  if (cached.found) return cached.value;
 
+  const inFlight = wordRequestCache.get(cleanWord);
+  if (inFlight) return inFlight;
+
+  const request = (async () => {
+    const localEntry = await lookupLocal(cleanWord);
+    if (localEntry) {
+      storeWord(cleanWord, localEntry);
+      return localEntry;
+    }
+
+    try {
+      const apiEntry = await lookupFreeDictionary(cleanWord);
+      storeWord(cleanWord, apiEntry);
+      return apiEntry;
+    } catch {
+      storeWord(cleanWord, null);
+      return null;
+    }
+  })();
+
+  wordRequestCache.set(cleanWord, request);
   try {
-    return await lookupFreeDictionary(cleanWord);
-  } catch {
-    return null;
+    return await request;
+  } finally {
+    wordRequestCache.delete(cleanWord);
   }
 }

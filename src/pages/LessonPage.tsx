@@ -7,7 +7,8 @@ import type { VideoPlayerHandle } from '../components/video/VideoPlayer';
 import WordPopup from '../components/dictionary/WordPopup';
 import ExpressionPopup from '../components/dictionary/ExpressionPopup';
 import ParserSheet from '../components/parser/ParserSheet';
-import { getVideoContent, isFreeVideo, VIDEO_LIBRARY } from '../data/videoLibrary';
+import { getContentManifestEntry, isFreeVideo } from '../data/videoLibrary';
+import useVideoContent from '../hooks/useVideoContent';
 import useIsDesktop from '../hooks/useIsDesktop';
 import { getVideoUrl } from '../data/videoUrlMap';
 import { getCurrentUser } from '../utils/storage';
@@ -39,6 +40,11 @@ const LESSON_HEADER_TITLES: Record<string, string> = {
   'video-003': '走进莉迪亚·米伦的经典乡村住宅',
   'video-004': '真实极简家居参观',
   'part1-study-work-001': 'Study or Work 话题 01',
+};
+
+const EMPTY_CONTENT: VideoContent = {
+  meta: { id: '', title: '', duration: 0, videoUrl: '', dataUrl: '', tags: { difficulty: 'easy', speed: 'normal', durationTag: 'short' } },
+  summary: '', paragraphs: [], expressions: [],
 };
 
 function useIsNarrowMobile() {
@@ -434,7 +440,7 @@ function DesktopLessonView({
           </div>
 
           <button onClick={onOpenExpressions} className="shrink-0 px-3 py-1.5 text-xs font-bold text-white bg-teal-500 rounded-lg hover:bg-teal-500 transition-colors">
-            地道表达汇总
+            重点表达汇总
           </button>
         </div>
 
@@ -509,7 +515,7 @@ function DesktopLessonView({
         {showExpressions && (
           <div className="absolute inset-0 top-[53px] flex flex-col bg-white z-10">
             <div className="flex items-center justify-between px-5 py-2 shrink-0 border-b border-slate-100">
-              <span className="text-sm font-bold text-slate-800">地道表达汇总</span>
+              <span className="text-sm font-bold text-slate-800">重点表达汇总</span>
               <button onClick={onCloseOverlay} className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
                 <X className="w-4 h-4 text-slate-500" />
               </button>
@@ -682,7 +688,7 @@ function MobileLessonView({
 
           <div className="grid grid-cols-[minmax(48px,1fr)_auto_minmax(48px,1fr)] items-center gap-1.5">
             <div className="flex items-center gap-1.5 justify-self-start">
-              <MobileCtrlBtn icon={<Sparkles size={17} />} label="地道表达" onClick={onOpenExpressions} />
+              <MobileCtrlBtn icon={<Sparkles size={17} />} label="重点表达" onClick={onOpenExpressions} />
               {!isNarrowMobile && <MobileMenuBtn label="倍速" value={formatPlaybackRate} onClick={onCycleMobilePlaybackRate} />}
             </div>
             <div className="flex items-center gap-1.5 justify-center">
@@ -717,8 +723,10 @@ function MobileLessonView({
 export default function LessonPage() {
   const { videoId } = useParams();
   const navigate = useNavigate();
-  const resolvedVideoId = videoId && VIDEO_LIBRARY[videoId] ? videoId : 'pilot-001';
-  const baseContent: VideoContent = getVideoContent(resolvedVideoId);
+  const contentEntry = getContentManifestEntry(videoId);
+  const resolvedVideoId = contentEntry?.id ?? 'pilot-001';
+  const { content: loadedContent, error: contentError, isLoading: contentLoading } = useVideoContent(resolvedVideoId);
+  const baseContent: VideoContent = loadedContent ?? EMPTY_CONTENT;
   const content: VideoContent = {
     ...baseContent,
     paragraphs: baseContent.paragraphs ?? [],
@@ -727,7 +735,8 @@ export default function LessonPage() {
   const videoUrl = getVideoUrl(resolvedVideoId);
   const headerTitle = LESSON_HEADER_TITLES[resolvedVideoId] ?? content.meta.title.replace(/^YouTube｜/, '');
   const currentUser = getCurrentUser();
-  const isLocked = !isFreeVideo(resolvedVideoId) && !currentUser;
+  const isNotFound = !contentEntry;
+  const isLocked = !isNotFound && !isFreeVideo(resolvedVideoId) && !currentUser;
 
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -1044,6 +1053,25 @@ export default function LessonPage() {
     return parts;
   }, [expressionMatches, subtitleMode, handleWordClick, handleExpressionClick]);
 
+  if (isNotFound) {
+    return (
+      <div className="h-dvh flex items-center justify-center bg-white px-6 text-center">
+        <div>
+          <p className="text-sm font-semibold text-slate-900">课程不存在或已下线</p>
+          <button type="button" onClick={() => navigate('/catalog')} className="mt-4 rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white">返回课程列表</button>
+        </div>
+      </div>
+    );
+  }
+
+  if (contentLoading || contentError) {
+    return (
+      <div className="h-dvh flex items-center justify-center bg-white px-6 text-center">
+        <p className="text-sm text-slate-500">{contentError ? '课程内容加载失败，请刷新重试。' : '正在加载课程内容…'}</p>
+      </div>
+    );
+  }
+
   if (isLocked) {
     return (
       <div className="h-dvh flex items-center justify-center bg-white px-6 text-center">
@@ -1054,6 +1082,7 @@ export default function LessonPage() {
       </div>
     );
   }
+
 
   return (
     <div className="h-dvh flex flex-col bg-white font-sans overflow-hidden">

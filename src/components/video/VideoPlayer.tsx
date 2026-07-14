@@ -59,7 +59,9 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
     const video = videoRef.current;
     if (!video) return;
     if (isPlaying) {
-      video.play().catch(() => {});
+      video.play().catch(() => {
+        setHasError(true);
+      });
     } else {
       video.pause();
     }
@@ -143,6 +145,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
                 retryCountRef.current = 0;
                 setHasError(false);
                 video.load();
+                if (isPlaying) video.play().catch(() => setHasError(true));
               }}
               className="mt-3 rounded-md bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100"
             >

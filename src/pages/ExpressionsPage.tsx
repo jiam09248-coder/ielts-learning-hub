@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Sparkles, Lightbulb } from 'lucide-react';
-import { getVideoContent, isFreeVideo, VIDEO_LIBRARY } from '../data/videoLibrary';
+import { getContentManifestEntry, isFreeVideo } from '../data/videoLibrary';
+import useVideoContent from '../hooks/useVideoContent';
 import { getCurrentUser } from '../utils/storage';
 import type { VideoContent } from '../types/video';
 import useIsDesktop from '../hooks/useIsDesktop';
@@ -22,7 +23,7 @@ function DesktopExpressionsView({ content, onBack }: ExpressionPageViewProps) {
             </button>
             <div className="flex-1 min-w-0">
               <h1 className="text-sm font-bold text-slate-900 truncate">{content.meta.title}</h1>
-              <p className="text-xs text-slate-500">地道表达精选</p>
+            <p className="text-xs text-slate-500">重点表达</p>
             </div>
             <Sparkles size={20} className="text-teal-400 shrink-0" />
           </div>
@@ -33,7 +34,7 @@ function DesktopExpressionsView({ content, onBack }: ExpressionPageViewProps) {
         <div className="bg-white border border-slate-200 rounded-2xl p-4 flex items-start gap-3 shadow-sm">
           <Lightbulb size={18} className="text-emerald-500 shrink-0 mt-0.5" />
           <div>
-            <p className="text-sm text-slate-800 font-semibold">精选地道表达</p>
+            <p className="text-sm text-slate-800 font-semibold">本视频重点表达</p>
             <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
               以下表达均精选自本视频，为母语者真实高频用法，对雅思口语 6-8 分水平有加分价值。
             </p>
@@ -88,7 +89,7 @@ function MobileExpressionsView({ content, onBack }: ExpressionPageViewProps) {
             </button>
             <div className="flex-1 min-w-0">
               <h1 className="text-[15px] font-bold text-slate-900 truncate">{content.meta.title}</h1>
-              <p className="text-xs text-slate-500">地道表达精选</p>
+            <p className="text-xs text-slate-500">重点表达</p>
             </div>
             <Sparkles size={18} className="text-teal-400 shrink-0" />
           </div>
@@ -99,7 +100,7 @@ function MobileExpressionsView({ content, onBack }: ExpressionPageViewProps) {
         <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 flex items-start gap-3">
           <Lightbulb size={18} className="text-emerald-500 shrink-0 mt-0.5" />
           <div>
-            <p className="text-base text-slate-800 font-semibold">精选地道表达</p>
+            <p className="text-base text-slate-800 font-semibold">本视频重点表达</p>
             <p className="text-sm text-slate-500 mt-1 leading-7">
               以下表达均精选自本视频，为母语者真实高频用法，对雅思口语 6-8 分水平有加分价值。
             </p>
@@ -149,14 +150,35 @@ export default function ExpressionsPage() {
   const { videoId } = useParams();
   const navigate = useNavigate();
   const isDesktop = useIsDesktop();
-  const resolvedVideoId = videoId && VIDEO_LIBRARY[videoId] ? videoId : 'pilot-001';
-  const content: VideoContent = getVideoContent(resolvedVideoId);
-  const isLocked = !isFreeVideo(resolvedVideoId) && !getCurrentUser();
+  const contentEntry = getContentManifestEntry(videoId);
+  const resolvedVideoId = contentEntry?.id ?? 'pilot-001';
+  const { content: loadedContent, error: contentError, isLoading: contentLoading } = useVideoContent(resolvedVideoId);
+  const content: VideoContent = loadedContent ?? {
+    meta: { id: '', title: '', duration: 0, videoUrl: '', dataUrl: '', tags: { difficulty: 'easy', speed: 'normal', durationTag: 'short' } },
+    summary: '', paragraphs: [], expressions: [],
+  };
+  const isNotFound = !contentEntry;
+  const isLocked = !isNotFound && !isFreeVideo(resolvedVideoId) && !getCurrentUser();
 
   useEffect(() => {
     if (!isLocked) return;
     navigate('/login', { replace: true, state: { from: `/lesson/${resolvedVideoId}/expressions` } });
   }, [isLocked, navigate, resolvedVideoId]);
+
+  if (isNotFound) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white px-6 text-center">
+        <div>
+          <p className="text-sm font-semibold text-slate-900">课程不存在或已下线</p>
+          <button type="button" onClick={() => navigate('/catalog')} className="mt-4 rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white">返回课程列表</button>
+        </div>
+      </div>
+    );
+  }
+
+  if (contentLoading || contentError) {
+    return <div className="min-h-screen flex items-center justify-center bg-white text-sm text-slate-500">{contentError ? '课程内容加载失败，请刷新重试。' : '正在加载课程内容…'}</div>;
+  }
 
   if (isLocked) {
     return (
@@ -168,6 +190,7 @@ export default function ExpressionsPage() {
       </div>
     );
   }
+
 
   return isDesktop
     ? <DesktopExpressionsView content={content} onBack={() => navigate(-1)} />

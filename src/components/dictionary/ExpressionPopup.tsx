@@ -32,7 +32,7 @@ function DesktopExpressionPopup({ expression, anchorEl, onClose }: ExpressionPop
         <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-teal-50/50 shrink-0">
           <div className="flex items-center gap-2">
             <Sparkles size={15} className="text-teal-500" />
-            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">地道表达</span>
+            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">重点表达</span>
           </div>
           <button onClick={onClose} className="p-1 rounded-lg hover:bg-white/80 transition-colors">
             <X size={14} className="text-slate-400" />
@@ -105,7 +105,7 @@ function MobileExpressionPopup({ expression, onClose }: Omit<ExpressionPopupProp
         <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-teal-50/60 shrink-0">
           <div className="flex items-center gap-2">
             <Sparkles size={18} className="text-teal-500" />
-            <span className="text-base font-bold text-slate-800">地道表达</span>
+            <span className="text-base font-bold text-slate-800">重点表达</span>
           </div>
           <button onClick={handleClose} className="p-2 rounded-xl hover:bg-white/80 transition-colors">
             <X size={18} className="text-slate-400" />

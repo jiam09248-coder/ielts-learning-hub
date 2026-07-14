@@ -45,7 +45,7 @@ export default function ParserPanel({ selectedParagraph, expressions }: ParserPa
         >
           <span className="flex items-center gap-1.5">
             <Sparkles size={14} />
-            地道表达
+            重点表达
           </span>
           {activeTab === 'expressions' && (
             <span className="absolute -bottom-3 left-0 w-full h-0.5 bg-pink-400 rounded-full" />
@@ -143,7 +143,7 @@ export default function ParserPanel({ selectedParagraph, expressions }: ParserPa
               ))
             ) : (
               <div className="text-center py-20 text-slate-300 text-xs italic">
-                <p>暂无收录的地道表达</p>
+                <p>暂无收录的重点表达</p>
               </div>
             )}
           </div>

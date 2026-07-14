@@ -1,4 +1,5 @@
 # Cloudflare-only preview values. Keep source code local; only deploy build output.
+VITE_VIDEO_BASE_URL=/videos
 VITE_VIDEO_001_URL=https://example-r2.dev/pilot-001.mp4
 VITE_VIDEO_PART1_HOME_ACCOMMODATION_001_URL=https://example-oss.com/part1-home-accommodation-001.mp4
 VITE_VIDEO_PART1_HOME_ACCOMMODATION_002_URL=https://example-oss.com/part1-home-accommodation-002.mp4

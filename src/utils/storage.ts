@@ -1,6 +1,8 @@
 import type { CurrentUser } from '../types/auth';
+import { PRESET_ACCOUNTS } from '../data/accounts';
 
 const CURRENT_USER_KEY = 'ielts_hub_current_user';
+const SESSION_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 
 function canUseStorage(): boolean {
   return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
@@ -13,7 +15,13 @@ export function getCurrentUser(): CurrentUser | null {
     const raw = window.localStorage.getItem(CURRENT_USER_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as CurrentUser;
-    return parsed?.username ? parsed : null;
+    const isKnownUser = PRESET_ACCOUNTS.some((account) => account.username === parsed?.username);
+    const hasValidLoginAt = Number.isFinite(parsed?.loginAt) && Date.now() - parsed.loginAt < SESSION_MAX_AGE_MS;
+    if (!isKnownUser || !hasValidLoginAt) {
+      window.localStorage.removeItem(CURRENT_USER_KEY);
+      return null;
+    }
+    return parsed;
   } catch {
     return null;
   }

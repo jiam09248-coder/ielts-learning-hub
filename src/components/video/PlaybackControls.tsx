@@ -79,7 +79,7 @@ export default function PlaybackControls({
         <button
           onClick={onExpressions}
           className="flex items-center gap-1 px-2.5 py-2 rounded-lg text-xs font-medium text-amber-600 hover:bg-amber-50 transition-colors"
-          title="地道表达"
+          title="重点表达"
         >
           <Sparkles size={14} />
         </button>
