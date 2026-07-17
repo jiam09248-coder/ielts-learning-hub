@@ -59,6 +59,14 @@ export const videoData: VideoContent = {
       endTime: 26.2,
       english: 'So, as we enter the balcony, the cat is welcoming us.',
       chinese: '当我们走进阳台时，猫正在迎接我们。',
+      parse: {
+        grammar: '主干是 the cat is welcoming us。句首 as we enter the balcony 是 as 引导的时间状语从句，交代动作发生的同时背景；主句用现在进行时 is welcoming，突出镜头此刻正在发生的动作。',
+        collocations: [
+          { phrase: 'enter the balcony', meaning: '走进阳台；enter 是及物动词，后面直接接地点，不说 enter into the balcony' },
+          { phrase: 'welcome somebody', meaning: '欢迎/迎接某人；这里把猫拟人化，表示它像主人一样来迎接大家' },
+        ],
+        contextAnalysis: '这句很适合用来学“边走边介绍”的镜头语言：先用 as 引出动作，再说眼前发生的事。描述家中宠物或带人参观住所时都很自然。',
+      },
     },
     {
       id: 7,
@@ -101,6 +109,15 @@ export const videoData: VideoContent = {
       endTime: 68.6,
       english: 'And you can see how much stuff you need to basically maintain such a green balcony.',
       chinese: '你可以看到，要维护这样一个绿意盎然的阳台，基本上需要不少东西。',
+      parse: {
+        grammar: '主干是 you can see...。how much stuff you need to basically maintain such a green balcony 作 see 的宾语，是 how 引导的感叹式名词从句；其中 you need 后接不定式 to maintain，说明“需要这些东西”的目的。',
+        collocations: [
+          { phrase: 'how much stuff', meaning: '多少东西/需要多少物品；stuff 为不可数名词，前面用 much' },
+          { phrase: 'maintain a balcony', meaning: '维护、打理阳台；maintain 强调持续保持良好状态' },
+          { phrase: 'such a green balcony', meaning: '这样一个绿意盎然的阳台；such + a/an + 形容词 + 名词' },
+        ],
+        contextAnalysis: 'basically 是口语中的缓和词，表示“说到底、基本上”。这句话不是单纯列举物品，而是自然引出养护植物需要投入的精力。',
+      },
     },
     {
       id: 13,
@@ -115,6 +132,15 @@ export const videoData: VideoContent = {
       endTime: 83.8,
       english: 'Then, apart from the flowers, we have the containers for glass and for the carton, for the cardboard.',
       chinese: '然后，除了花之外，我们还有装玻璃和纸板的回收容器。',
+      parse: {
+        grammar: '主干为 we have the containers。句首 apart from the flowers 是介词短语作补充说明，意为“除花以外”；for glass / for the carton / for the cardboard 依次修饰 containers，说明各容器的用途或投放类别。',
+        collocations: [
+          { phrase: 'apart from', meaning: '除了……之外；可表示“除……以外还包括”，此处是补充信息' },
+          { phrase: 'containers for glass/cardboard', meaning: '装玻璃/纸板的容器；for 表示用途或对应类别' },
+          { phrase: 'cardboard', meaning: '硬纸板、纸箱板；在回收语境中常与 glass、paper、plastic 并列' },
+        ],
+        contextAnalysis: '讲者有一次自我修正：先说 carton，随后补成更准确的 cardboard。这种边展示边补充的说法很符合真实口语；正式回答时可直接说 recycling bins for glass and cardboard。',
+      },
     },
     {
       id: 15,
@@ -143,6 +169,15 @@ export const videoData: VideoContent = {
       endTime: 102,
       english: 'Because when they go outside, they like eating grass and after that they throw up.',
       chinese: '因为它们到外面的时候喜欢吃草，吃完之后会吐出来。',
+      parse: {
+        grammar: '核心结构是 they like eating grass and ... they throw up，and 连接两个并列分句。when they go outside 是时间状语从句；after that 指“吃草之后”。句首 Because 承接上一句，补充解释“为什么专门给猫买这种草”。',
+        collocations: [
+          { phrase: 'like doing something', meaning: '喜欢做某事；like 后接动名词表示习惯或爱好' },
+          { phrase: 'go outside', meaning: '到外面去；描述宠物外出时非常常用' },
+          { phrase: 'throw up', meaning: '呕吐；口语表达，较正式可说 vomit' },
+        ],
+        contextAnalysis: 'Because 单独开头在书面语里通常不能独立成句，但在对话中常用来接着补原因。这里的 after that 让动作顺序很清楚，也使解释听起来更口语化。',
+      },
     },
     {
       id: 19,
@@ -192,6 +227,15 @@ export const videoData: VideoContent = {
       endTime: 135.2,
       english: 'Okay, as we are moving forward, there are our chamomile trees or chamomile bushes.',
       chinese: '好了，我们继续往前看，这里有我们的洋甘菊树，或者说洋甘菊灌木。',
+      parse: {
+        grammar: '主干是 there are our chamomile trees or chamomile bushes，是 there be 句型，用来把新出现的事物带入画面。as we are moving forward 为时间/伴随状语从句，使用现在进行时表现镜头正在向前移动。',
+        collocations: [
+          { phrase: 'move forward', meaning: '继续往前走/推进；参观或叙述过程中用于转到下一处' },
+          { phrase: 'there are ...', meaning: '有……；用于介绍眼前出现的复数事物' },
+          { phrase: 'or rather', meaning: '更准确地说；原句用 or 进行即时修正，可补出 rather 使表达更完整' },
+        ],
+        contextAnalysis: 'trees or bushes 是讲者在镜头前即时确认植物类别的自我修正。保留这种犹豫很真实，但在雅思回答里可先确定词汇，或用 plants 这个更稳妥的上位词。',
+      },
     },
     {
       id: 26,
@@ -248,6 +292,15 @@ export const videoData: VideoContent = {
       endTime: 165.4,
       english: 'Because in summer you can see that there are even more flowers that are going to bloom soon as well.',
       chinese: '因为到了夏天，你会看到还有更多花也马上要开放。',
+      parse: {
+        grammar: '主干是 you can see that...。that 引导宾语从句，句中又有 there are even more flowers 的 there be 结构；flowers 后的 that are going to bloom soon as well 是定语从句，修饰 flowers。整句层层嵌套，但核心意思是“夏天会有更多即将开放的花”。',
+        collocations: [
+          { phrase: 'even more flowers', meaning: '更多的花；even 放在比较级 more 前，强调“还会更多”' },
+          { phrase: 'be going to bloom', meaning: '将要开花；be going to 表示可预见的将来' },
+          { phrase: 'soon as well', meaning: '也很快；as well 放句末表示“也”' },
+        ],
+        contextAnalysis: '这句的难点不在单词，而在多层从句：先抓住 you can see，再依次拆出“有更多花”和“这些花将开”。讲者把 Because 放句首，是延续前面“等不及夏天”的原因说明。',
+      },
     },
     {
       id: 34,
@@ -325,6 +378,15 @@ export const videoData: VideoContent = {
       endTime: 218.8,
       english: 'I also like to sit here with our family and friends when they come to visit us, when they come over.',
       chinese: '家人朋友来拜访、来家里做客时，我也喜欢和他们坐在这里。',
+      parse: {
+        grammar: '主干是 I also like to sit here with our family and friends。when they come to visit us 和 when they come over 是两个并列的时间状语从句，后一个是对前一个更口语、更简洁的重述。',
+        collocations: [
+          { phrase: 'sit here with family and friends', meaning: '和家人朋友在这里坐坐；描述家中空间的社交功能' },
+          { phrase: 'come to visit somebody', meaning: '来拜访某人；visit 在此作动词' },
+          { phrase: 'come over', meaning: '到某人家来做客；非正式但非常自然的口语表达' },
+        ],
+        contextAnalysis: 'visit us 和 come over 意思接近，连续使用是说话人边组织语言边换成更地道表达的痕迹。回答“你在家里做什么”时，come over 比 visit 更有朋友到家里小聚的生活感。',
+      },
     },
     {
       id: 45,

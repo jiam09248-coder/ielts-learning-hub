@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Sparkles, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Sparkles, Lightbulb, ChevronDown, Check, Copy } from 'lucide-react';
 import { getContentManifestEntry, isFreeVideo } from '../data/videoLibrary';
 import useVideoContent from '../hooks/useVideoContent';
 import { getCurrentUser } from '../utils/storage';
@@ -79,67 +79,102 @@ function DesktopExpressionsView({ content, onBack }: ExpressionPageViewProps) {
 }
 
 function MobileExpressionsView({ content, onBack }: ExpressionPageViewProps) {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const copyExpression = async (pattern: string, index: number) => {
+    try {
+      await navigator.clipboard.writeText(pattern);
+      setCopiedIndex(index);
+      window.setTimeout(() => setCopiedIndex(null), 1600);
+    } catch {
+      // Clipboard access can be unavailable in embedded or non-secure previews.
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white">
-      <header className="sticky top-0 z-30 bg-white border-b border-slate-100">
+    <div className="min-h-screen bg-slate-50 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+      <header className="sticky top-0 z-30 border-b border-slate-100 bg-white/95 backdrop-blur">
         <div className="px-4">
           <div className="flex items-center gap-3 h-14">
-            <button onClick={onBack} className="p-2 rounded-xl hover:bg-slate-100 transition-colors shrink-0">
+            <button type="button" aria-label="返回课程" onClick={onBack} className="-ml-2 p-2 rounded-xl active:bg-slate-100 transition-colors shrink-0">
               <ArrowLeft size={20} className="text-slate-700" />
             </button>
             <div className="flex-1 min-w-0">
+              <p className="text-[11px] font-semibold tracking-wide text-teal-600">地道表达</p>
               <h1 className="text-[15px] font-bold text-slate-900 truncate">{content.meta.title}</h1>
-            <p className="text-xs text-slate-500">重点表达</p>
             </div>
-            <Sparkles size={18} className="text-teal-400 shrink-0" />
+            <div className="rounded-full bg-teal-50 px-2.5 py-1 text-xs font-semibold text-teal-700 shrink-0">{content.expressions.length} 条</div>
           </div>
         </div>
       </header>
 
-      <main className="px-4 py-5 space-y-4">
-        <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 flex items-start gap-3">
-          <Lightbulb size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+      <main className="px-4 pt-5 space-y-3">
+        <div className="rounded-2xl border border-teal-100 bg-teal-50/70 px-4 py-3.5 flex items-start gap-3">
+          <div className="mt-0.5 rounded-full bg-white p-1.5 shadow-sm"><Lightbulb size={16} className="text-teal-600" /></div>
           <div>
-            <p className="text-base text-slate-800 font-semibold">本视频重点表达</p>
-            <p className="text-sm text-slate-500 mt-1 leading-7">
-              以下表达均精选自本视频，为母语者真实高频用法，对雅思口语 6-8 分水平有加分价值。
+            <p className="text-sm text-slate-900 font-bold">先记表达，再展开看怎么用</p>
+            <p className="text-[13px] text-slate-600 mt-0.5 leading-5">
+              点开任意卡片，可查看使用场景、适用话题和仿写例句。
             </p>
           </div>
         </div>
 
         {content.expressions.map((expr, i) => (
-          <div key={i} className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div className="mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-teal-400 shrink-0" />
-                <span className="text-[22px] font-bold text-teal-600 leading-snug">{expr.pattern}</span>
-              </div>
-              <div className="text-[18px] text-slate-500 leading-8">{expr.meaning}</div>
-            </div>
+          <article key={i} className={`overflow-hidden rounded-2xl border bg-white transition-shadow ${expandedIndex === i ? 'border-teal-200 shadow-md shadow-teal-900/[0.06]' : 'border-slate-200 shadow-sm'}`}>
+            <button
+              type="button"
+              aria-expanded={expandedIndex === i}
+              aria-controls={`expression-detail-${i}`}
+              onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
+              className="flex w-full items-start gap-3 p-4 text-left active:bg-slate-50"
+            >
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-xs font-bold text-teal-700">{i + 1}</span>
+              <span className="min-w-0 flex-1">
+                <span className="block break-words text-[18px] font-bold leading-6 text-slate-900">{expr.pattern}</span>
+                <span className="mt-1 block text-[14px] leading-5 text-slate-500">{expr.meaning}</span>
+              </span>
+              <ChevronDown size={19} className={`mt-0.5 shrink-0 text-slate-400 transition-transform duration-200 ${expandedIndex === i ? 'rotate-180 text-teal-600' : ''}`} />
+            </button>
 
-            <div className="space-y-4">
-              {expr.usage && (
-                <div>
-                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">用法说明</span>
-                  <p className="text-[17px] text-slate-700 mt-1.5 leading-8">{expr.usage}</p>
+            {expandedIndex === i && (
+              <div id={`expression-detail-${i}`} className="border-t border-slate-100 px-4 pb-4 pt-3">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">表达详情</span>
+                  <button
+                    type="button"
+                    onClick={(event) => { event.stopPropagation(); void copyExpression(expr.pattern, i); }}
+                    className="inline-flex min-h-8 items-center gap-1 rounded-lg px-2 text-xs font-semibold text-teal-700 active:bg-teal-50"
+                    aria-label={`复制表达 ${expr.pattern}`}
+                  >
+                    {copiedIndex === i ? <Check size={15} /> : <Copy size={14} />}
+                    {copiedIndex === i ? '已复制' : '复制'}
+                  </button>
                 </div>
-              )}
-              {expr.topic && (
-                <div>
-                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">雅思话题</span>
-                  <p className="text-[17px] text-teal-700 bg-teal-50 px-3 py-3 rounded-xl leading-8 mt-1.5">{expr.topic}</p>
+
+                <div className="mt-2.5 space-y-3">
+                  {expr.usage && (
+                    <section>
+                      <h2 className="text-xs font-bold text-slate-700">怎么用</h2>
+                      <p className="mt-1 text-[14px] leading-6 text-slate-600">{expr.usage}</p>
+                    </section>
+                  )}
+                  {expr.topic && (
+                    <section className="rounded-xl bg-teal-50 px-3 py-2.5">
+                      <h2 className="text-xs font-bold text-teal-800">适用雅思话题</h2>
+                      <p className="mt-1 text-[13px] leading-5 text-teal-800/80">{expr.topic}</p>
+                    </section>
+                  )}
+                  {expr.example && (
+                    <section className="rounded-xl bg-slate-50 px-3 py-2.5">
+                      <h2 className="text-xs font-bold text-slate-700">仿写例句</h2>
+                      <p className="mt-1 text-[14px] italic leading-6 text-slate-600">“{expr.example}”</p>
+                    </section>
+                  )}
                 </div>
-              )}
-              {expr.example && (
-                <div>
-                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">仿写例句</span>
-                  <p className="text-[17px] text-slate-600 italic bg-slate-50 px-3 py-3 rounded-xl leading-8 border border-slate-100 mt-1.5">
-                    "{expr.example}"
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
+              </div>
+            )}
+          </article>
         ))}
       </main>
     </div>

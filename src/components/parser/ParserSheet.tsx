@@ -120,9 +120,12 @@ export default function ParserSheet({ isOpen, onClose, paragraph }: ParserSheetP
                 <div className="text-base font-bold text-slate-900 border-l-4 border-pink-400 pl-3 mb-2">
                   固定搭配
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="space-y-2">
                   {parse.collocations.map((col, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-slate-50 text-slate-700 text-base font-medium rounded-lg border border-slate-100">{col.phrase}</span>
+                    <div key={i} className="rounded-lg border border-slate-100 bg-slate-50 px-3 py-2">
+                      <p className="text-base font-semibold text-slate-800 leading-relaxed">{col.phrase}</p>
+                      <p className="mt-0.5 text-sm text-slate-500 leading-relaxed">{col.meaning}</p>
+                    </div>
                   ))}
                 </div>
               </div>

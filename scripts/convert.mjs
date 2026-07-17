@@ -10,7 +10,7 @@
  *
  * 示例:
  *   node scripts/convert.mjs ~/video-echo/public/downloads/xxx.json video-004 \
- *     "https://pub-xxx.r2.dev/My%20Video.mp4"
+ *     "https://your-bucket.oss-cn-shanghai.aliyuncs.com/My%20Video.mp4"
  *
  * 输出:
  *   src/data/<video-id>.ts
