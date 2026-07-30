@@ -32,16 +32,6 @@ const LOOP_MODE_LABELS: Record<LoopMode, string> = {
 
 const MOBILE_PLAYBACK_RATES = [0.5, 1, 1.5, 2];
 const NARROW_MOBILE_QUERY = '(max-width: 480px)';
-const LESSON_HEADER_TITLES: Record<string, string> = {
-  'pilot-001': '450平方英尺洛杉矶单间公寓参观',
-  'part1-home-accommodation-001': '公寓阳台与居住空间样板',
-  'part1-home-accommodation-002': '房子格局与日常房间介绍',
-  'part1-home-accommodation-003': '小户型餐厨客一体与收纳',
-  'video-003': '走进莉迪亚·米伦的经典乡村住宅',
-  'video-004': '真实极简家居参观',
-  'part1-study-work-001': 'Study or Work 话题 01',
-};
-
 const EMPTY_CONTENT: VideoContent = {
   meta: { id: '', title: '', duration: 0, videoUrl: '', dataUrl: '', tags: { difficulty: 'easy', speed: 'normal', durationTag: 'short' } },
   summary: '', paragraphs: [], expressions: [],
@@ -523,18 +513,34 @@ function DesktopLessonView({
             <div className="flex-1 overflow-y-auto p-4 space-y-2 min-h-0">
               {content.expressions.map((expr, i) => (
                 <div key={i} className="border border-slate-200 rounded-xl overflow-hidden">
-                  <button onClick={() => onToggleExpandedExpression(i)} className="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors text-left">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="font-bold text-sm text-teal-700 truncate">{expr.pattern}</span>
-                      <span className="text-xs text-slate-500 truncate">{expr.meaning}</span>
+                  <button onClick={() => onToggleExpandedExpression(i)} className="w-full flex items-start justify-between gap-3 px-4 py-3 hover:bg-slate-50 transition-colors text-left">
+                    <div className="min-w-0 flex-1">
+                      <span className="block break-words text-sm font-bold leading-6 text-teal-700">{expr.pattern}</span>
+                      <span className="mt-1 block break-words text-xs leading-5 text-slate-500">{expr.meaning}</span>
                     </div>
-                    <span className="text-slate-300 text-xs shrink-0 ml-2">{expandedExpr === i ? '收起' : '展开'}</span>
+                    <span className="mt-1 shrink-0 text-xs text-slate-300">{expandedExpr === i ? '收起' : '展开'}</span>
                   </button>
                   {expandedExpr === i && (
                     <div className="px-4 pb-4 space-y-2 border-t border-slate-100 pt-3">
                       {expr.usage && <div><span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">用法说明</span><p className="text-sm text-slate-700 leading-relaxed mt-1">{expr.usage}</p></div>}
-                      {expr.topic && <div><span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">雅思话题</span><p className="text-sm text-teal-700 bg-teal-50 p-2 rounded-lg leading-relaxed mt-1">{expr.topic}</p></div>}
-                      {expr.example && <div><span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">仿写例句</span><p className="text-sm text-slate-600 italic bg-slate-50 p-2 rounded-lg leading-relaxed mt-1">"{expr.example}"</p></div>}
+                      {expr.topic && (
+                        <div>
+                          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">雅思问题</span>
+                          <div className="mt-1 rounded-lg bg-teal-50 p-2 leading-relaxed">
+                            <p className="break-words text-sm font-medium text-teal-700">{expr.topic}</p>
+                            {expr.topicZh && <p className="mt-1 break-words text-sm text-teal-800/70">{expr.topicZh}</p>}
+                          </div>
+                        </div>
+                      )}
+                      {expr.example && (
+                        <div>
+                          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">仿写例句</span>
+                          <div className="mt-1 rounded-lg bg-slate-50 p-2 leading-relaxed">
+                            <p className="break-words text-sm italic text-slate-600">“{expr.example}”</p>
+                            {expr.exampleZh && <p className="mt-1 break-words text-sm text-slate-500">{expr.exampleZh}</p>}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -733,7 +739,7 @@ export default function LessonPage() {
     expressions: baseContent.expressions ?? [],
   };
   const videoUrl = getVideoUrl(resolvedVideoId);
-  const headerTitle = LESSON_HEADER_TITLES[resolvedVideoId] ?? content.meta.title.replace(/^YouTube｜/, '');
+  const headerTitle = contentEntry?.titleZh ?? content.meta.title.replace(/^YouTube｜/, '');
   const currentUser = getCurrentUser();
   const isNotFound = !contentEntry;
   const isLocked = !isNotFound && !isFreeVideo(resolvedVideoId) && !currentUser;

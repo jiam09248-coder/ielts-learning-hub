@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react';
 import { X, Sparkles } from 'lucide-react';
 import useIsDesktop from '../../hooks/useIsDesktop';
-
-interface Expression {
-  pattern: string;
-  meaning: string;
-  usage: string;
-  topic: string;
-  example: string;
-}
+import type { Expression } from '../../types/video';
 
 interface ExpressionPopupProps {
   expression: Expression;
@@ -54,17 +47,25 @@ function DesktopExpressionPopup({ expression, anchorEl, onClose }: ExpressionPop
 
           {expression.topic && (
             <div>
-              <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">雅思话题</h4>
-              <p className="text-sm text-teal-700 bg-teal-50 p-2 rounded-lg leading-relaxed">{expression.topic}</p>
+              <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">雅思问题</h4>
+              <div className="rounded-lg bg-teal-50 p-2 leading-relaxed">
+                <p className="break-words text-sm font-medium text-teal-700">{expression.topic}</p>
+                {expression.topicZh && (
+                  <p className="mt-1 break-words text-sm text-teal-800/70">{expression.topicZh}</p>
+                )}
+              </div>
             </div>
           )}
 
           {expression.example && (
             <div>
               <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">仿写例句</h4>
-              <p className="text-sm text-slate-600 italic bg-slate-50 p-3 rounded-xl leading-relaxed border border-slate-100">
-                {expression.example}
-              </p>
+              <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 leading-relaxed">
+                <p className="break-words text-sm italic text-slate-600">{expression.example}</p>
+                {expression.exampleZh && (
+                  <p className="mt-1 break-words text-sm text-slate-500">{expression.exampleZh}</p>
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -127,17 +128,25 @@ function MobileExpressionPopup({ expression, onClose }: Omit<ExpressionPopupProp
 
           {expression.topic && (
             <div>
-              <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">雅思话题</h4>
-              <p className="text-[20px] text-teal-700 bg-teal-50 px-3 py-3 rounded-xl leading-9">{expression.topic}</p>
+              <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">雅思问题</h4>
+              <div className="rounded-xl bg-teal-50 px-3 py-3 leading-9">
+                <p className="break-words text-[20px] font-medium text-teal-700">{expression.topic}</p>
+                {expression.topicZh && (
+                  <p className="mt-1 break-words text-[20px] text-teal-800/65">{expression.topicZh}</p>
+                )}
+              </div>
             </div>
           )}
 
           {expression.example && (
             <div>
               <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">仿写例句</h4>
-              <p className="text-[20px] text-slate-600 italic bg-slate-50 p-4 rounded-2xl leading-9 border border-slate-100">
-                {expression.example}
-              </p>
+              <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4 leading-9">
+                <p className="break-words text-[20px] italic text-slate-600">{expression.example}</p>
+                {expression.exampleZh && (
+                  <p className="mt-1 break-words text-[20px] text-slate-500">{expression.exampleZh}</p>
+                )}
+              </div>
             </div>
           )}
         </div>

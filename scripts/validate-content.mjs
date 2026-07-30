@@ -4,7 +4,13 @@ import path from 'node:path';
 const root = process.cwd();
 const dataDir = path.join(root, 'src', 'data');
 const manifest = fs.readFileSync(path.join(dataDir, 'contentManifest.ts'), 'utf8');
-const files = fs.readdirSync(dataDir).filter((file) => /\.ts$/.test(file) && !['accounts.ts', 'contentManifest.ts', 'videoLibrary.ts', 'videoUrlMap.ts'].includes(file));
+const files = fs.readdirSync(dataDir).filter((file) => /\.ts$/.test(file) && ![
+  'accounts.ts',
+  'contentManifest.ts',
+  'topicTaxonomy.ts',
+  'videoLibrary.ts',
+  'videoUrlMap.ts',
+].includes(file));
 const errors = [];
 const manifestIds = [...manifest.matchAll(/id: '([^']+)'/g)].map((match) => match[1]);
 const manifestDurations = Object.fromEntries(

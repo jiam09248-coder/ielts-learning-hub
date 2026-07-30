@@ -58,16 +58,20 @@ function DesktopExpressionsView({ content, onBack }: ExpressionPageViewProps) {
               )}
               {expr.topic && (
                 <div>
-                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">雅思话题</span>
-                  <p className="text-teal-700 bg-teal-50 p-2 rounded-lg leading-relaxed mt-1">{expr.topic}</p>
+                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">雅思问题</span>
+                  <div className="mt-1 rounded-lg bg-teal-50 p-2 leading-relaxed">
+                    <p className="break-words text-teal-700">{expr.topic}</p>
+                    {expr.topicZh && <p className="mt-1 break-words text-teal-800/70">{expr.topicZh}</p>}
+                  </div>
                 </div>
               )}
               {expr.example && (
                 <div>
                   <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">仿写例句</span>
-                  <p className="text-slate-600 italic bg-slate-50 p-3 rounded-lg leading-relaxed border border-slate-100 mt-1 text-sm">
-                    "{expr.example}"
-                  </p>
+                  <div className="mt-1 rounded-lg border border-slate-100 bg-slate-50 p-3 leading-relaxed">
+                    <p className="break-words text-sm italic text-slate-600">“{expr.example}”</p>
+                    {expr.exampleZh && <p className="mt-1 break-words text-sm text-slate-500">{expr.exampleZh}</p>}
+                  </div>
                 </div>
               )}
             </div>
@@ -161,14 +165,16 @@ function MobileExpressionsView({ content, onBack }: ExpressionPageViewProps) {
                   )}
                   {expr.topic && (
                     <section className="rounded-xl bg-teal-50 px-3 py-2.5">
-                      <h2 className="text-xs font-bold text-teal-800">适用雅思话题</h2>
-                      <p className="mt-1 text-[13px] leading-5 text-teal-800/80">{expr.topic}</p>
+                      <h2 className="text-xs font-bold text-teal-800">雅思问题</h2>
+                      <p className="mt-1 break-words text-[13px] leading-5 text-teal-800/80">{expr.topic}</p>
+                      {expr.topicZh && <p className="mt-1 break-words text-[13px] leading-5 text-teal-800/60">{expr.topicZh}</p>}
                     </section>
                   )}
                   {expr.example && (
                     <section className="rounded-xl bg-slate-50 px-3 py-2.5">
                       <h2 className="text-xs font-bold text-slate-700">仿写例句</h2>
-                      <p className="mt-1 text-[14px] italic leading-6 text-slate-600">“{expr.example}”</p>
+                      <p className="mt-1 break-words text-[14px] italic leading-6 text-slate-600">“{expr.example}”</p>
+                      {expr.exampleZh && <p className="mt-1 break-words text-[14px] leading-6 text-slate-500">{expr.exampleZh}</p>}
                     </section>
                   )}
                 </div>
@@ -188,7 +194,13 @@ export default function ExpressionsPage() {
   const contentEntry = getContentManifestEntry(videoId);
   const resolvedVideoId = contentEntry?.id ?? 'pilot-001';
   const { content: loadedContent, error: contentError, isLoading: contentLoading } = useVideoContent(resolvedVideoId);
-  const content: VideoContent = loadedContent ?? {
+  const content: VideoContent = loadedContent ? {
+    ...loadedContent,
+    meta: {
+      ...loadedContent.meta,
+      title: contentEntry?.titleZh ?? loadedContent.meta.title,
+    },
+  } : {
     meta: { id: '', title: '', duration: 0, videoUrl: '', dataUrl: '', tags: { difficulty: 'easy', speed: 'normal', durationTag: 'short' } },
     summary: '', paragraphs: [], expressions: [],
   };

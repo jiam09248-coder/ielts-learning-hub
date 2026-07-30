@@ -34,7 +34,9 @@ export interface Expression {
   meaning: string;   // 中文意思
   usage: string;     // 用法说明
   topic: string;     // 雅思话题
+  topicZh?: string;  // 雅思话题中文翻译
   example: string;   // 仿写例句
+  exampleZh?: string; // 仿写例句中文翻译
 }
 
 export interface VideoContent {
