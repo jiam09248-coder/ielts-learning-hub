@@ -10,11 +10,16 @@ function encodePathSegment(filename: string): string {
   return filename.split('/').map((segment) => encodeURIComponent(segment)).join('/');
 }
 
+function resolveVideoFile(filename: string): string {
+  if (import.meta.env.DEV || import.meta.env.VITE_VIDEO_BASE_URL) return filename;
+  return filename.split('/').pop() ?? filename;
+}
+
 /** Resolve a video URL from the single content manifest and environment config. */
 export function getVideoUrl(videoId: string): string {
   const entry = CONTENT_BY_ID[videoId];
   if (!entry) return '';
-  return videoEnv[entry.videoEnvKey] || `${getVideoBaseUrl()}/${encodePathSegment(entry.videoFile)}`;
+  return videoEnv[entry.videoEnvKey] || `${getVideoBaseUrl()}/${encodePathSegment(resolveVideoFile(entry.videoFile))}`;
 }
 
 export function getThumbnailUrl(videoId: string): string | undefined {
