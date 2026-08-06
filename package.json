@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "validate:content": "node scripts/validate-content.mjs",
     "build:lesson-dictionary": "node scripts/build-lesson-dictionary.mjs",
-    "preview": "npm run build && vite preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "lucide-react": "^1.17.0",
@@ -18,6 +19,7 @@
     "react-router-dom": "^7.16.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.45.1",
     "@emnapi/core": "^1.10.0",
     "@emnapi/runtime": "^1.10.0",
     "@eslint/js": "^10.0.1",
@@ -35,6 +37,7 @@
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "wrangler": "^4.112.0"
   }
 }
